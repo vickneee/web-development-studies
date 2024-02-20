@@ -1,7 +1,5 @@
 ## MongoDB Database Schema
 
-## MongoDB Database Schema
-
 ### Collections
 
 1. **users**
