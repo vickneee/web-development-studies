@@ -166,7 +166,25 @@ git push --set-upstream origin yourBranchName
 git push -u origin yourBranchName
 ``` 
 
-## Pulling Changes from Main Branch:
+## Creating a Pull Request:
+
+1. After pushing your changes to your branch, go to your repository on GitHub.
+2. Click on the "Pull Requests" tab.
+3. Click on the "New Pull Request" button.
+4. Select the base branch (usually main) and the branch with your changes.
+5. Review the changes and click on the "Create Pull Request" button.
+6. Provide a title and description for your pull request.
+7. Click on the "Create Pull Request" button to submit your pull request.
+
+## Merging a Pull Request:
+
+1. Once your pull request is reviewed and approved:
+2. Go to your pull request on GitHub.
+3. Click on the "Merge Pull Request" button.
+4. Confirm the merge by clicking on the "Confirm Merge" button.
+5. Optionally, delete the branch after merging by clicking on the "Delete Branch" button.
+
+## Pulling Changes to your from Main Branch:
 
 ```bash
 # If you need to sync your branch with the main branch:
@@ -184,7 +202,7 @@ git checkout main
 git pull
 git merge yourBranchName
 git push
-``` 
+```
 
 ## Deleting Unnecessary Branches:
 
