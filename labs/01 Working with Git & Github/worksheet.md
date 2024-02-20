@@ -179,7 +179,7 @@ git push -u origin yourBranchName
 ## Merging a Pull Request:
 
 1. Once your pull request is reviewed and approved:
-2. Go to your pull request on GitHub.
+2. If needed go to your pull request on GitHub.
 3. Click on the "Merge Pull Request" button.
 4. Confirm the merge by clicking on the "Confirm Merge" button.
 5. Optionally, delete the branch after merging by clicking on the "Delete Branch" button.
@@ -197,7 +197,7 @@ Resolve any conflicts, if present.
 ## Merging Your Branch to Main:
 
 ```bash 
-# Merge your branch changes into the main branch:
+# If needed merge your branch changes into the main branch:
 git checkout main
 git pull
 git merge yourBranchName
