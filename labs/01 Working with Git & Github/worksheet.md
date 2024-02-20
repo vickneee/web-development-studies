@@ -75,7 +75,7 @@ By following these instructions, you will ensure that all necessary dependencies
 
 ### Follow these steps every time you update the project:
 
-**Note:** Always create a local backup in a new folder before pushing or pulling changes from GitHub. Work on your branch to prevent conflicts in the repository.
+>**Note:** Always create a local backup in a new folder before pushing or pulling changes from GitHub. Work on your branch to prevent conflicts in the repository.
 
 ### Check Main Branch Status:
 
