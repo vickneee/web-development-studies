@@ -48,28 +48,58 @@ To streamline the installation process, follow these steps:
 ### For Frontend:
 
 ```bash
-# Navigate to the client directory:
-cd client
+# Navigate to the frontend directory:
+cd frontend
 ```
 
 ```bash
 # Install dependencies:
-npm i
+npm install or yarn
 ```
 
 ### For Backend:
 
 ```bash
-# Move to the api directory:
-cd api
+# Move to the backend directory:
+cd backend
 ```
 
 ```bash
 # Install dependencies:
-npm i
+npm install or yarn 
 ```
 
 By following these instructions, you will ensure that all necessary dependencies are installed correctly for both the frontend and backend components of the application.
+
+## Starting the Projects:
+
+After installing the dependencies, you can start both the frontend and backend projects with the following commands:
+
+### For Frontend:
+
+```bash
+# Navigate to the frontend directory:
+cd frontend
+```
+
+```bash
+# Install dependencies:
+npm start or yarn start
+```
+
+### For Backend:
+
+```bash
+# Move to the backend directory:
+cd backend
+```
+
+```bash
+# Install dependencies:
+npm start or yarn start
+```
+
+By following these instructions, you'll be able to start both projects smoothly.
 
 ## Uploading Changes to the GitHub Project:
 
@@ -136,7 +166,25 @@ git push --set-upstream origin yourBranchName
 git push -u origin yourBranchName
 ``` 
 
-## Pulling Changes from Main Branch:
+## Creating a Pull Request:
+
+1. After pushing your changes to your branch, go to your repository on GitHub.
+2. Click on the "Pull Requests" tab.
+3. Click on the "New Pull Request" button.
+4. Select the base branch (usually main) and the branch with your changes.
+5. Review the changes and click on the "Create Pull Request" button.
+6. Provide a title and description for your pull request.
+7. Click on the "Create Pull Request" button to submit your pull request.
+
+## Merging a Pull Request:
+
+1. Once your pull request is reviewed and approved:
+2. If needed go to your pull request on GitHub.
+3. Click on the "Merge Pull Request" button.
+4. Confirm the merge by clicking on the "Confirm Merge" button.
+5. Optionally, delete the branch after merging by clicking on the "Delete Branch" button.
+
+## Pulling Changes to your from Main Branch:
 
 ```bash
 # If you need to sync your branch with the main branch:
@@ -149,12 +197,12 @@ Resolve any conflicts, if present.
 ## Merging Your Branch to Main:
 
 ```bash 
-# Merge your branch changes into the main branch:
+# If needed merge your branch changes into the main branch:
 git checkout main
 git pull
 git merge yourBranchName
 git push
-``` 
+```
 
 ## Deleting Unnecessary Branches:
 
