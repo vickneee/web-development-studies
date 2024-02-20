@@ -71,6 +71,36 @@ npm install or yarn
 
 By following these instructions, you will ensure that all necessary dependencies are installed correctly for both the frontend and backend components of the application.
 
+## Starting the Projects:
+
+After installing the dependencies, you can start both the frontend and backend projects with the following commands:
+
+### For Frontend:
+
+```bash
+# Navigate to the frontend directory:
+cd frontend
+```
+
+```bash
+# Install dependencies:
+npm start or yarn start
+```
+
+### For Backend:
+
+```bash
+# Move to the backend directory:
+cd backend
+```
+
+```bash
+# Install dependencies:
+npm start or yarn start
+```
+
+By following these instructions, you'll be able to start both projects smoothly.
+
 ## Uploading Changes to the GitHub Project:
 
 ### Follow these steps every time you update the project:
