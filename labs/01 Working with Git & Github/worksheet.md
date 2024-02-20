@@ -48,25 +48,25 @@ To streamline the installation process, follow these steps:
 ### For Frontend:
 
 ```bash
-# Navigate to the client directory:
-cd client
+# Navigate to the frontend directory:
+cd frontend
 ```
 
 ```bash
 # Install dependencies:
-npm i
+npm install or yarn
 ```
 
 ### For Backend:
 
 ```bash
-# Move to the api directory:
-cd api
+# Move to the backend directory:
+cd backend
 ```
 
 ```bash
 # Install dependencies:
-npm i
+npm install or yarn 
 ```
 
 By following these instructions, you will ensure that all necessary dependencies are installed correctly for both the frontend and backend components of the application.
