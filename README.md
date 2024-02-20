@@ -1,4 +1,4 @@
-# Web Development labs
+# Web Development
 
-Web development labs.
+Web development.
 
