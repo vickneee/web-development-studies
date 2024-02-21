@@ -1,12 +1,12 @@
-## LINUX BASH
+# Linux Bash
 
-### NAVIGATION
+## NAVIGATION
 
 #### pwd
 - `pwd` - print working directory (short path)
 - `pwd -P` - print working directory (full path)
 
-#### Searching Files and Directories
+### SEARCHING FILES AND DIRECTORIES
 - `firstletter` + `[Tab]` – search for files and directories
 - `ls` - list directory contents
 - `ls /` - list contents of root directory
@@ -64,7 +64,7 @@
 - `history | less` - view less history and use ⬆︎ ⬇︎ to move up and down
 - `HISTTIMEFORMAT='%F %T '` – display date and time in history
 
-### UTILITIES
+## UTILITIES
 
 #### date
 - `date` – display current date and time
@@ -114,14 +114,16 @@
 #### man
 - `man` – display the manual page of a command
 
-#### APT TOOLS
+## APT TOOLS
+
 - `dpkg -l` - list installed packages
 - `dpkg -L <package>` - show files installed by a package
 - `dpkg -S </path/file>` - find which package a file belongs to
 - `apt-get install` = `apt install`
 - `apt-get update` = `apt update`
 
-#### WORKING WITH FILES
+## WORKING WITH FILES
+
 - `mkdir` - create directory/directories
 - `mkdir important` – create a new directory with name important
 - `mkdir -p aa/ab/ac/ad/ae/af` – creates all subdir at once 
@@ -165,7 +167,10 @@
 - `cmp file1 file2` – compare two files byte by byte
 - `diff file1 file2` - compare files line by line
 
-#### TEXT FILES
+#### MODIFYING FILE PERMISSIONS
+- `chmod` - change file permissions
+- `chmod +x file.sh` – add permissions to the file 
+- `chmod +755 file.sh` – add/remove permissions to/from the file
 
 #### NANO
 - `nano` - command-line text editor for USERS
@@ -209,22 +214,7 @@
 - `grep "o" /etc/ufw/new.txt` – search for 'o' pattern in /etc/ufw/new.txt file
 - `cat .bashrc | grep alias > file.txt` – create a new file containing alias lines from .bashrc file
 
-#### AWK
-- `awk` - pattern scanning and processing language
-- `awk` options 'selection {action}' input-file > output-file
-- `awk '{print}' employee.txt` - print every record
-- `awk '/manager/ {print}' employee.txt` – print matching patterns
-- `awk '{print $1,$4}' employee.txt` – split a record into fields
-- `awk '{print NR,$0}' employee.txt` – display line number
-- `awk '{print $1,$NF}' employee.txt` – display last field
-- `awk 'NR==3, NR==6 {print NR,$0}' employee.txt` – print lines 3-6
-- `awk '{print NR "- " $1 }' geeksforgeeks.txt` - add "-" to the output
-- `awk '{print $2}' geeksforgeeks.txt` – print the second item
-- `awk 'length($0) > 10' geeksforgeeks.txt` – lines longer than 10 characters
-- `awk 'END { print NR }' geeksforgeeks.txt` – count lines
-- `awk 'BEGIN { for(i=1;i<=6;i++) print "square root", i, "is",i*i; }'` - first four square roots
-
-#### USERS, PERMISSIONS
+## USERS, PERMISSIONS
 
 - `sudo` - execute a command as superuser
 - `sudo update` - execute an update command as superuser (assuming you meant `apt update`)
@@ -244,12 +234,7 @@
 - `passwd` - change your password
 - `userdel username` – delete user
 
-#### MODIFYING FILE PERMISSIONS
-- `chmod` - change file permissions
-- `chmod +x file.sh` – add permissions to the file 
-- `chmod +755 file.sh` – add/remove permissions to/from the file
-
-### NETWORK
+## NETWORK
 
 #### ifconfig
 - `ifconfig` - configure network interface parameters
@@ -282,7 +267,7 @@
 - `sudo systemctl enable ssh`
 - `sudo systemctl disable ssh`
 
-### PROCESSES AND LOGOUT
+## PROCESSES AND LOGOUT
 
 #### ps
 - `ps` – display currently active processes
@@ -308,7 +293,7 @@
 - `reboot` – reboot the machine
 - `shutdown` – shutdown the machine in a minute
 
-### USEFUL SHORTCUTS
+## USEFUL SHORTCUTS
 
 - `F11` – full screen in terminal
 - `ls -la; cat hello.txt` - execute two commands consecutively
@@ -324,6 +309,6 @@
 - `Crtl+W` - delete the previous word on the line
 - `Ctrl+U` - delete the line
 
-#### LANGUAGE SWITCHING
+## LANGUAGE SWITCHING
 
 - `setxkbmap fi` – switch keyboard layout to Finnish
