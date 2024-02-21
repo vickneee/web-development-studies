@@ -1,4 +1,4 @@
-## MongoDB Database Schema
+# MongoDB Database Schema
 
 ## Example of Blog Collections
 
