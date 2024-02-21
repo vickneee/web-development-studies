@@ -6,7 +6,7 @@
 - `pwd` - print working directory (short path)
 - `pwd -P` - print working directory (full path)
 
-### Searching Files and Directories
+### SEARCHING FILES AND DIRECTORIES
 - `firstletter` + `[Tab]` – search for files and directories
 - `ls` - list directory contents
 - `ls /` - list contents of root directory
