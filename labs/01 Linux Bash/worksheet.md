@@ -1,4 +1,4 @@
-## LINUX BASH
+# LINUX BASH
 
 ### NAVIGATION
 
