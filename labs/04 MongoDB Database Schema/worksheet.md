@@ -40,9 +40,11 @@
 
 ```javascript
 import mongoose from "mongoose";
+const { Schema } = mongoose;
 
-const UserSchema = new mongoose.Schema(
+const UserSchema = new Schema(
         {
+           // username : String, // String is shorthand for {type: String}
            username: {
               type: String,
               required: true,
@@ -98,8 +100,11 @@ export default User;
 
 ```javascript
 import mongoose from "mongoose";
+const { Schema } = mongoose;
 
-const HotelSchema = new mongoose.Schema({
+const HotelSchema = new Schema(
+{
+    // name: String, // String is shorthand for {type: String}
     name: {
         type: String,
         required: true,
@@ -165,13 +170,15 @@ export default Hotel;
 
 ```javascript
 import mongoose from "mongoose";
+const { Schema } = mongoose;
 
-const RoomSchema = new mongoose.Schema(
+const RoomSchema = new Schema(
     {
+        // title: String, // String is shorthand for {type: String}
         title: {
             type: String,
             required: true,
-        },
+        }, 
         price: {
             type: Number,
             required: true,
