@@ -1,5 +1,34 @@
 ## MongoDB Database Schema
 
+## Example of Blog Collections
+
+1. **users**
+    - Stores information about users registered on the platform.
+    - Example Fields:
+        - `username` (String): The unique username of the user.
+        - `email` (String): The email address of the user.
+        - `password` (String): The hashed password of the user.
+        - `createdAt` (Date): The date when the user account was created.
+
+2. **posts**
+    - Stores information about blog posts created by users.
+    - Example Fields:
+        - `title` (String): The title of the blog post.
+        - `content` (String): The content of the blog post.
+        - `author` (ObjectId): The ID of the user who created the post.
+        - `createdAt` (Date): The date when the post was created.
+        - `updatedAt` (Date): The date when the post was last updated.
+
+3. **comments**
+    - Stores comments made by users on blog posts.
+    - Example Fields:
+        - `content` (String): The content of the comment.
+        - `post_id` (ObjectId): The ID of the post the comment belongs to.
+        - `author` (ObjectId): The ID of the user who made the comment.
+        - `createdAt` (Date): The date when the comment was created.
+        - `updatedAt` (Date): The date when the comment was last updated.
+
+
 ## Example of Booking Collections
 
 1. **users**
@@ -174,31 +203,3 @@ export default Room;
         - `checkOutDate` (Date): The date when the user checks out of the room.
         - `totalPrice` (Number): The total price of the booking.
 
-
-## Example of Blog Collections
-
-1. **users**
-    - Stores information about users registered on the platform.
-    - Example Fields:
-        - `username` (String): The unique username of the user.
-        - `email` (String): The email address of the user.
-        - `password` (String): The hashed password of the user.
-        - `createdAt` (Date): The date when the user account was created.
-
-2. **posts**
-    - Stores information about blog posts created by users.
-    - Example Fields:
-        - `title` (String): The title of the blog post.
-        - `content` (String): The content of the blog post.
-        - `author` (ObjectId): The ID of the user who created the post.
-        - `createdAt` (Date): The date when the post was created.
-        - `updatedAt` (Date): The date when the post was last updated.
-
-3. **comments**
-    - Stores comments made by users on blog posts.
-    - Example Fields:
-        - `content` (String): The content of the comment.
-        - `post_id` (ObjectId): The ID of the post the comment belongs to.
-        - `author` (ObjectId): The ID of the user who made the comment.
-        - `createdAt` (Date): The date when the comment was created.
-        - `updatedAt` (Date): The date when the comment was last updated.
