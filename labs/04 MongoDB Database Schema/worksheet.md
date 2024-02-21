@@ -209,4 +209,43 @@ export default Room;
         - `checkInDate`: (Date) The date when the user checks into the room.
         - `checkOutDate`: (Date) The date when the user checks out of the room.
         - `totalPrice`: (Number) The total price of the booking.
+        - `createdAt`: (Date) The date when the booking was made.
+        - `updatedAt`: (Date) The date when the booking was last updated.
 
+```javascript
+import mongoose from "mongoose";
+const { Schema } = mongoose;
+
+const BookingSchema = new Schema(
+    {
+        user_id: {
+            type: Schema.Types.ObjectId,
+            ref: "User",
+            required: true,
+        },
+        room_id: {
+            type: Schema.Types.ObjectId,
+            ref: "Room",
+            required: true,
+        },
+        checkInDate: {
+            type: Date,
+            required: true,
+        },
+        checkOutDate: {
+            type: Date,
+            required: true,
+        },
+        totalPrice: {
+            type: Number,
+            required: true,
+        },
+    },
+    { timestamps: true }
+);
+
+const Booking = mongoose.model("Booking", BookingSchema);
+
+export default Booking;
+
+```
