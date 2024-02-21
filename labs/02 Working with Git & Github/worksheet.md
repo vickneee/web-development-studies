@@ -122,8 +122,8 @@ Return to your own branch:
 git checkout yourBranchName
 ```
 
-```bash    
 or create one:
+```bash    
 git checkout -b yourBranchName
 ```
 
