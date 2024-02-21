@@ -51,7 +51,9 @@ const UserSchema = new mongoose.Schema(
         {timestamps: true}
 );
 
-export default mongoose.model("User", UserSchema);
+const User = mongoose.model("User", UserSchema);
+
+export default User;
 ```
 
 2. **hotels**
@@ -118,7 +120,9 @@ const HotelSchema = new mongoose.Schema({
     },
 });
 
-export default mongoose.model("Hotel", HotelSchema)
+const Hotel = mongoose.model("Hotel", HotelSchema);
+        
+export default Hotel;
 ```
 
 3. **rooms**
@@ -156,7 +160,9 @@ const RoomSchema = new mongoose.Schema(
     {timestamps: true}
 );
 
-export default mongoose.model("Room", RoomSchema);
+const Room = mongoose.model("Room", RoomSchema);
+
+export default Room;
 ```
 
 4. **bookings**
