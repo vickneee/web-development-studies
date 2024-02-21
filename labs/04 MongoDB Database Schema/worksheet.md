@@ -175,7 +175,7 @@ export default Room;
         - `totalPrice` (Number): The total price of the booking.
 
 
-### Example of Blog Collections
+## Example of Blog Collections
 
 1. **users**
     - Stores information about users registered on the platform.
