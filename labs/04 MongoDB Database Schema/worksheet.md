@@ -1,6 +1,6 @@
 ## MongoDB Database Schema
 
-### Collections
+### Example of Booking Collections
 
 1. **users**
     - Stores information about users registered on the booking platform.
@@ -175,7 +175,7 @@ export default Room;
         - `totalPrice` (Number): The total price of the booking.
 
 
-### Blog Collections
+### Example of Blog Collections
 
 1. **users**
     - Stores information about users registered on the platform.
