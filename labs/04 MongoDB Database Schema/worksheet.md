@@ -1,6 +1,6 @@
 ## MongoDB Database Schema
 
-### Example of Booking Collections
+## Example of Booking Collections
 
 1. **users**
     - Stores information about users registered on the booking platform.
