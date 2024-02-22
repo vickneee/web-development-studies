@@ -130,7 +130,7 @@ To use Bash, open a terminal or command prompt on your Linux or Unix system and 
 #### man
 - `man` – display the manual page of a command
 
-## API Tools:
+## Linux Package Management Commands:
 
 - `dpkg -l` - list installed packages
 - `dpkg -L <package>` - show files installed by a package
