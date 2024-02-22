@@ -41,11 +41,11 @@ cd nameOfClonedRepository
 
 By following these steps, you'll successfully clone the project from GitHub and set it up in your local environment.
 
-## Dependency Installation:
+## Server Setup:
 
-To streamline the installation process, follow these steps:
+To quickly set up and run both the frontend and backend servers, follow these steps:
 
-### For Frontend:
+#### For Frontend:
 
 Navigate to the frontend directory:
 ```bash
@@ -57,7 +57,12 @@ Install dependencies:
 npm install or yarn
 ```
 
-### For Backend:
+Start the development server:
+```bash
+npm start or npm run dev or yarn start
+```
+
+#### For Backend:
 
 Move to the backend directory:
 ```bash
@@ -66,40 +71,15 @@ cd backend
 
 Install dependencies:
 ```bash
-npm install or yarn 
+npm install or yarn
 ```
 
-By following these instructions, you will ensure that all necessary dependencies are installed correctly for both the frontend and backend components of the application.
-
-## Starting the Projects:
-
-After installing the dependencies, you can start both the frontend and backend projects with the following commands:
-
-### For Frontend:
-
-Navigate to the frontend directory:
+Start the backend server:
 ```bash
-cd frontend
+npm start or npm run dev or yarn start
 ```
 
-Install dependencies:
-```bash
-npm start or yarn start
-```
-
-### For Backend:
-
-Move to the backend directory:
-```bash
-cd backend
-```
-
-Install dependencies:
-```bash
-npm start or yarn start
-```
-
-By following these instructions, you'll be able to start both projects smoothly.
+By following these instructions, both the frontend and backend servers will be up and running in development mode, allowing you to work on your application seamlessly.
 
 ## Uploading Changes to the GitHub Project:
 
@@ -226,7 +206,7 @@ git checkout -b yourBranchName
 
 By following these steps, you can effectively manage changes and collaboration on the GitHub project.
 
-## Canceling or Resetting Your Last Commit in Git
+## Canceling or Resetting Your Last Commit in Git:
 
 Sometimes, you might need to undo the last commit you made in Git. Here's how you can do it:
 
@@ -270,4 +250,3 @@ git push origin HEAD --force
 5. **Once you've canceled the last commit, you can make any additional changes and commit them as needed.**
 
 By following these steps, you can successfully cancel or reset your last commit in Git, allowing you to make further changes or corrections as necessary.
-
