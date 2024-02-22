@@ -1,6 +1,12 @@
 # MongoDB Database Schema
 
+## Introduction to MongoDB Database Schemas
+
+In the following examples, we outline the schema structures for two distinct collections: one for managing a blog platform and another for handling bookings within a hotel reservation system.
+
 ## Example of Blog Collections
+
+The blog collections consist of three main entities: users, posts, and comments. Users store information about registered users, posts contain details of blog posts authored by users, and comments capture user-generated feedback on blog posts.
 
 1. **users**
     - Stores information about users registered on the platform.
@@ -30,6 +36,8 @@
 
 
 ## Example of Booking Collections
+
+The booking collections cater to a hotel booking platform, comprising four essential entities: users, hotels, rooms, and bookings. Users contain details of platform users, hotels store information about available accommodations, rooms represent individual rooms within hotels, and bookings record user reservations.
 
 1. **users**
     - Stores information about users registered on the booking platform.
