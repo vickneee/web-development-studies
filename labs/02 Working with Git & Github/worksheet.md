@@ -24,7 +24,7 @@ Git is a distributed version control system that allows developers to track chan
 
 4. **Commit:** Once you're satisfied with your changes, stage them (**git add**) and commit them (**git commit -m "Commit message"**) to create a snapshot.
 
-5. **Push:** Push your committed changes to GitHub using `**git push origin branch-name**`.
+5. **Push:** Push your committed changes to GitHub using (**git push origin branch-name**).
 
 6. **Pull Request:** On GitHub, create a pull request to merge your changes into the main branch. Provide a descriptive title and details about the changes.
 
