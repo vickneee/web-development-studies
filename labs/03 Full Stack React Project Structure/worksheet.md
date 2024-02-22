@@ -83,7 +83,7 @@ Here's a brief explanation for each part of the provided project structure:
 20 **server.js** (within server/):
 
 - This file typically contains the main entry point for the server-side application, where the server is initialized and configured.
-- 
+  
 These explanations provide a high-level overview of the purpose and contents of each part of the project structure.
 
 ```java
