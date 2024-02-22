@@ -22,7 +22,7 @@ Here's a brief explanation for each part of the provided project structure:
 
 5. **src/** (within admin/ and client/):
 
-- This directory contains the source code of the application, including components, pages, services, contexts, hooks, etc.
+- This directory contains the source code of the application, including components, contexts, hooks, pages, services etc.
 
 6. **components/:**
 
