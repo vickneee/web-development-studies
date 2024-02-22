@@ -1,5 +1,11 @@
 # Using Local Database in React Components
 
+In this example:
+
+- We iterate over each skillsSet in the skills array using the map function, providing a unique setIndex for each set.
+- Inside each skillsSet, we use another map function to iterate over the skillsList array, providing a unique skillIndex for each skill within the set.
+- Each skill is then rendered with its corresponding data, including the link, imgSrc, imgAltText, and skillName.
+
 **Skills-DB.js:**
 
 ```javascript
@@ -57,9 +63,5 @@ const Skills = () => {
 export default Skills;
 ```
 
-In this example:
 
-- We iterate over each skillsSet in the skills array using the map function, providing a unique setIndex for each set.
-- Inside each skillsSet, we use another map function to iterate over the skillsList array, providing a unique skillIndex for each skill within the set.
-- Each skill is then rendered with its corresponding data, including the link, imgSrc, imgAltText, and skillName.
 
