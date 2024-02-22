@@ -67,7 +67,7 @@ touch index.js
 
 ```javascript
 const http = require('http');
-require('dotenv').config(); // // Import and configure dotenv to load environment variables
+require('dotenv').config(); // Import and configure dotenv to load environment variables
 
 const server = http.createServer((req, res) => {
     res.writeHead(200, { 'Content-Type': 'text/plain' });
