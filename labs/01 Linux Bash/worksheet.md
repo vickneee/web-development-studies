@@ -16,9 +16,8 @@ To use Bash, open a terminal or command prompt on your Linux or Unix system and 
 - `chmod`- Change file permissions.
 - `cat`- Concatenate and display file contents.
 
-## Navigation:
+## Navigation - Searching Files and Directories:
 
-### Searching Files and Directories: 
 - `firstletter` + `[Tab]` – search for files and directories
 - `ls` - list directory contents
 - `ls /` - list contents of root directory
