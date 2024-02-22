@@ -132,7 +132,7 @@ project/
 │   ├── package-lock.json
 │   ├── README.md
 │   └── ...
-││
+│
 ├── client/
 │   ├── node_modules library root
 │   ├── public/
@@ -184,11 +184,11 @@ project/
     │   ├── authentication.js
     │   ├── error.js
     │   └── ...
+    ├── server.js
     ├── .env
     ├── .gitignore
     ├── package.json
     ├── package-lock.json
-    ├── server.js
     ├── README.md
     └── ...
 ```
