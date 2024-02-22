@@ -168,6 +168,7 @@ project/
 │   └── ...
 │
 └── server/
+    ├── node_modules library root
     ├── config/
     │   ├── db.js
     │   └── ...
