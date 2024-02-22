@@ -4,41 +4,41 @@ Git is a distributed version control system that allows developers to track chan
 
 **Key Concepts:**
 
-1. Repositories: Git repositories store your project's files and their revision history. Each repository can be either local or hosted on GitHub.
+1. **Repositories:** Git repositories store your project's files and their revision history. Each repository can be either local or hosted on GitHub.
 
-2. Commits: Commits represent snapshots of changes made to the repository. They include a commit message describing the changes and allow for easy navigation through project history.
+2. **Commits:** Commits represent snapshots of changes made to the repository. They include a commit message describing the changes and allow for easy navigation through project history.
 
-3. Branches: Branches are independent lines of development within a repository. They allow for experimentation and isolation of new features or bug fixes before merging them into the main codebase.
+3. **Branches:** Branches are independent lines of development within a repository. They allow for experimentation and isolation of new features or bug fixes before merging them into the main codebase.
 
-4. Pull Requests: Pull requests (PRs) are proposed changes that are submitted for review and potential integration into the main branch of the repository. They facilitate collaboration and code review among team members.
+4. **Pull Requests:** Pull requests (PRs) are proposed changes that are submitted for review and potential integration into the main branch of the repository. They facilitate collaboration and code review among team members.
 
-5. Merge: Merging combines changes from one branch into another. It is typically done after code review and approval of a pull request.
+5. **Merge:** Merging combines changes from one branch into another. It is typically done after code review and approval of a pull request.
 
 **Workflow:**
 
-1. Clone: Start by cloning a repository from GitHub to your local machine using the git clone command.
+1. **Clone:** Start by cloning a repository from GitHub to your local machine using the git clone command.
 
-2. Branch: Create a new branch (git checkout -b branch-name) to work on a specific feature or bug fix.
+2. **Branch:** Create a new branch (**git checkout -b branch-name**) to work on a specific feature or bug fix.
 
-3. Work: Make changes to your codebase, adding and modifying files as needed.
+3. **Work:** Make changes to your codebase, adding and modifying files as needed.
 
-4. Commit: Once you're satisfied with your changes, stage them (git add) and commit them (git commit -m "Commit message") to create a snapshot.
+4. **Commit:** Once you're satisfied with your changes, stage them (**git add**) and commit them (**git commit -m "Commit message"**) to create a snapshot.
 
-5. Push: Push your committed changes to GitHub using git push origin branch-name.
+5. **Push:** Push your committed changes to GitHub using `**git push origin branch-name**`.
 
-6. Pull Request: On GitHub, create a pull request to merge your changes into the main branch. Provide a descriptive title and details about the changes.
+6. **Pull Request:** On GitHub, create a pull request to merge your changes into the main branch. Provide a descriptive title and details about the changes.
 
-7. Review: Collaborators review your pull request, providing feedback and suggestions for improvement.
+7. **Review:** Collaborators review your pull request, providing feedback and suggestions for improvement.
 
-8. Merge: After addressing any feedback and obtaining approval, merge your pull request into the main branch.
+8. **Merge:** After addressing any feedback and obtaining approval, merge your pull request into the main branch.
 
 **Benefits:**
 
-1. Collaboration: Git and GitHub enable seamless collaboration among team members, allowing multiple developers to work on the same codebase simultaneously.
+1. **Collaboration:** Git and GitHub enable seamless collaboration among team members, allowing multiple developers to work on the same codebase simultaneously.
 
-2. Version Control: Git tracks changes to your code over time, making it easy to revert to previous versions if needed and ensuring the integrity of your project's history.
+2. **Version Control:** Git tracks changes to your code over time, making it easy to revert to previous versions if needed and ensuring the integrity of your project's history.
 
-3. Code Quality: Pull requests and code reviews promote code quality by facilitating feedback and ensuring adherence to coding standards.
+3. **Code Quality:** Pull requests and code reviews promote code quality by facilitating feedback and ensuring adherence to coding standards.
 
 ## Downloading Git:
 
