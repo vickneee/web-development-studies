@@ -23,7 +23,7 @@ npm init -y
 
 This will create a package.json file with default values.
 
-2. Create index.js File:
+2. **Create index.js File:**
 
 - Create a new file named index.js inside the api folder.
 - You can do this via your text editor or with the command line:
@@ -31,7 +31,7 @@ This will create a package.json file with default values.
 touch index.js
 ```
 
-3. Edit index.js File:
+3. **Edit index.js File:**
 
 - Open the index.js file in a text editor.
 - Add some simple code to start your server. For example,
@@ -50,7 +50,7 @@ server.listen(PORT, () => {
 });
 ```
 
-4. Update package.json with Start Command:
+4. **Update package.json with Start Command:**
 
 - Open package.json in a text editor.
 - Find the "scripts" section.
@@ -62,7 +62,7 @@ server.listen(PORT, () => {
 },
 ```
 
-5. Install nodemon:
+5. **Install nodemon:**
 
 - Install nodemon as a development dependency:
 
@@ -75,7 +75,7 @@ or
 yarn add nodemon --dev
 ```
 
-6. Update package.json with nodemon:
+6. **Update package.json with nodemon:**
 
 - Modify the "start" script to use nodemon:
 
@@ -85,14 +85,14 @@ yarn add nodemon --dev
 },
 ```
 
-7. Save Changes:
+7. **Save Changes:**
 
 - Save your changes to package.json and index.js.
 
-8. Start the Server:
+8. **Start the Server:**
 
 - In your terminal, run:
-- 
+
 ```bash
 npm start
 ```
