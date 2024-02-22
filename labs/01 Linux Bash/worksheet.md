@@ -16,15 +16,9 @@ To use Bash, open a terminal or command prompt on your Linux or Unix system and 
 - `chmod`- Change file permissions.
 - `cat`- Concatenate and display file contents.
 
-## More Commands: 
+## Navigation:
 
-## NAVIGATION
-
-#### pwd
-- `pwd` - print working directory (short path)
-- `pwd -P` - print working directory (full path)
-
-### SEARCHING FILES AND DIRECTORIES
+### Searching Files and Directories: 
 - `firstletter` + `[Tab]` – search for files and directories
 - `ls` - list directory contents
 - `ls /` - list contents of root directory
@@ -47,6 +41,10 @@ To use Bash, open a terminal or command prompt on your Linux or Unix system and 
 - `ls -G` - list directories and files with colors (MacBook)
 - `tree` - list contents of a directory in a tree-like format
 - `tree -L 2` – list contents of a directory up to level 2
+
+#### pwd
+- `pwd` - print working directory (short path)
+- `pwd -P` - print working directory (full path)
 
 #### cd
 - `cd` - change directory
@@ -82,7 +80,7 @@ To use Bash, open a terminal or command prompt on your Linux or Unix system and 
 - `history | less` - view less history and use ⬆︎ ⬇︎ to move up and down
 - `HISTTIMEFORMAT='%F %T '` – display date and time in history
 
-## UTILITIES
+## Utilities:
 
 #### date
 - `date` – display current date and time
@@ -132,7 +130,7 @@ To use Bash, open a terminal or command prompt on your Linux or Unix system and 
 #### man
 - `man` – display the manual page of a command
 
-## APT TOOLS
+## API Tools:
 
 - `dpkg -l` - list installed packages
 - `dpkg -L <package>` - show files installed by a package
@@ -140,7 +138,7 @@ To use Bash, open a terminal or command prompt on your Linux or Unix system and 
 - `apt-get install` = `apt install`
 - `apt-get update` = `apt update`
 
-## WORKING WITH FILES
+## Working with Files:
 
 - `mkdir` - create directory/directories
 - `mkdir important` – create a new directory with name important
@@ -185,20 +183,20 @@ To use Bash, open a terminal or command prompt on your Linux or Unix system and 
 - `cmp file1 file2` – compare two files byte by byte
 - `diff file1 file2` - compare files line by line
 
-#### MODIFYING FILE PERMISSIONS
+#### Modifying File Permissions:
 - `chmod` - change file permissions
 - `chmod +x file.sh` – add permissions to the file 
 - `chmod +755 file.sh` – add/remove permissions to/from the file
 
-#### NANO
+#### nano
 - `nano` - command-line text editor for USERS
 - `nano file.txt` - create a new file or open an existing file
 
-#### MOUSEPAD
+#### mousepad
 - `mousepad` - simple text editor for Xfce
 - `mousepad newfile.txt` - create a new file or open an existing file
 
-#### CAT
+#### cat
 - `cat` - concatenate and display the content of files
 - `cat filename` - display the content of the specified file
 - `cat file1 file2` - display contents of file1 and file2
@@ -216,7 +214,7 @@ To use Bash, open a terminal or command prompt on your Linux or Unix system and 
 - `cat /etc/shadow` – display computer passwords (hashed)
 - `cat /etc/sudoers` – display user privileges
 
-#### GREP
+#### grep
 - `grep` - print lines matching a pattern
 - `grep` - print lines matching a pattern
 - `grep [options] pattern [files]` – search for pattern in files
@@ -232,7 +230,7 @@ To use Bash, open a terminal or command prompt on your Linux or Unix system and 
 - `grep "o" /etc/ufw/new.txt` – search for 'o' pattern in /etc/ufw/new.txt file
 - `cat .bashrc | grep alias > file.txt` – create a new file containing alias lines from .bashrc file
 
-## USERS, PERMISSIONS
+## Users, Permissions:
 
 - `sudo` - execute a command as superuser
 - `sudo update` - execute an update command as superuser (assuming you meant `apt update`)
@@ -252,7 +250,7 @@ To use Bash, open a terminal or command prompt on your Linux or Unix system and 
 - `passwd` - change your password
 - `userdel username` – delete user
 
-## NETWORK
+## Network:
 
 #### ifconfig
 - `ifconfig` - configure network interface parameters
@@ -285,7 +283,7 @@ To use Bash, open a terminal or command prompt on your Linux or Unix system and 
 - `sudo systemctl enable ssh`
 - `sudo systemctl disable ssh`
 
-## PROCESSES AND LOGOUT
+## Processes and Logout:
 
 #### ps
 - `ps` – display currently active processes
@@ -311,7 +309,7 @@ To use Bash, open a terminal or command prompt on your Linux or Unix system and 
 - `reboot` – reboot the machine
 - `shutdown` – shutdown the machine in a minute
 
-## USEFUL SHORTCUTS
+## Useful Shortcuts:
 
 - `F11` – full screen in terminal
 - `ls -la; cat hello.txt` - execute two commands consecutively
@@ -327,6 +325,6 @@ To use Bash, open a terminal or command prompt on your Linux or Unix system and 
 - `Crtl + W` - delete the previous word on the line
 - `Ctrl + U` - delete the line
 
-## LANGUAGE SWITCHING
+## Language Switching:
 
 - `setxkbmap fi` – switch keyboard layout to Finnish
