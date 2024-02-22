@@ -298,16 +298,16 @@
 - `F11` – full screen in terminal
 - `ls -la; cat hello.txt` - execute two commands consecutively
 - `make && sudo make install` - execute two commands consecutively
-- `Ctrl++` - increase text size in terminal
-- `Ctrl+-` - decrease text size in terminal
-- `Ctrl+C` - terminate a running command
-- `Ctrl+L` - clear and refresh the screen
-- `Ctrl+D` - tell bash no more input
-- `Ctrl+R` - reverse search through command history `bck-i-search: _`
-- `Ctrl+A` - move cursor to the beginning of the line
-- `Ctrl+E` - move cursor to the end of the line
-- `Crtl+W` - delete the previous word on the line
-- `Ctrl+U` - delete the line
+- `Ctrl + +` - increase text size in terminal
+- `Ctrl + -` - decrease text size in terminal
+- `Ctrl + C` - terminate a running command
+- `Ctrl + L` - clear and refresh the screen
+- `Ctrl + D` - tell bash no more input
+- `Ctrl + R` - reverse search through command history `bck-i-search: _`
+- `Ctrl + A` - move cursor to the beginning of the line
+- `Ctrl + E` - move cursor to the end of the line
+- `Crtl + W` - delete the previous word on the line
+- `Ctrl + U` - delete the line
 
 ## LANGUAGE SWITCHING
 
