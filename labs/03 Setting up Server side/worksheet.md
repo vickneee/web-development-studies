@@ -139,4 +139,4 @@ yarn start
 
 This will start your server using nodemon.
 
-Now, your server should be running with automatic restarts whenever changes are made to your index.js file. You can test it by accessing http://localhost:8800 or default http://localhost:3000 in your web browser or using tools like cURL or Postman.
+Now, your server should be running with automatic restarts whenever changes are made to your index.js file. You can test it by accessing http://localhost:8800 or default http://localhost:3000 in your web browser or using tools like Postman.
