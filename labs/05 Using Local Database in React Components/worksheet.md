@@ -12,7 +12,7 @@ export const skills = {
         {
             link: "https://www.sublimetext.com/",
             imgAltText: "Sublime Text",
-            imgSrc: "sublime-text.png",
+            imgSrc: SUBLIMETEXT,
             skillName: "Sublime Text",
         },
         {
