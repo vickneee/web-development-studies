@@ -87,7 +87,17 @@ ReactDOM.createRoot(document.getElementById("root")!).render(
 );
 ```
 
-6. **Build your CSS:** Add a build script in your **package.json** file to compile your CSS:
+6. **Start the Tailwind CLI build process:** 
+
+Run the CLI tool to scan your template files for classes and build your CSS.
+
+```terminal
+npx tailwindcss -i ./src/input.css -o ./src/output.css --watch
+```
+
+or 
+
+7. **Build your CSS:** Add a build script in your **package.json** file to compile your CSS:
 
 ```json
 "scripts": {
@@ -103,16 +113,16 @@ npm run build:css
 
 This command will compile your **styles.css** file and output the compiled CSS to **output.css**.
 
-6. **Include the compiled CSS in your HTML:** Link the compiled CSS file (**output.css**) in your HTML file:
+8. **Include the compiled CSS in your HTML:** Link the compiled CSS file (**output.css**) in your HTML file:
 
 ```html
 <link rel="stylesheet" href="./output.css">
 ```
 
-7. **Start using Tailwind classes:** Now you can start using Tailwind's utility classes directly in your HTML or in your custom CSS.
+9. **Start using Tailwind classes:** Now you can start using Tailwind's utility classes directly in your HTML or in your custom CSS.
 
 That's it! You're now set up to use Tailwind CSS in your project. Feel free to customize the configuration and explore Tailwind's extensive utility classes to style your project efficiently.
 
-[Tailwind CSS Components](https://tailwindui.com/documentation)
+[Tailwind CSS Components](https://tailwindcss.com/docs/installation)
 
 [Tailwind CSS WebStorm](https://www.jetbrains.com/help/webstorm/tailwind-css.html)
