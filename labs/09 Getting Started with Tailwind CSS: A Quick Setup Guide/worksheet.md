@@ -106,13 +106,13 @@ This command will compile your **styles.css** file and output the compiled CSS t
 6. **Include the compiled CSS in your HTML:** Link the compiled CSS file (**output.css**) in your HTML file:
 
 ```html
-<link rel="stylesheet" href="output.css">
+<link rel="stylesheet" href="./output.css">
 ```
 
 7. **Start using Tailwind classes:** Now you can start using Tailwind's utility classes directly in your HTML or in your custom CSS.
 
 That's it! You're now set up to use Tailwind CSS in your project. Feel free to customize the configuration and explore Tailwind's extensive utility classes to style your project efficiently.
 
-[Tailwind CSS Components](https://tailwindui.com/components?ref=sidebar)
+[Tailwind CSS Components](https://tailwindui.com/documentation)
 
 [Tailwind CSS WebStorm](https://www.jetbrains.com/help/webstorm/tailwind-css.html)
