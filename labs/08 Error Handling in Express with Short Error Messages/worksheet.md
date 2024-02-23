@@ -23,7 +23,7 @@ export const createShortError = (status, message) => {
 ```javascript
 // controllers/userController.js
 
-import { createShortError } from "../utils/error.js";
+import { createShortError } from "../utils/error.js"; // CreateShortError import path
 
 // UPDATE a User
 export const updateUser = async (req, res, next) => {
@@ -67,7 +67,7 @@ export default errorMiddleware;
 // server.js
 
 import express from 'express';
-import errorMiddleware from './utils/errorMiddleware.js'; // Import path
+import errorMiddleware from './utils/errorMiddleware.js'; // ErrorMiddleware import path
 
 const app = express();
 
