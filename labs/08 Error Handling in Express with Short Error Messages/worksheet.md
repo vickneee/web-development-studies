@@ -47,7 +47,7 @@ export const updateUser = async (req, res, next) => {
 };
 ```
 
-3. Add Error Handling Middleware
+## 3. Add Error Handling Middleware
 
 ```javascript
 // utils/errorMiddleware.js
