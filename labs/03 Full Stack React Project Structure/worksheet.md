@@ -141,12 +141,12 @@ project/
 │   │   ├── authentication.js               # Example: Module for authentication logic
 │   │   ├── error.js                        # Example: Module for handling errors
 │   │   └── ...                             # Other utility modules
-│   ├── server.js                           # Entry point for Node.js/Express.js server
 │   ├── .env                                # Environment variables specific to the backend
 │   ├── .gitignore                          # Specifies files to ignore by version control
 │   ├── package.json                        # Dependencies for the backend
 │   ├── package-lock.json                   # Lock file for backend dependencies
 │   ├── README.md                           # Backend documentation
+│   ├── server.js                           # Entry point for Node.js / Express.js server
 │   └── ...                                 # Other backend files
 │
 ├── README.md                               # Project documentation
