@@ -35,27 +35,27 @@ export const skills = {
 **Skills.js**
 
 ```javascript
-import React from "react";
-import { skills } from "./Skills-DB";
+import {skills} from "./Skills-DB";
 
 const Skills = () => {
     return (
-        <div className="skills">
-            {skills.skillsList.map((skillsSet, setIndex) => (
-                <div className="skills-set" key={setIndex}>
-                    <h1>Skills Set {setIndex + 1}</h1>
-                    <div className="skills-list">
-                        {skillsSet.skillsList.map((skill, skillIndex) => (
-                            <div className="skill" key={skillIndex}>
-                                <h3>{skill.skillName}</h3>
-                                <a href={skill.link} target="_blank" rel="noopener noreferrer">
-                                    <img src={skill.imgSrc} alt={skill.imgAltText} />
-                                </a>
-                            </div>
-                        ))}
+        <div className="flex justify-evenly h-full m-auto">
+            <div className="p-40" id="skills">
+                <h1 className="pb-3 text-7xl">Tools and Tech Skills</h1>
+                <div className="flex shadow-md justify-evenly">
+                        <div className="flex p-20 gap-40">
+                            {skills.skillsList.map((skill, index) => (
+                                <span key={index}>
+                                        <a href={skill.link}
+                                           target="_blank" rel="noopener noreferrer">
+                                            <img src={skill.imgSrc} alt={skill.imgAltText} className="h-20 pb-8"></img>
+                                        </a>
+                                    </span>
+                            ))}
+                        </div>
                     </div>
                 </div>
-            ))}
+
         </div>
     );
 };
