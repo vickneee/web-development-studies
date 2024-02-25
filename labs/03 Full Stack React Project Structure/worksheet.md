@@ -108,7 +108,7 @@ project/
 │   │   │   ├── Api.jsx                     # Example: API service for making HTTP requests
 │   │   │   └── ...                         # Other service modules
 │   │   ├── App.jsx                         # Main React application component
-│   │   ├── index.css                       # Main React application css file
+│   │   ├── index.css                       # Main React application CSS file
 │   │   ├── main.jsx                        # Entry point for React application
 │   │   ├── output.css                      # Output css file (Tailwind CSS)
 │   │   └── ...                             # Other React-related files
