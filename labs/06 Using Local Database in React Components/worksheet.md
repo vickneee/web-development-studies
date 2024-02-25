@@ -41,7 +41,7 @@ import { skills } from "./Skills-DB";
 const Skills = () => {
     return (
         <div className="skills">
-            {skills.skillList.map((skillsSet, setIndex) => (
+            {skills.skillsList.map((skillsSet, setIndex) => (
                 <div className="skills-set" key={setIndex}>
                     <h1>Skills Set {setIndex + 1}</h1>
                     <div className="skills-list">
