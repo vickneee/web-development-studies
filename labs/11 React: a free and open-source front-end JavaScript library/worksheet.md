@@ -93,3 +93,7 @@ function NameForm() {
 
 export default NameForm;
 ```
+
+In this example, the component maintains a state variable name to store the value of the input field. The handleChange function is called whenever the input value changes, updating the name state accordingly. The handleSubmit function is called when the form is submitted, alerting the submitted name.
+
+
