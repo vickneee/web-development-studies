@@ -7,7 +7,7 @@ React (also known as React.js or ReactJS) is a free and open-source front-end Ja
 Props (short for "properties") are inputs to React components. They are passed from a parent component down to its children and are immutable (read-only) within the child component. Here's how you use props:
 
 ```jsx
-// ParentComponent.js
+// ParentComponent.jsx
 import React from 'react';
 import ChildComponent from './ChildComponent';
 
@@ -22,7 +22,7 @@ function ParentComponent() {
 export default ParentComponent;
 ```
 ```jsx
-// ChildComponent.js
+// ChildComponent.jsx
 import React from 'react';
 
 function ChildComponent(props) {
