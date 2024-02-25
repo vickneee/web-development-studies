@@ -82,7 +82,7 @@ npx tailwindcss -i ./src/index.css -o ./src/output.css --watch
 8. **Include the compiled CSS in your HTML:** Link the compiled CSS file (**output.css**) in your HTML file:
 
 ```html
-<link rel="stylesheet" href="./output.css">
+<link rel="stylesheet" href="./src/output.css">
 ```
 
 9. **Start using Tailwind classes:** Now you can start using Tailwind's utility classes directly in your HTML or in your custom CSS.
