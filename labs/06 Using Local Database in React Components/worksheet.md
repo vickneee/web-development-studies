@@ -46,6 +46,7 @@ const Skills = () => {
                         <div className="flex p-20 gap-40">
                             {skills.skillsList.map((skill, index) => (
                                 <span key={index}>
+                                    <h2 className="text-4xl mb-6">{skill.skillName}</h2>
                                         <a href={skill.link}
                                            target="_blank" rel="noopener noreferrer">
                                             <img src={skill.imgSrc} alt={skill.imgAltText} className="h-20 pb-8"></img>
