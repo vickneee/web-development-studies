@@ -92,26 +92,24 @@ project/
 │   ├── src/                                # React components, styles, and scripts
 │   │   ├── components/                     # Reusable UI components
 │   │   │   ├── navbar/                     # Example: Navbar component
-│   │   │   │   ├── navbar.css              # Styles for Navbar component
-│   │   │   │   └── Navbar.jsx              # React code for Navbar component
+│   │   │   │   └── NavBar.jsx              # React code for Navbar component
 │   │   │   └── ...                         # Other components
 │   │   ├── contexts/                       # React Contexts for global state management
 │   │   │   ├── AuthContext.jsx             # Example: Authentication context
 │   │   │   └── ...                         # Other contexts
 │   │   ├── hooks/                          # Custom React hooks
-│   │   │   ├── useFetch.jsx                # Example: Custom hook for fetching data
+│   │   │   ├── UseFetch.jsx                # Example: Custom hook for fetching data
 │   │   │   └── ...                         # Other custom hooks
 │   │   ├── pages/                          # React components representing different pages
 │   │   │   ├── login/                      # Example: Login page
-│   │   │   │   ├── login.css               # Styles for Login page
 │   │   │   │   └── Login.jsx               # React code for Login page
 │   │   │   └── ...                         # Other pages
 │   │   ├── services/                       # Business logic layer (optional)
-│   │   │   ├── api.jsx                     # Example: API service for making HTTP requests
+│   │   │   ├── Api.jsx                     # Example: API service for making HTTP requests
 │   │   │   └── ...                         # Other service modules
 │   │   ├── App.jsx                         # Main React application component
 │   │   ├── index.css                       # Main React application css file
-│   │   ├── index.jsx                       # Entry point for React application
+│   │   ├── main.jsx                       # Entry point for React application
 │   │   └── ...                             # Other React-related files
 │   ├── .env                                # Environment variables specific to the frontend
 │   ├── .gitignore                          # Specifies files to ignore by version control
