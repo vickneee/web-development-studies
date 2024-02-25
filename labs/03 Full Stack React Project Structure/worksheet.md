@@ -109,7 +109,8 @@ project/
 │   │   │   └── ...                         # Other service modules
 │   │   ├── App.jsx                         # Main React application component
 │   │   ├── index.css                       # Main React application css file
-│   │   ├── main.jsx                       # Entry point for React application
+│   │   ├── main.jsx                        # Entry point for React application
+│   │   ├── output.css                      # Output css file (Tailwind CSS)
 │   │   └── ...                             # Other React-related files
 │   ├── .env                                # Environment variables specific to the frontend
 │   ├── .gitignore                          # Specifies files to ignore by version control
