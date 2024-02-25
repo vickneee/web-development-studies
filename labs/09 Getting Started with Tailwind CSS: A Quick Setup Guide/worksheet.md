@@ -19,9 +19,9 @@ export default {
     content: ["./index.html", "./src/**/*.{js,ts,jsx,tsx}"],
     theme: {
         extend: {},
-        container: {  // Optional
-            padding: {  // Optional
-                md: "10rem",  // Optional
+        container: {  // Optional Example
+            padding: {  // Optional Example
+                md: "10rem",  // Optional Example
             },
         },
     },
@@ -35,11 +35,10 @@ This file allows you to customize Tailwind's default configuration if needed.
 
 ```javascript
 export default {
-    plugins: [
-        require('tailwindcss'),
-        require('autoprefixer'),
-        // Add any other PostCSS plugins here
-    ]
+    plugins: {
+        tailwindcss: {},
+        autoprefixer: {},
+    }
 }
 ```
 
@@ -54,22 +53,7 @@ export default {
 /* Your custom styles go here */
 ```
 
-The first snippet uses the @import rule to import the Tailwind CSS stylesheets directly.
-
-or 
-
-```css
-@tailwind base;
-@tailwind components;
-@tailwind utilities;
-
-/* Your custom styles go here */
-```
-the second snippet uses the @tailwind directive.
-
-The @tailwind directive is a special directive provided by Tailwind CSS that is processed by a tool like PostCSS, which replaces it with the appropriate @import statements during compilation. It's a more concise and expressive way of including Tailwind's styles, especially in environments where configuration is handled automatically (e.g., with tools like postcss-import).
-
-In summary, both snippets accomplish the same task, but the second snippet with @tailwind directives may be preferred in environments where it's supported and provides a cleaner syntax.
+This snippet uses the @import rule to import the Tailwind CSS stylesheets directly.
 
 5. **Check you have imported index.css** file to your **main.jsx** or **main.tsx** file  
 
@@ -77,7 +61,7 @@ In summary, both snippets accomplish the same task, but the second snippet with 
 // main.jsx or main.tsx
 import React from "react";
 import ReactDOM from "react-dom/client";
-import App from "./App.tsx";
+import App from "./App.jsx";
 import "./index.css";  // Check you have imported "./index.css" file
 
 ReactDOM.createRoot(document.getElementById("root")!).render(
@@ -89,29 +73,11 @@ ReactDOM.createRoot(document.getElementById("root")!).render(
 
 6. **Start the Tailwind CLI build process:** 
 
-Run the CLI tool to scan your template files for classes and build your CSS.
+Run the CLI tool to scan your template files for classes and build your CSS. (main css file: example index.css)
 
 ```terminal
-npx tailwindcss -i ./src/input.css -o ./src/output.css --watch
+npx tailwindcss -i ./src/index.css -o ./src/output.css --watch
 ```
-
-or 
-
-7. **Build your CSS:** Add a build script in your **package.json** file to compile your CSS:
-
-```json
-"scripts": {
-"build:css": "postcss styles.css -o output.css"
-}
-```
-
-Then run:
-
-```arduino
-npm run build:css
-```
-
-This command will compile your **styles.css** file and output the compiled CSS to **output.css**.
 
 8. **Include the compiled CSS in your HTML:** Link the compiled CSS file (**output.css**) in your HTML file:
 
