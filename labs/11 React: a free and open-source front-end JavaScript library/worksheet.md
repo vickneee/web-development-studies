@@ -24,19 +24,30 @@ export default ParentComponent;
 ```jsx
 // ChildComponent.jsx
 import React from 'react';
+import PropTypes from 'prop-types'; // import PropTypes from prop-types
 
 function ChildComponent(props) {
     return (
         <div>
-            <p>Name: {props.name}</p>
-            <p>Age: {props.age}</p>
+            <p>Name: {props.name}</p> {/* To avoid 'name' is missing in props validation. */}
+            <p>Age: {props.age}</p> {/* To avoid 'age' is missing in props validation. */} 
         </div>
     );
 }
 
+ChildComponent.propTypes = {
+    name: PropTypes.string.isRequired, // React performs prop validation, issuing warnings in development for missing or incorrect types.
+    age: PropTypes.number.isRequired, // React performs prop validation, issuing warnings in development for missing or incorrect types.
+};
+
 export default ChildComponent;
 ```
-In the child component, props are accessed as properties of the function argument.
+
+In this code snippet:
+
+- We import PropTypes from the 'prop-types' package.
+- We use ChildComponent.propTypes to define the PropTypes for the name and age props.
+- We specify that both name and age are required (isRequired), and name should be a string while age should be a number.
 
 ## State in React
 
