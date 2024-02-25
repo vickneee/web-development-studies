@@ -88,35 +88,39 @@ project/
 ├── frontend/                               # Frontend React application
 │   ├── node_modules/                       # Node.js dependencies (generated)
 │   ├── public/                             # Static assets
-│   │   └── index.html                      # HTML template
+│   │   └── vite.svg                        # Vite.svg
 │   ├── src/                                # React components, styles, and scripts
 │   │   ├── components/                     # Reusable UI components
 │   │   │   ├── navbar/                     # Example: Navbar component
-│   │   │   │   ├── navbar.css              # Styles for Navbar component
-│   │   │   │   └── Navbar.jsx              # React code for Navbar component
+│   │   │   │   └── NavBar.jsx              # React code for Navbar component
 │   │   │   └── ...                         # Other components
 │   │   ├── contexts/                       # React Contexts for global state management
-│   │   │   ├── AuthContext.js              # Example: Authentication context
+│   │   │   ├── AuthContext.jsx             # Example: Authentication context
 │   │   │   └── ...                         # Other contexts
 │   │   ├── hooks/                          # Custom React hooks
-│   │   │   ├── useFetch.js                 # Example: Custom hook for fetching data
+│   │   │   ├── UseFetch.jsx                # Example: Custom hook for fetching data
 │   │   │   └── ...                         # Other custom hooks
 │   │   ├── pages/                          # React components representing different pages
 │   │   │   ├── login/                      # Example: Login page
-│   │   │   │   ├── login.css               # Styles for Login page
 │   │   │   │   └── Login.jsx               # React code for Login page
 │   │   │   └── ...                         # Other pages
 │   │   ├── services/                       # Business logic layer (optional)
-│   │   │   ├── api.js                      # Example: API service for making HTTP requests
+│   │   │   ├── Api.jsx                     # Example: API service for making HTTP requests
 │   │   │   └── ...                         # Other service modules
-│   │   ├── App.js                          # Main React application component
-│   │   ├── index.js                        # Entry point for React application
+│   │   ├── App.jsx                         # Main React application component
+│   │   ├── index.css                       # Main React application CSS file
+│   │   ├── main.jsx                        # Entry point for React application
+│   │   ├── output.css                      # Output css file (PostCSS)
 │   │   └── ...                             # Other React-related files
 │   ├── .env                                # Environment variables specific to the frontend
 │   ├── .gitignore                          # Specifies files to ignore by version control
+│   ├── index.html                          # HTML template
 │   ├── package.json                        # Dependencies for the frontend
 │   ├── package-lock.json                   # Lock file for frontend dependencies
+│   ├── postcss.config.js                   # Postcss configuration file
 │   ├── README.md                           # Frontend documentation
+│   ├── tailwind.config.js                  # Tailwind CSS configuration file
+│   ├── vite.config.js                      # Vite configuration file
 │   └── ...                                 # Other frontend files
 │
 ├── backend/                                # Backend Node.js application
@@ -127,9 +131,6 @@ project/
 │   ├── controllers/                        # Route handlers/controllers
 │   │   ├── userController.js               # Example: Controller for user-related routes
 │   │   └── ...                             # Other controllers
-│   ├── mail/                               # Module for handling emails (optional)
-│   │   ├── mail.js                         # Example: Module for sending emails
-│   │   └── ...                             # Other email-related modules
 │   ├── models/                             # Database models (Mongoose schemas)
 │   │   ├── userModel.js                    # Example: Mongoose schema for User model
 │   │   └── ...                             # Other model schemas
@@ -140,17 +141,14 @@ project/
 │   │   ├── authentication.js               # Example: Module for authentication logic
 │   │   ├── error.js                        # Example: Module for handling errors
 │   │   └── ...                             # Other utility modules
-│   ├── server.js                           # Entry point for Node.js/Express.js server
 │   ├── .env                                # Environment variables specific to the backend
 │   ├── .gitignore                          # Specifies files to ignore by version control
 │   ├── package.json                        # Dependencies for the backend
 │   ├── package-lock.json                   # Lock file for backend dependencies
 │   ├── README.md                           # Backend documentation
+│   ├── server.js                           # Entry point for Node.js / Express.js server
 │   └── ...                                 # Other backend files
 │
-├── .gitignore                              # Specifies files to ignore by version control
-├── package.json                            # npm package configuration (main project)
-├── package-lock.json                       # Lock file for main project dependencies
 ├── README.md                               # Project documentation
 └── ...                                     # Other project files and directories
 ```
