@@ -83,33 +83,33 @@ In React, conditional rendering allows you to render different components or ele
 import React from 'react';
 
 function Greeting(props) {
-  const isLoggedIn = props.isLoggedIn;
+    const isLoggedIn = props.isLoggedIn;
   
   // Conditional rendering
   if (isLoggedIn) {
-    return <UserGreeting />;
-  }
-  return <GuestGreeting />;
+      return <UserGreeting />;
+    }
+    return <GuestGreeting />;
 }
 
 // UserGreeting
 function UserGreeting() {
-  return <h1>Welcome back!</h1>;
+    return <h1>Welcome back!</h1>;
 }
 
 // GuestGreeting
 function GuestGreeting() {
-  return <h1>Please sign up.</h1>;
+    return <h1>Please sign up.</h1>;
 }
 
 function App() {
-  const isLoggedIn = true; // or false
-
-  return (
-    <div>
-      <Greeting isLoggedIn={isLoggedIn} />
-    </div>
-  );
+    const isLoggedIn = true; // or false
+    
+    return (
+        <div>
+            <Greeting isLoggedIn={isLoggedIn} />
+        </div>
+    );
 }
 
 export default App;
@@ -119,17 +119,17 @@ export default App;
 import { useState } from 'react';
 
 function App() {
-  const [count, setCount] = useState(0);
+    const [count, setCount] = useState(0);
 
-  return (
-    <>
-      {count <= 6 
-        ? <p>You have pressed the button {count} times</p> 
-        : <p>You have pressed the button more than 6 times</p>
-      }
-      <button onClick={() => setCount(count + 1)}>Press me</button>
-    </>
-  );
+    return (
+        <>
+        {count <= 6 
+            ? <p>You have pressed the button {count} times</p> 
+            : <p>You have pressed the button more than 6 times</p>
+        }
+        <button onClick={() => setCount(count + 1)}>Press me</button>
+        </>
+    );
 }
 
 export default App;
@@ -141,28 +141,28 @@ export default App;
 import React, { useState } from 'react';
 
 function CounterApp() {
-  const [count, setCount] = useState(0);
+    const [count, setCount] = useState(0);
 
-  const increment = () => {
-    setCount((prevCount) => prevCount + 1);
-  };
+    const increment = () => {
+        setCount((prevCount) => prevCount + 1);
+    };
 
-  const decrement = () => {
-    setCount((prevCount) => prevCount - 1);
-  };
+    const decrement = () => {
+        setCount((prevCount) => prevCount - 1);
+    };
 
-  const reset = () => {
-    setCount(0);
-  };
+    const reset = () => {
+        setCount(0);
+    };
 
-  return (
-    <div>
-      <h2>Counter: {count}</h2>
-      <button onClick={increment}>Increment</button>
-      <button onClick={decrement}>Decrement</button>
-      <button onClick={reset}>Reset</button>
-    </div>
-  );
+    return (
+        <div>
+        <h2>Counter: {count}</h2>
+        <button onClick={increment}>Increment</button>
+        <button onClick={decrement}>Decrement</button>
+        <button onClick={reset}>Reset</button>
+        </div>
+    );
 }
 
 export default CounterApp;
@@ -175,18 +175,18 @@ import { useState } from "react";
 import "./App.css";
 
 function App() {
-const [color, setColor] = useState("black");
+    const [color, setColor] = useState("black");
 
-const ChangeColor = () => {
-setColor(color === "black" ? "red" : "black");
-};
+    const ChangeColor = () => {
+        setColor(color === "black" ? "red" : "black");
+    };
 
-return (
-<>
-<h1 style={{ color: color }}>Hello World! I love React!</h1>
-<button onClick={ChangeColor}>Change Text Color</button>
-</>
-);
+    return (
+        <>
+            <h1 style={{ color: color }}>Hello World! I love React!</h1>
+            <button onClick={ChangeColor}>Change Text Color</button>
+        </>
+    );
 }
 
 export default App;
@@ -198,29 +198,34 @@ You can use state to manage user input in React. Here's an example of a simple f
 
 ```jsx
 import React, { useState } from 'react';
+import PropTypes from 'prop-types';
 
 function NameForm() {
-  const [name, setName] = useState('');
+    const [name, setName] = useState('');
 
-  const handleChange = (event) => {
-    setName(event.target.value);
-  };
+    const handleChange = (event) => {
+        setName(event.target.value);
+    };
 
-  const handleSubmit = (event) => {
-    event.preventDefault();
-    alert('Submitted name: ' + name);
-  };
+    const handleSubmit = (event) => {
+        event.preventDefault();
+        alert('Submitted name: ' + name);
+    };
 
-  return (
-    <form onSubmit={handleSubmit}>
-      <label>
-        Name:
-        <input type="text" value={name} onChange={handleChange} />
-      </label>
-      <button type="submit">Submit</button>
-    </form>
-  );
+    return (
+        <form onSubmit={handleSubmit}>
+            <label>
+                Name:
+                <input type="text" value={name} onChange={handleChange} />
+            </label>
+            <button type="submit">Submit</button>
+        </form>
+    );
 }
+
+NameForm.propTypes = {
+    name: PropTypes.string.isRequired,
+};
 
 export default NameForm;
 ```
