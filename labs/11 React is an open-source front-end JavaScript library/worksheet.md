@@ -230,4 +230,6 @@ NameForm.propTypes = {
 export default NameForm;
 ```
 
+I this example we import PropTypes from the 'prop-types' package and use NameForm.propTypes to define the PropTypes for the 'name' prop. We specify that 'name' is required and should be a string. This helps ensure that the component is used correctly and provides helpful warnings in development if the props are incorrect.
+
 In this example, the component maintains a state variable name to store the value of the input field. The handleChange function is called whenever the input value changes, updating the name state accordingly. The handleSubmit function is called when the form is submitted, alerting the submitted name.
