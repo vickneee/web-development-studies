@@ -233,3 +233,82 @@ export default NameForm;
 I this example we import PropTypes from the 'prop-types' package and use NameForm.propTypes to define the PropTypes for the 'name' prop. We specify that 'name' is required and should be a string. This helps ensure that the component is used correctly and provides helpful warnings in development if the props are incorrect.
 
 In this example, the component maintains a state variable name to store the value of the input field. The handleChange function is called whenever the input value changes, updating the name state accordingly. The handleSubmit function is called when the form is submitted, alerting the submitted name.
+
+
+## State for Multiple User Inputs
+
+```jsx
+import { useState } from "react";
+
+function MultipleInputForm() {
+    const [formData, setFormData] = useState({
+        firstName: "",
+        lastName: "",
+        email: "",
+        password: "",
+    });
+
+    const handleChange = (e) => {
+        const { name, value } = e.target;
+        setFormData({ ...formData, [name]: value });
+    };
+
+    const handleSubmit = (e) => {
+        e.preventDefault();
+        // You can handle form submission here, e.g., send data to server or perform validation
+        console.log(formData);
+    };
+
+    return (
+        <form onSubmit={handleSubmit}>
+            <div>
+                <label>
+                    First Name:
+                    <input
+                        type="text"
+                        name="firstName"
+                        value={formData.firstName}
+                        onChange={handleChange}
+                    />
+                </label>
+            </div>
+            <div>
+                <label>
+                    Last Name:
+                    <input
+                        type="text"
+                        name="lastName"
+                        value={formData.lastName}
+                        onChange={handleChange}
+                    />
+                </label>
+            </div>
+            <div>
+                <label>
+                    Email:
+                    <input
+                        type="email"
+                        name="email"
+                        value={formData.email}
+                        onChange={handleChange}
+                    />
+                </label>
+            </div>
+            <div>
+                <label>
+                    Password:
+                    <input
+                        type="password"
+                        name="password"
+                        value={formData.password}
+                        onChange={handleChange}
+                    />
+                </label>
+            </div>
+            <button type="submit">Submit</button>
+        </form>
+    );
+}
+
+export default MultipleInputForm;
+```
