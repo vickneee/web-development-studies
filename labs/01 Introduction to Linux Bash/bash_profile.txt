@@ -1,0 +1,40 @@
+export CLICOLOR=1
+
+if [ -f ~/.bashrc ]; then
+   source ~/.bashrc
+fi
+
+parse_git_branch() {
+     git branch 2> /dev/null | sed -e '/^[^*]/d' -e 's/* \(.*\)/(\1)/'
+}
+
+export PS1="Victoria \[\e[35m\]=>>\[\e[0m\] \[\e[32m\]\W \[\e[33m\]\$(parse_git_branch)\[\e[00m\] $ "
+
+export BASH_SILENCE_DEPRECATION_WARNING=1
+
+export PATH=$PATH:/usr/local/mysql/bin
+
+source ~/.git-prompt.sh
+
+eval "$(/opt/homebrew/bin/brew shellenv)"
+
+alias d='cd /Users/vv/Desktop'
+alias doc='cd /Users/vv/Documents'
+alias code='cd /Users/vv/Documents/Code'
+alias doing='cd /Users/vv/Documents/Code/Doing'
+alias done='cd /Users/vv/Documents/Code/Done'
+alias react='cd /Users/vv/Documents/Code/React'
+alias reactn='cd /Users/vv/Documents/Code/ReactNative'
+
+alias cl='clear'
+alias pwd='pwd -P'
+alias h='history'
+alias m='mate ~/.bash_profile'
+alias ma='mate ~/.bashrc'
+alias ob='open ~/.bash_profile'
+alias web='open -a "WebStorm"'
+alias int='open -a "IntelliJ IDEA"'
+alias vsc='open -a "Visual Studio Code"'
+alias e='exit'
+
+
