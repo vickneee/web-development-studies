@@ -8,11 +8,10 @@
 2. Type `node -v` and press Enter.
 3. If Node.js is installed correctly, you should see the version number printed.
 
-# Using `npm init`
+## Using `npm init` - Initializing a New Project
 
 The `npm init` command is used to initialize a new Node.js project and create a `package.json` file, which stores metadata about the project and its dependencies.
 
-## Initializing a New Project
 1. Open your command line interface (CLI).
 2. Navigate to the directory where you want to create your project.
 3. Type `npm init` and press Enter.
@@ -20,6 +19,7 @@ The `npm init` command is used to initialize a new Node.js project and create a 
 5. After completing the prompts, npm will generate a `package.json` file in your project directory.
 
 ```javascript
+// package.json
 {
   "name": "helloworld",
   "version": "1.0.0",
@@ -43,7 +43,7 @@ The `npm init` command is used to initialize a new Node.js project and create a 
 1. To install packages, use the Node Package Manager (npm).
 2. Open your CLI.
 3. Navigate to your project directory.
-4. Type `npm install package_name` and press Enter.
+4. Type `npm install packagenName` and press Enter.
 
 ## Creating a Node.js Server
 
