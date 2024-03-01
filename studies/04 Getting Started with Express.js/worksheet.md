@@ -13,7 +13,7 @@ The `npm init` command is used to initialize a new Node.js project and create a 
 4. Follow the prompts to enter information about your project, such as its name, version, description, entry point, test command, repository, keywords, author, and license.
 5. After completing the prompts, npm will generate a **package.json** file in your project directory.
 
-```javascript
+```json
 {
   "name": "helloexpress",
   "version": "1.0.0",
@@ -73,7 +73,7 @@ npm install express
   "author": "",
   "license": "ISC",
   "dependencies": {
-    "express": "^4.17.1", // Express dependency
+    "express": "^4.17.1"
   }
 }
 ```
@@ -175,7 +175,7 @@ app.get("/home/user/", (req, res) => {
 
 Now, if you navigate to the http://localhost:3000/home/user endpoint, you can see that response data is in **JSON** format.
 
-```javascript
+```json
 {
     "username": "Victoria"
 }
