@@ -27,8 +27,8 @@ Replace **yourScript.js** with the **entry point** of your Node.js application (
 
 ## Custom Configuration
 
-1. You can create a nodemon.json file in your project directory to customize Nodemon's behavior.
-2. Example nodemon.json file:
+1. You can create a **nodemon.json** file in your project directory to customize Nodemon's behavior.
+2. Example **nodemon.json** file:
 
 
 ```json
@@ -43,8 +43,8 @@ Replace **yourScript.js** with the **entry point** of your Node.js application (
 
 ## Using Nodemon with npm Scripts
 
-1. You can integrate Nodemon into your package.json scripts for easier usage.
-2. Example package.json script:
+1. You can integrate Nodemon into your **package.json** scripts for easier usage.
+2. Example **package.json** script:
 
 ```json
 "scripts": {
@@ -60,7 +60,7 @@ npm start
 
 Or 
 
-1. You can also create npm dev script that will start our project using nodemon. Add a new dev script to scripts section.
+1. You can also create `npm run dev` script that will start our project using **nodemon**. Add a new dev script to scripts section.
 
 ```json
 "scripts": {
