@@ -8,7 +8,7 @@ Nodemon is a utility that monitors changes in your Node.js application and autom
 3. Navigate to your project directory.
 4. Install Nodemon globally using npm:
 
-```sh
+```shell
 npm install -g nodemon
  ```
 
