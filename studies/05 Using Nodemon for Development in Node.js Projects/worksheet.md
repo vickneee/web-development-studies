@@ -54,6 +54,10 @@ Replace **yourScript.js** with the **entry point** of your Node.js application (
 
 This allows you to start your application using **npm start** instead of **nodemon index.js**.
 
+```shell 
+npm start
+```
+
 Or 
 
 1. You can also create npm dev script that will start our project using nodemon. Add a new dev script to scripts section.
