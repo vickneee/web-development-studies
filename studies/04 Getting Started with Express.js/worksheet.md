@@ -79,7 +79,7 @@ npm install express
 }
 ```
 
-## Creating a index.js File
+## Creating an index.js File
 
 1. Create a new file `index.js` in your project directory.
 2. Import Express module at the top of your file
@@ -110,12 +110,56 @@ app.listen(port, () => {
 In the express library, all HTTP methods have their own routing methods. The code below shows how to make routing for POST requests for the /hello endpoint.
 
 ```javascript
+app.get("/", (req, res) => {
+    res.send("Hello Express!");
+})
+
 app.post("/hello", (req, res) => {
   res.send("Hello World!");
 })
+
+app.get("/home", (req, res) => {
+    res.send("Welcome to our page");
+})
+
+app.get("/about", (req, res) => {
+    res.send("About us...");
+})
 ```
 
+Now, if you save the **index.js** file and navigate to **the/home endpoint** you should see the ‘Welcome to our page’- message.
 
+## How to Use Route Parameters
+
+1. The following example have one route parameter called name:
+
+```javascript
+const express = require('express');
+
+const app = express();
+
+const port = 3000;
+
+app.get("/home/:name", (req, res) => {
+    res.send("Welcome " + req.params.name);
+})
+
+app.listen(port, () => {
+    console.log(`Server is running on port ${port}.`);
+});
+```
+
+2. You can also have multiple route parameters, for example first and last names:
+
+```javascript
+app.get("/home/user/:firstname/:lastname", (req, res) => {
+    res.send(`Welcome ${req.params.firstname} ${req.params.lastname}`);
+})
+```
+
+Now, if you start your app and navigate to http://localhost:3000/home/user/Victoria/Vavulina, you should see following message.
+
+- Welcome Victoria Vavulina
 
 ## Starting the Server:
 
