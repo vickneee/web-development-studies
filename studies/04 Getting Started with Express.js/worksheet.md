@@ -169,7 +169,7 @@ Now, if you start your app and navigate to http://localhost:3000/home/user/Victo
 
 ```javascript
 app.get("/home/user/", (req, res) => {
-  res.json({username: 'John'});
+  res.json({username: 'Victoria'});
 })
 ```
 
@@ -177,7 +177,7 @@ Now, if you navigate to the http://localhost:3000/home/user endpoint, you can se
 
 ```javascript
 {
-    "username": "John"
+    "username": "Victoria"
 }
 ```
 
