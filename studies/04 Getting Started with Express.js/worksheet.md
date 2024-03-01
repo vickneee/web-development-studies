@@ -187,7 +187,9 @@ Handling the response status
 
 You can send an empty response using the res.end() method.
 
-If you want to set the status of the response, you can use either the status() or sendStatus() methods. The difference between these two methods is that sendStatus() will set the status and send the response. The status() method only sets the status. See the examples below:
+If you want to set the status of the response, you can use either the status() or sendStatus() methods. 
+
+The difference between these two methods is that sendStatus() will set the status and send the response. The status() method only sets the status. See the examples below:
 
 ```javascript
 // Send empty response with the status 404 using the status() and sendStatus() methods
