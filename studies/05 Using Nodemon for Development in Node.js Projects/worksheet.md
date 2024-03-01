@@ -21,7 +21,7 @@ npm install -g nodemon
 nodemon yourScript.js
 ```
 
-Replace yourScript.js with the **entry point** of your Node.js application. 
+Replace **yourScript.js** with the **entry point** of your Node.js application (e.g., **index.js**). 
 
 2. Nodemon will monitor the files in your project directory for changes. Whenever you save changes to a file, Nodemon will automatically restart the server, allowing you to see the changes without manually restarting the server.
 
