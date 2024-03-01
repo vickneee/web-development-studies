@@ -21,7 +21,7 @@ npm install -g nodemon
 nodemon yourScript.js
 ```
 
-Replace yourScript.js with the entry point of your Node.js application. 
+Replace yourScript.js with the **entry point** of your Node.js application. 
 
 2. Nodemon will monitor the files in your project directory for changes. Whenever you save changes to a file, Nodemon will automatically restart the server, allowing you to see the changes without manually restarting the server.
 
@@ -48,15 +48,15 @@ Replace yourScript.js with the entry point of your Node.js application.
 
 ```json
 "scripts": {
-  "start": "nodemon app.js"
+  "start": "nodemon index.js"
 }
 ```
 
-This allows you to start your application using **npm start** instead of **nodemon app.js**.
+This allows you to start your application using **npm start** instead of **nodemon index.js**.
 
 Or 
 
-You can also create npm dev script that will start our project using nodemon. Add a new dev script to scripts section.
+1. You can also create npm dev script that will start our project using nodemon. Add a new dev script to scripts section.
 
 ```json
 "scripts": {
@@ -71,3 +71,5 @@ Now, you can run your web server using nodemon by typing the following command i
 ```shell 
 npm run dev
 ```
+
+If you change your message in the res.send method and save your index.js file, you should see the change in the browser immediately.
