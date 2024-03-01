@@ -60,7 +60,7 @@ Now, you can invoke our start script using the npm start command which then exec
 ````shell
 npm install express
 ````
-4. Now you have installed Express dependency.
+5. Now you have installed Express dependency.
 
 ```json
 {
@@ -82,8 +82,7 @@ npm install express
 ## Creating a index.js File
 
 1. Create a new file `index.js` in your project directory.
-
-6. Import Express module at the top of your file
+2. Import Express module at the top of your file
 
 ```javascript
 // index.js
