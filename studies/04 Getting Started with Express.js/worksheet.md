@@ -181,7 +181,30 @@ Now, if you navigate to the http://localhost:3000/home/user endpoint, you can se
 }
 ```
 
+## Response Status
 
+Handling the response status
+
+You can send an empty response using the res.end() method.
+
+If you want to set the status of the response, you can use either the status() or sendStatus() methods. The difference between these two methods is that sendStatus() will set the status and send the response. The status() method only sets the status. See the examples below:
+
+```javascript
+// Send empty response with the status 404 using the status() and sendStatus() methods
+res.status(404).end();
+res.sendStatus(404);
+```
+
+An empty response with the status is used, for example, in the case that some resource is not found.
+
+```javascript
+app.get("/api/something", (req, res) => {
+    if (found)
+        res.json(result);
+    else
+        res.status(404).end
+})
+````
 ## Starting the Server:
 
 ```shell
