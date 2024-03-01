@@ -80,7 +80,7 @@ npm install express
 
 ## Creating an index.js File
 
-1. Create a new file `index.js` in your project directory.
+1. Create a new file **index.js** in your project directory.
 2. Import Express module at the top of your file
 
 ```javascript
@@ -162,6 +162,25 @@ app.get("/home/user/:firstname/:lastname", (req, res) => {
 Now, if you start your app and navigate to http://localhost:3000/home/user/Victoria/Vavulina, you should see following message.
 
 - Welcome Victoria Vavulina
+
+## Sending JSON in response
+
+1. You can also return data in JSON format by using the res.json() function.
+
+```javascript
+app.get("/home/user/", (req, res) => {
+  res.json({username: 'John'});
+})
+```
+
+Now, if you navigate to the http://localhost:3000/home/user endpoint, you can see that response data is in JSON format.
+
+```javascript
+{
+    "username": "John"
+}
+```
+
 
 ## Starting the Server:
 
