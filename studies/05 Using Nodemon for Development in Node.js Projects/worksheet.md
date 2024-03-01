@@ -12,6 +12,17 @@ Nodemon is a utility that monitors changes in your Node.js application and autom
 npm install -g nodemon
  ```
 
+## Install nodemon as a development dependency:
+
+```bash
+npm install nodemon --save-dev
+```
+or
+
+```bash
+yarn add nodemon --dev
+```
+
 ## Using Nodemon
 
 1. Once Nodemon is installed, you can start your Node.js application using the nodemon command instead of node.
