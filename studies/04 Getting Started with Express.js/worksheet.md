@@ -28,10 +28,6 @@ The `npm init` command is used to initialize a new Node.js project and create a 
 }
 ```
 
-## Creating a index.js File
-
-1. Create a new file `index.js` in your project directory.
-
 ## Add start script to the JSON file.
 
 ```json 
@@ -64,6 +60,7 @@ Now, you can invoke our start script using the npm start command which then exec
 ````shell
 npm install express
 ````
+4. Now you have installed Express dependency.
 
 ```json
 {
@@ -81,6 +78,10 @@ npm install express
   }
 }
 ```
+
+## Creating a index.js File
+
+1. Create a new file `index.js` in your project directory.
 
 6. Import Express module at the top of your file
 
