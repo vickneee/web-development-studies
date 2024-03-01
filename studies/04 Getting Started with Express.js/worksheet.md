@@ -115,7 +115,7 @@ app.post("/hello", (req, res) => {
 })
 ```
 
-7. Starting the Server:
+## Starting the Server:
 
 ```shell
 npm start
