@@ -44,7 +44,7 @@ app.get("/api/movies/:id", (req, res) => {
     if (movie.length > 0)
         res.json(movie);
     else
-        res.status(404).end(); // Respond status 404
+        res.status(404).end(); // Respond status 404 (Not Found)
 });
 
 // Server listen and running on port ...
@@ -123,7 +123,7 @@ app.get("/api/movies/:id", (req, res) => {
     if (movie.length > 0)
         res.json(movie);
     else
-        res.status(404).end(); // Respond status 404
+        res.status(404).end(); // Respond status 404 (Not Found)
 });
 
 // Add new movie
@@ -149,7 +149,7 @@ app.listen(port, () => {
 2. Create a new request.
 3. Set the request type to PUT.
 4. Enter the API endpoint URL
-   (e.g., update every part of user information `https://api.example.com/users/123`, `https://api.example.com/:userId`).
+   (e.g., update every part of user information `https://api.example.com/users/123`, `https://api.example.com/users/:userId`).
 5. Add JSON body payload with updated data (e.g., `{ "name": "Updated John", "email": "updatedjohn@example.com" }`).
 6. Click "Send" to execute the PUT request.
 7. View the response data in the response body.
@@ -157,6 +157,8 @@ app.listen(port, () => {
 PUT is used to update or replace an entire resource.
 
 **Example:**
+
+Now, you can test put functionality using **Postman**. Set the method to **PUT** and use the following endpoint: http://localhost:3000/api/movies/:id.
 
 ```javascript
 const express = require('express');
@@ -188,7 +190,7 @@ const movie = movies.filter(movie => movie.id === movieId);
     if (movie.length > 0)
         res.json(movie);
     else
-        res.status(404).end(); // Respond status 404 Not Found
+        res.status(404).end(); // Respond status 404 (Not Found)
 });
 
 // Add new movie
@@ -243,7 +245,10 @@ PATCH is used to apply partial modifications to a resource.
    (e.g., delete a user `https://api.example.com/users/123`, `https://api.example.com/:userId`).
 5. Click "Send" to execute the DELETE request.
 6. View the response data in the response body.
-   **Example:**
+
+**Example:**
+
+Now, you can test delete functionality using **Postman**. Set the method to **DELETE** and use the following endpoint: http://localhost:3000/api/movies/:id.
 
 ```javascript
 const express = require('express');
@@ -275,7 +280,7 @@ app.get("/api/movies/:id", (req, res) => {
     if (movie.length > 0)
         res.json(movie);
     else
-        res.status(404).end(); // Respond status 404 Not Found
+        res.status(404).end(); // Respond status 404 (Not Found)
 });
 
 // Add new movie
@@ -308,7 +313,7 @@ app.delete("/api/movies/:id", (req, res) => {
 
    // Get the id of deleting movie
    movies = movies.filter(movie => movie.id !== id);
-   res.status(204).end(); // Response with status 204 No Content
+   res.status(204).end(); // Response with status 204 (No Content)
 });
 
 // Server listen and running on port ...
