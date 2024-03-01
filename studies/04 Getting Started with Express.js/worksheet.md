@@ -207,8 +207,3 @@ app.get("/api/something", (req, res) => {
         res.status(404).end
 })
 ````
-## Starting the Server:
-
-```shell
-npm start
-```
