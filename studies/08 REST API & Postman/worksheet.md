@@ -8,11 +8,13 @@ These instructions provide a basic overview of how to test different API methods
 2. Create a new request.
 3. Set the request type to GET.
 4. Enter the API endpoint URL
-   (e.g., get information about all users `https://api.example.com/users`, or a single user `https://api.example.com/:userId`).
+   (e.g., get information about all users `https://api.example.com/users`, or a single user `https://api.example.com/users/:userId`).
 5. Click "Send" to execute the GET request.
 6. View the response data in the response body.
 
 **Example:**
+
+Now, you can test get functionality using **Postman**. Set the method to **GET** and use the following endpoint: http://localhost:3000/api/movies and http://localhost:3000/api/movies/:id.
 
 ```javascript
 const express = require('express');
@@ -64,13 +66,13 @@ app.listen(port, () => {
 
 Add the following code after the **const app = express();** statement:
 
-We have to define that we are using Express body-parser.
+We have to define that we are using **Express body-parser**.
 
 ```javascript
 app.use(express.json()) // Using Express body-parser.
 ```
 
-Next, we have to implement the app.post() route that is listening for POST requests on the /api/movies endpoint.
+Next, we have to implement the **app.post()** route that is listening for **POST* requests on the **/api/movies** endpoint.
 
 ```javascript
 // Add new movie
