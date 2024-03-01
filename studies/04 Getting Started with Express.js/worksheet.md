@@ -14,7 +14,6 @@ The `npm init` command is used to initialize a new Node.js project and create a 
 5. After completing the prompts, npm will generate a `package.json` file in your project directory.
 
 ```javascript
-// package.json
 {
   "name": "helloexpress",
   "version": "1.0.0",
@@ -85,7 +84,6 @@ npm install express
 2. Import Express module at the top of your file
 
 ```javascript
-// index.js
 const express = require('express'); // Import Express module at the top of your file
 
 const app = express(); // Create an Express application by calling the express() function
@@ -148,6 +146,10 @@ app.listen(port, () => {
     console.log(`Server is running on port ${port}.`);
 });
 ```
+
+Now, if you navigate to http://localhost:3000/home/Victoria, you should see the following message.
+
+- Welcome Victoria
 
 2. You can also have multiple route parameters, for example first and last names:
 
