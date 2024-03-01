@@ -72,4 +72,4 @@ Now, you can run your web server using nodemon by typing the following command i
 npm run dev
 ```
 
-If you change your message in the res.send method and save your index.js file, you should see the change in the browser immediately.
+Every time you save changes, they should be seen in the browser immediately.
