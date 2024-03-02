@@ -1,4 +1,4 @@
-# Node.js Instructions
+# Getting Started with Node.js
 
 ## Installation
 1. Visit and download **Node.js** on the [Node.js official website](https://nodejs.org/).
