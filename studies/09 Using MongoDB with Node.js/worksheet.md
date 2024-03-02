@@ -1,8 +1,10 @@
 # Using MongoDB and Mongoose with Node.js
 
+## Create a project with Node.js
+
 1. Create Node.js project
 
-Create a new folder called nodemoviedb and change directory:
+Create a new folder called nodeMovieDB and change directory:
 
 ```bash
 mkdir mongomoviedb
@@ -27,24 +29,113 @@ npm install express
 
 ```json
 {
-    "name": "mongomoviedb",
-    "version": "1.0.0",
-    "description": "",
-    "main": "index.js",
-    "scripts": {
-        "dev": "nodemon index.js",
-        "start": "node index.js",
+  "name": "mongoMovieDB",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "dev": "nodemon index.js",
+    "start": "node index.js",
     "test": "echo \"Error: no test specified\" && exit 1"
-    },
-    "author": "",
-    "license": "ISC",
-    "dependencies": {
-        "express": "^4.17.1"
-    }
+  },
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "express": "^4.17.1"
+  }
 }
 ```
 
+5. Install Mongoose:
 
+```sh
+npm install mongoose
+```
+```json
+{
+  "name": "mongoMovieDB",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "dev": "nodemon index.js",
+    "start": "node index.js",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "express": "^4.17.1",
+    "mongoose": "^7.2.4"
+  }
+}
+```
+
+6. Create an index.js file in the root of the nodeMovieDB folder
+
+```javascript
+const express = require('express');
+
+const app = express();
+app.use(express.json());
+
+const port = 3000;
+
+app.listen(port, () => {
+    console.log(`Server is running on port ${port}.`);
+});
+```
+
+Now, you can start the web server using the npm run dev command.
+
+## Connect to MongoDB database
+
+First, we have to import mongoose library to our index.js file by adding the **require** like shown in the following code.
+
+```javascript
+const express = require('express');
+const mongoose = require('mongoose');
+
+const app = express();
+app.use(express.json());
+
+const port = 3000;
+
+app.listen(port, () => {
+  console.log(`Server is running on port ${port}.`);
+});
+```
+The db object instance is initialized when the connection is opened, and we can access that by using the mongoose.connection.
+
+```javascript
+const express = require('express');
+const mongoose = require('mongoose');
+
+const app = express();
+app.use(express.json());
+
+const port = 3000;
+
+// CONNECTING To MongoDB
+const connect = async () => {
+   try {
+      await mongoose.connect(process.env.MONGO);
+      console.log("Connected to mongoDB.");
+   } catch (error) {
+      throw error;
+   }
+};
+
+// MongoDB DISCONNECTED Message
+mongoose.connection.on("disconnected", () => {
+   console.log("mongoDB disconnected!");
+});
+
+
+app.listen(port, () => {
+console.log(`Server is running on port ${port}.`);
+});
+```
 
 
 ## Example of Blog Collections
@@ -94,43 +185,43 @@ import mongoose from "mongoose";
 const { Schema } = mongoose;
 
 const UserSchema = new Schema(
-        {
-           // username: (String) // String is shorthand for {type: String}
-           username: {
-              type: String,
-              required: true,
-              unique: true,
-           },
-           email: {
-              type: String,
-              required: true,
-              unique: true,
-           },
-           country: {
-              type: String,
-              required: true,
-           },
-           img: {
-              type: String,
-           },
-           city: {
-              type: String,
-              required: true,
-           },
-           phone: {
-              type: String,
-              required: true,
-           },
-           password: {
-              type: String,
-              required: true,
-           },
-           isAdmin: {
-              type: Boolean,
-              default: false,
-           },
+    {
+        // username: (String) // String is shorthand for {type: String}
+        username: {
+            type: String,
+            required: true,
+            unique: true,
         },
-        {timestamps: true}
+        email: {
+            type: String,
+            required: true,
+            unique: true,
+        },
+        country: {
+            type: String,
+            required: true,
+        },
+        img: {
+            type: String,
+        },
+        city: {
+            type: String,
+            required: true,
+        },
+        phone: {
+            type: String,
+            required: true,
+        },
+        password: {
+            type: String,
+            required: true,
+        },
+        isAdmin: {
+            type: Boolean,
+            default: false,
+        },
+    },
+    {timestamps: true}
 );
 
 const User = mongoose.model("User", UserSchema);
@@ -154,59 +245,59 @@ import mongoose from "mongoose";
 const { Schema } = mongoose;
 
 const HotelSchema = new Schema(
-{
-    // name: (String) // String is shorthand for {type: String}
-    name: {
-        type: String,
-        required: true,
-    },
-    type: {
-        type: String,
-        required: true,
-    },
-    city: {
-        type: String,
-        required: true,
-    },
-    address: {
-        type: String,
-        required: true,
-    },
-    distance: {
-        type: String,
-        required: true,
-    },
-    photos: {
-        type: [String], // Array of Strings
-    },
-    title: {
-        type: String,
-        required: true,
-    },
-    desc: {
-        type: String,
-        required: true,
-    },
-    rating: {
-        type: Number,
-        min: 0,
-        max: 5,
-    },
-    rooms: {
-        type: [String], // Array of Strings
-    },
-    cheapestPrice: {
-        type: Number,
-        required: true,
-    },
-    featured: {
-        type: Boolean,
-        default: false,
-    },
-});
+    {
+        // name: (String) // String is shorthand for {type: String}
+        name: {
+            type: String,
+            required: true,
+        },
+        type: {
+            type: String,
+            required: true,
+        },
+        city: {
+            type: String,
+            required: true,
+        },
+        address: {
+            type: String,
+            required: true,
+        },
+        distance: {
+            type: String,
+            required: true,
+        },
+        photos: {
+            type: [String], // Array of Strings
+        },
+        title: {
+            type: String,
+            required: true,
+        },
+        desc: {
+            type: String,
+            required: true,
+        },
+        rating: {
+            type: Number,
+            min: 0,
+            max: 5,
+        },
+        rooms: {
+            type: [String], // Array of Strings
+        },
+        cheapestPrice: {
+            type: Number,
+            required: true,
+        },
+        featured: {
+            type: Boolean,
+            default: false,
+        },
+    });
 
 const Hotel = mongoose.model("Hotel", HotelSchema);
-        
+
 export default Hotel;
 ```
 
@@ -229,7 +320,7 @@ const RoomSchema = new Schema(
         title: {
             type: String,
             required: true,
-        }, 
+        },
         price: {
             type: Number,
             required: true,
