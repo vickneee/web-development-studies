@@ -77,6 +77,24 @@ MONGO_URL=<your-mongodb-connection-url>
 
 MONGO_URL_EXAMPLE=mongodb+srv://MovieDB:MovieDB@cluster0.4nkj1va.mongodb.net/?retryWrites=true&w=majority&appName=Cluster0
 ````
+
+## Custom database name
+
+You can consider it a custom database name because it's the name you specify for your MongoDB database. This name can be anything you choose, and it's typically reflective of the purpose or content of the database.
+
+If you're using custom database name in MongoDB Atlas, the URI might look something like this (**Note!** **your_database_name_here**):
+
+
+```
+MONGO_URL=mongodb+srv://username:password@clustername.mongodb.net/your_database_name_here?retryWrites=true&w=majority
+```
+
+Example:
+
+```
+MONGO_URL=mongodb+srv://MovieDB:MovieDB@cluster0.4nkj1va.mongodb.net/moviedb?retryWrites=true&w=majority&appName=Cluster0
+```
+
 ## routes/movieRoutes.js:
 
 ```javascript
@@ -125,23 +143,6 @@ export default Movie;
 ```
 
 Ensure you have MongoDB installed and running locally or replace MONGO_URL in the .env file with your MongoDB Atlas connection URL.
-
-## Custom database name
-
-You can consider it a custom database name because it's the name you specify for your MongoDB database. This name can be anything you choose, and it's typically reflective of the purpose or content of the database.
-
-If you're using custom database name in MongoDB Atlas, the URI might look something like this (**Note!** **your_database_name_here**):
-
-
-```
-MONGO_URL=mongodb+srv://username:password@clustername.mongodb.net/your_database_name_here?retryWrites=true&w=majority
-```
-
-Example:
-
-```
-MONGO_URL=mongodb+srv://MovieDB:MovieDB@cluster0.4nkj1va.mongodb.net/moviedb?retryWrites=true&w=majority&appName=Cluster0
-```
 
 ## Get a Movie by ID
 
