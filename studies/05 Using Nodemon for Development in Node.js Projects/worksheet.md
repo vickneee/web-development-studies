@@ -34,7 +34,7 @@ nodemon yourScript.js
 
 Replace **yourScript.js** with the **entry point** of your Node.js application (e.g., **index.js**). 
 
-2. Nodemon will monitor the files in your project directory for changes. Whenever you save changes to a file, Nodemon will automatically restart the server, allowing you to see the changes without manually restarting the server.
+Nodemon will monitor the files in your project directory for changes. Whenever you save changes to a file, Nodemon will automatically restart the server, allowing you to see the changes without manually restarting the server.
 
 ## Custom Configuration
 
@@ -58,8 +58,10 @@ Replace **yourScript.js** with the **entry point** of your Node.js application (
 2. Example **package.json** script:
 
 ```json
-"scripts": {
-  "start": "nodemon index.js"
+{
+  "scripts": {
+    "start": "nodemon index.js"
+  }
 }
 ```
 
@@ -74,11 +76,13 @@ Or
 1. You can also create `npm run dev` script that will start our project using **nodemon**. Add a new dev script to scripts section.
 
 ```json
-"scripts": {
-  "dev": "nodemon index.js",
-  "start": "node index.js",
-  "test": "echo \"Error: no test specified\" && exit 1"
-},
+{
+  "scripts": {
+    "dev": "nodemon index.js",
+    "start": "node index.js",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  }
+}
 ```
 
 Now, you can run your web server using nodemon by typing the following command in your terminal:

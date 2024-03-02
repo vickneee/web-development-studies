@@ -260,13 +260,13 @@ Sometimes, you might need to undo the last commit you made in Git. Here's how yo
 cd path/to/your/repository
 ```
 
-1. **Check the commit history to confirm the last commit you want to cancel.**
+#### **Check the commit history to confirm the last commit you want to cancel.**
 
 ```bash
 git log
 ```
 
-2. **Use the git reset command to cancel the last commit.**
+#### **Use the git reset command to cancel the last commit.**
 
 ```bash
 git reset --hard HEAD~1
@@ -275,13 +275,13 @@ git reset --hard HEAD~1
 This command will move the HEAD pointer to the commit before the last commit (HEAD~1) and discard all changes introduced by the last commit.
 The --hard option indicates that both the working directory and the index will be reset to match the specified commit.
 
-3. **Verify that the last commit has been canceled by checking the commit history again.**
+#### **Verify that the last commit has been canceled by checking the commit history again.**
 
 ```bash
 git log
 ```
 
-4. **If you've pushed the changes to a remote repository, you may need to force to push the changes to update the remote repository.**
+#### **If you've pushed the changes to a remote repository, you may need to force to push the changes to update the remote repository.**
 
 ```bash
 git push origin HEAD --force
@@ -289,6 +289,6 @@ git push origin HEAD --force
 
 >**Note**: Be cautious when using git push --force as it overwrites the remote repository's history. Make sure you're not affecting other collaborators' work.
 
-5. **Once you've canceled the last commit, you can make any additional changes and commit them as needed.**
+#### **Once you've canceled the last commit, you can make any additional changes and commit them as needed.**
 
 By following these steps, you can successfully cancel or reset your last commit in Git, allowing you to make further changes or corrections as necessary.

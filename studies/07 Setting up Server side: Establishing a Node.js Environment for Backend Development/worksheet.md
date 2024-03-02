@@ -90,9 +90,11 @@ server.listen(PORT, () => {
 - Add a **"start"** script that runs `node index.js`:
 
 ```json
-"scripts": {
-  "start": "node index.js"
-},
+{
+  "scripts": {
+    "start": "node index.js"
+    }
+}
 ```
 
 9. **Install nodemon:**
@@ -113,9 +115,11 @@ yarn add nodemon --dev
 - Modify the **"start"** script to use nodemon:
 
 ```json
-"scripts": {
-  "start": "nodemon index.js"
-},
+{
+  "scripts": {
+    "start": "nodemon index.js"
+  }
+}
 ```
 
 11. **Save Changes:**

@@ -1,8 +1,51 @@
-# Setting up a React project with MongoDB and Mongoose
+# Using MongoDB and Mongoose with Node.js
 
-## Introduction to MongoDB Database Schemas
+1. Create Node.js project
 
-In the following examples, we outline the schema structures for two distinct collections: one for managing a blog platform and another for handling bookings within a hotel reservation system.
+Create a new folder called nodemoviedb and change directory:
+
+```bash
+mkdir mongomoviedb
+
+cd mongomoviedb
+```
+
+2. Initialize Node.js app
+
+```bash
+npm init
+```
+
+
+3. Install Express:
+
+```bash
+npm install express
+```
+
+4. Add **start** and **dev** **(nodemon)** scripts to the **package.json** file. Then, your **package.json** file should look like the code below.
+
+```json
+{
+    "name": "mongomoviedb",
+    "version": "1.0.0",
+    "description": "",
+    "main": "index.js",
+    "scripts": {
+        "dev": "nodemon index.js",
+        "start": "node index.js",
+    "test": "echo \"Error: no test specified\" && exit 1"
+    },
+    "author": "",
+    "license": "ISC",
+    "dependencies": {
+        "express": "^4.17.1"
+    }
+}
+```
+
+
+
 
 ## Example of Blog Collections
 
@@ -26,7 +69,7 @@ The blog collections consist of three main entities: users, posts, and comments.
         - `updatedAt`: (Date) The date when the post was last updated.
 
 3. **comments**
-    - Stores comments made by users on blog posts.
+    - Stores user made comments on blog posts.
     - Example Fields:
         - `content`: (String) The content of the comment.
         - `post_id`: (ObjectId) The ID of the post the comment belongs to.
@@ -256,70 +299,4 @@ const Booking = mongoose.model("Booking", BookingSchema);
 
 export default Booking;
 
-```
-
-## Using Local Database in React Components
-
-In this example:
-
-- We iterate over each skillsSet in the skills array using the map function, providing a unique setIndex for each set.
-- Inside each skillsSet, we use another map function to iterate over the skillsList array, providing a unique skillIndex for each skill within the set.
-- Each skill is then rendered with its corresponding data, including the link, imgSrc, imgAltText, and skillName.
-
-**Skills-DB.js:**
-
-```javascript
-import SUBLIMETEXT from "../../assets/img/skills/sublime-text.png"
-import VISUAL_STUDIO_CODE from "../../assets/img/skills/vscode.png"
-
-// Skills data
-export const skills = {
-    skillsList: [
-        {
-            link: "https://www.sublimetext.com/",
-            imgAltText: "Sublime Text",
-            imgSrc: SUBLIMETEXT,
-            skillName: "Sublime Text",
-        },
-        {
-            link: "https://code.visualstudio.com/",
-            imgAltText: "Visual Studio Code",
-            imgSrc: VISUAL_STUDIO_CODE,
-            skillName: "Visual Studio Code",
-        },
-
-    ],
-};
-```
-
-**Skills.js**
-
-```javascript
-import {skills} from "./Skills-DB";
-
-const Skills = () => {
-    return (
-        <div className="flex justify-evenly h-full m-auto">
-            <div className="p-40" id="skills">
-                <h1 className="pb-3 text-7xl">Tools and Tech Skills</h1>
-                <div className="flex shadow-md justify-evenly">
-                        <div className="flex p-20 gap-40">
-                            {skills.skillsList.map((skill, index) => (
-                                <span key={index}>
-                                    <h2 className="text-4xl mb-6">{skill.skillName}</h2>
-                                        <a href={skill.link}
-                                           target="_blank" rel="noopener noreferrer">
-                                            <img src={skill.imgSrc} alt={skill.imgAltText} className="h-20 pb-8"></img>
-                                        </a>
-                                    </span>
-                            ))}
-                        </div>
-                    </div>
-                </div>
-
-        </div>
-    );
-};
-
-export default Skills;
 ```

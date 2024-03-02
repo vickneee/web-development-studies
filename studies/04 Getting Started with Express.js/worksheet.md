@@ -59,7 +59,7 @@ Now, you can invoke our start script using the `npm start` command which then ex
 ````shell
 npm install express
 ````
-5. Now you have installed Express dependency.
+Now you have installed Express dependency.
 
 ```json
 {
@@ -151,7 +151,7 @@ Now, if you navigate to http://localhost:3000/home/Victoria, you should see the 
 
 - Welcome Victoria
 
-2. You can also have multiple route parameters, for example first and last names:
+You can also have multiple route parameters, for example first and last names:
 
 ```javascript
 app.get("/home/user/:firstname/:lastname", (req, res) => {
