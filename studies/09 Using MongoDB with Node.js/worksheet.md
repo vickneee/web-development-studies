@@ -103,18 +103,199 @@ export default router;
 ```javascript
 import mongoose from 'mongoose';
 
-const movieSchema = new mongoose.Schema({
-title: { type: String, required: true },
-director: String,
-year: Number
+const movieSchema = new Schema({
+   title: {
+      type: String,
+      required: true,
+      maxLength: 150
+   },
+   director: {
+      type: String,
+      required: true,
+      maxlength: 200
+   },
+   year: {
+      type: Number,
+      required: true
+   }
 });
-
 const Movie = mongoose.model('Movie', movieSchema);
 
 export default Movie;
 ```
 
 Ensure you have MongoDB installed and running locally or replace MONGO_URL in the .env file with your MongoDB Atlas connection URL.
+
+## Custom database name
+
+You can consider it a custom database name because it's the name you specify for your MongoDB database. This name can be anything you choose, and it's typically reflective of the purpose or content of the database.
+
+If you're using custom database name in MongoDB Atlas, the URI might look something like this (**Note!** **your_database_name_here**):
+
+
+```
+MONGO_URL=mongodb+srv://username:password@clustername.mongodb.net/your_database_name_here?retryWrites=true&w=majority
+```
+
+Example:
+
+```
+MONGO_URL=mongodb+srv://MovieDB:MovieDB@cluster0.4nkj1va.mongodb.net/moviedb?retryWrites=true&w=majority&appName=Cluster0
+```
+
+## Get a Movie by ID
+
+```javascript
+import express from 'express';
+import Movie from '../models/Movie.js';
+
+const router = express.Router();
+
+
+// Get a movie
+router.get('/movies/:id', async (req, res) => {
+   try {
+      const movie = await Movie.findById(req.params.id);
+      if (!movie) {
+         return res.status(404).json({message: "Movie not found!!!"});
+      }
+      return res.status(200).json(movie);
+   } catch (error) {
+      // Handle errors
+      console.error("Error fetching movie:", error);
+      return res.status(500).json({ message: "Internal server error" });
+   }
+});
+
+
+export default router;
+```
+
+## Get all Movies
+
+```javascript
+import express from 'express';
+import Movie from '../models/Movie.js';
+
+const router = express.Router();
+
+
+// Get all movies
+router.get('/movies', async (req, res) => {
+    try {
+        const movies = await Movie.find();
+            res.send(movies);
+    } catch (error) {
+            res.status(500).json({ error: error.message });
+    }
+});
+
+
+export default router;
+```
+
+## Add a New Movie
+
+Mongoose model has save() function that can be used to insert data to the MongoDB. If the save was invokes successfuly we will send status 201 and the new movie in the response. In the case of error, we will send status 500 and error message in the response.
+
+```javascript
+import express from 'express';
+import Movie from '../models/Movie.js';
+
+const router = express.Router();
+
+
+// Add new movie
+router.post("/movies", async (req, res) => {
+   const movie = new Movie({
+      title: req.body.title,
+      director: req.body.director,
+      year: req.body.year
+   });
+
+   try {
+      const newMovie = await movie.save();
+      res.status(201).json({ newMovie });
+   } catch(err) {
+      return res.status(500).json({ message: err.message });
+   }
+});
+
+
+export default router;
+```
+
+## Update a Movie by ID
+
+```javascript
+import express from 'express';
+import Movie from '../models/Movie.js';
+
+const router = express.Router();
+
+// Update movie by id
+router.put("/movies/:id", async (req, res) => {
+    const response = await Movie.findOneAndUpdate({ _id: req.params.id }, req.body, { new: true });
+    if (response === null) {
+        return res.status(404).json({ message: "Movie not found" });
+    }
+    return res.status(200).json({ message: "Movie updated" });
+});
+
+
+export default router;
+```
+
+## Delete a Movie by ID
+
+```javascript
+import express from 'express';
+import Movie from '../models/Movie.js';
+
+const router = express.Router();
+
+// Delete movie by Id
+router.delete("/movies/:id", async (req, res) => {
+   const movie = await Movie.findByIdAndDelete(req.params.id);
+   if (movie === null) {
+      return res.status(404).json({message: "Movie not found"});
+   }
+   return res.status(200).json({message: "Movie deleted"});
+});
+
+
+export default router;
+```
+
+## Delete a Movie by Title
+
+```javascript
+import express from 'express';
+import Movie from '../models/Movie.js';
+
+const router = express.Router();
+
+// Delete movie by title
+router.delete("/api/movies", async (req, res) => {
+   try {
+      const movie = await Movie.findOneAndDelete({ title: req.body.title });
+      if (movie) {
+         return res.status(200).json({ message: "Movie deleted" });
+      }
+      else if (!movie) {
+         return res.status(404).json({ message: "Movie not found" });
+      }
+
+
+   } catch (error) {
+      console.error("Error deleting movie:", error);
+      return res.status(500).json({ message: "Internal server error" });
+   }
+});
+
+
+export default router;
+```
 
 
 ## Example of Blog Collections
@@ -146,227 +327,3 @@ The blog collections consist of three main entities: users, posts, and comments.
         - `author`: (ObjectId) The ID of the user who made the comment.
         - `createdAt`: (Date) The date when the comment was created.
         - `updatedAt`: (Date) The date when the comment was last updated.
-
-
-## Example of Booking Collections
-
-The booking collections cater to a hotel booking platform, comprising four essential entities: users, hotels, rooms, and bookings. Users contain details of platform users, hotels store information about available accommodations, rooms represent individual rooms within hotels, and bookings record user reservations.
-
-1. **users**
-    - Stores information about users registered on the booking platform.
-    - Example Fields:
-        - `username`: (String) The unique username of the user.
-        - `email`: (String) The unique email address of the user.
-        - `password`: (String) The hashed password of the user.
-
-```javascript
-import mongoose from "mongoose";
-const { Schema } = mongoose;
-
-const UserSchema = new Schema(
-    {
-        // username: (String) // String is shorthand for {type: String}
-        username: {
-            type: String,
-            required: true,
-            unique: true,
-        },
-        email: {
-            type: String,
-            required: true,
-            unique: true,
-        },
-        country: {
-            type: String,
-            required: true,
-        },
-        img: {
-            type: String,
-        },
-        city: {
-            type: String,
-            required: true,
-        },
-        phone: {
-            type: String,
-            required: true,
-        },
-        password: {
-            type: String,
-            required: true,
-        },
-        isAdmin: {
-            type: Boolean,
-            default: false,
-        },
-    },
-    {timestamps: true}
-);
-
-const User = mongoose.model("User", UserSchema);
-
-export default User;
-```
-
-2. **hotels**
-    - Stores information about hotels available for booking.
-    - Example Fields:
-        - `name`: (String) The name of the hotel.
-        - `type`: (String) The type of the accommodation.
-        - `location`: (String) The location of the hotel.
-        - `description`: (String) A description of the hotel.
-        - `rating`: (Number) The rating of the hotel (e.g., out of 5 stars).
-        - `amenities`: (Array of Strings) The amenities offered by the hotel.
-        - `featured`: (Boolean) Indicates whether the hotel is featured or not (true/false).
-
-```javascript
-import mongoose from "mongoose";
-const { Schema } = mongoose;
-
-const HotelSchema = new Schema(
-    {
-        // name: (String) // String is shorthand for {type: String}
-        name: {
-            type: String,
-            required: true,
-        },
-        type: {
-            type: String,
-            required: true,
-        },
-        city: {
-            type: String,
-            required: true,
-        },
-        address: {
-            type: String,
-            required: true,
-        },
-        distance: {
-            type: String,
-            required: true,
-        },
-        photos: {
-            type: [String], // Array of Strings
-        },
-        title: {
-            type: String,
-            required: true,
-        },
-        desc: {
-            type: String,
-            required: true,
-        },
-        rating: {
-            type: Number,
-            min: 0,
-            max: 5,
-        },
-        rooms: {
-            type: [String], // Array of Strings
-        },
-        cheapestPrice: {
-            type: Number,
-            required: true,
-        },
-        featured: {
-            type: Boolean,
-            default: false,
-        },
-    });
-
-const Hotel = mongoose.model("Hotel", HotelSchema);
-
-export default Hotel;
-```
-
-3. **rooms**
-    - Stores information about rooms available within hotels.
-    - Example Fields:
-        - `hotel_id`: (ObjectId) The ID of the hotel to which the room belongs.
-        - `type`: (String) The type of room (e.g., single, double, suite).
-        - `price`: (Number) The price per night for the room.
-        - `availability`: (Boolean) Indicates whether the room is currently available for booking.
-        - `updatedAt`: (Date) The date when the room entry was last updated.
-
-```javascript
-import mongoose from "mongoose";
-const { Schema } = mongoose;
-
-const RoomSchema = new Schema(
-    {
-        // title: (String) // String is shorthand for {type: String}
-        title: {
-            type: String,
-            required: true,
-        },
-        price: {
-            type: Number,
-            required: true,
-        },
-        maxPeople: {
-            type: Number,
-            required: true,
-        },
-        desc: {
-            type: String,
-            required: true,
-        },
-        roomNumbers: [{number: Number, unavailableDates: {type: [Date]}}],
-    },
-    {timestamps: true}
-);
-
-const Room = mongoose.model("Room", RoomSchema);
-
-export default Room;
-```
-
-4. **bookings**
-    - Stores information about bookings made by users.
-    - Example Fields:
-        - `user_id`: (ObjectId) The ID of the user who made the booking.
-        - `room_id`: (ObjectId) The ID of the room booked.
-        - `checkInDate`: (Date) The date when the user checks into the room.
-        - `checkOutDate`: (Date) The date when the user checks out of the room.
-        - `totalPrice`: (Number) The total price of the booking.
-        - `createdAt`: (Date) The date when the booking was made.
-        - `updatedAt`: (Date) The date when the booking was last updated.
-
-```javascript
-import mongoose from "mongoose";
-const { Schema } = mongoose;
-
-const BookingSchema = new Schema(
-    {
-        user_id: {
-            type: Schema.Types.ObjectId,
-            ref: "User",
-            required: true,
-        },
-        room_id: {
-            type: Schema.Types.ObjectId,
-            ref: "Room",
-            required: true,
-        },
-        checkInDate: {
-            type: Date,
-            required: true,
-        },
-        checkOutDate: {
-            type: Date,
-            required: true,
-        },
-        totalPrice: {
-            type: Number,
-            required: true,
-        },
-    },
-    { timestamps: true }
-);
-
-const Booking = mongoose.model("Booking", BookingSchema);
-
-export default Booking;
-
-```
