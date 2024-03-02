@@ -1,141 +1,120 @@
 # Using MongoDB and Mongoose with Node.js
 
-## Create a project with Node.js
+To create an Express.js project with MongoDB integration, you'll typically need several files and directories. Here's a basic project structure along with the files you'll commonly have:
 
-1. Create Node.js project
+**project-directory/** You can name the project directory anything you like.
 
-Create a new folder called nodeMovieDB and change directory:
+**package.json:** This file holds metadata relevant to the project and manages project dependencies. You can create it by running npm init in your project directory.
+
+**index.js:** This is your main application file where you initialize and configure your Express app, set up routes, and start the server.
+
+**routes/:** This directory contains route handlers for different parts of your API. Each route handler file will handle specific API routes and their corresponding logic.
+
+**models/:** This directory contains Mongoose models that define the structure of your MongoDB documents. Each model file corresponds to a collection in your MongoDB database.
+
+**.env:** This file holds environment variables that your application needs. It should include sensitive information like database connection strings or API keys.
+
+## Here's a basic structure for your project:
 
 ```bash
-mkdir mongomoviedb
-
-cd mongomoviedb
+Copy code
+project-root/
+│
+├── index.js
+├── package.json
+├── .env
+├── routes/
+│   └── movieRoutes.js
+│
+└── models/
+└── Movie.js
 ```
 
-2. Initialize Node.js app
+Now, let's create these files:
 
-```bash
+## index.js:
+
+```javascript
+import express from 'express';
+import mongoose from 'mongoose';
+import dotenv from 'dotenv';
+import movieRouter from './routes/movieRoutes.js';
+
+const app = express();
+dotenv.config();
+
+// Middleware
+app.use(express.json());
+
+// Routes
+app.use('/api/movies', movieRouter);
+
+// MongoDB connection
+mongoose.connect(process.env.MONGO_URL)
+    .then(() => console.log('Connected to MongoDB'))
+    .catch(err => console.error('Failed to connect to MongoDB', err));
+
+// Start the server
+const port = process.env.PORT || 3000;
+app.listen(port, () => console.log(`Server running on port ${port}`));
+```
+
+## package.json: 
+
+You can create this file by running npm init in your project directory.
+
+```shell
 npm init
 ```
 
+## .env:
 
-3. Install Express:
+Add port and your MongoDB URL. 
 
-```bash
-npm install express
-```
+```makefile
+PORT=3000
+MONGO_URL=<your-mongodb-connection-url>
 
-4. Add **start** and **dev** **(nodemon)** scripts to the **package.json** file. Then, your **package.json** file should look like the code below.
-
-```json
-{
-  "name": "mongoMovieDB",
-  "version": "1.0.0",
-  "description": "",
-  "main": "index.js",
-  "scripts": {
-    "dev": "nodemon index.js",
-    "start": "node index.js",
-    "test": "echo \"Error: no test specified\" && exit 1"
-  },
-  "author": "",
-  "license": "ISC",
-  "dependencies": {
-    "express": "^4.17.1"
-  }
-}
-```
-
-5. Install Mongoose:
-
-```sh
-npm install mongoose
-```
-```json
-{
-  "name": "mongoMovieDB",
-  "version": "1.0.0",
-  "description": "",
-  "main": "index.js",
-  "scripts": {
-    "dev": "nodemon index.js",
-    "start": "node index.js",
-    "test": "echo \"Error: no test specified\" && exit 1"
-  },
-  "author": "",
-  "license": "ISC",
-  "dependencies": {
-    "express": "^4.17.1",
-    "mongoose": "^7.2.4"
-  }
-}
-```
-
-6. Create an index.js file in the root of the nodeMovieDB folder
+MONGO_URL_EXAMPLE=mongodb+srv://MovieDB:MovieDB@cluster0.4nkj1va.mongodb.net/?retryWrites=true&w=majority&appName=Cluster0
+````
+## routes/movieRoutes.js:
 
 ```javascript
-const express = require('express');
+import express from 'express';
+import Movie from '../models/Movie.js';
 
-const app = express();
-app.use(express.json());
+const router = express.Router();
 
-const port = 3000;
-
-app.listen(port, () => {
-    console.log(`Server is running on port ${port}.`);
+// Define routes
+router.get('/', async (req, res) => {
+    try {
+        const movies = await Movie.find();
+        res.json(movies);
+    } catch (error) {
+        res.status(500).json({ error: error.message });
+    }
 });
+
+export default router;
 ```
 
-Now, you can start the web server using the npm run dev command.
-
-## Connect to MongoDB database
-
-First, we have to import mongoose library to our index.js file by adding the **require** like shown in the following code.
+## models/Movie.js:
 
 ```javascript
-const express = require('express');
-const mongoose = require('mongoose');
+import mongoose from 'mongoose';
 
-const app = express();
-app.use(express.json());
-
-const port = 3000;
-
-app.listen(port, () => {
-  console.log(`Server is running on port ${port}.`);
+const movieSchema = new mongoose.Schema({
+title: { type: String, required: true },
+director: String,
+year: Number
 });
+
+const Movie = mongoose.model('Movie', movieSchema);
+
+export default Movie;
 ```
-The db object instance is initialized when the connection is opened, and we can access that by using the mongoose.connection.
 
-```javascript
-const express = require('express');
-const mongoose = require('mongoose');
-
-const app = express();
-app.use(express.json());
-
-const port = 3000;
-
-// CONNECTING To MongoDB
-const connect = async () => {
-   try {
-      await mongoose.connect(process.env.MONGO);
-      console.log("Connected to mongoDB.");
-   } catch (error) {
-      throw error;
-   }
-};
-
-// MongoDB DISCONNECTED Message
-mongoose.connection.on("disconnected", () => {
-   console.log("mongoDB disconnected!");
-});
-
-
-app.listen(port, () => {
-console.log(`Server is running on port ${port}.`);
-});
-```
+Ensure you have MongoDB installed and running locally or replace MONGO_URL in the .env file with your MongoDB Atlas connection URL.
 
 
 ## Example of Blog Collections
