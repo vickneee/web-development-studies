@@ -26,14 +26,13 @@ project-root/
 ├── index.js
 ├── package.json
 ├── .env
-├── routes/
-│   └── carRoutes.js
-│
 ├── controllers/
 │   └── carController.js
-│
-└── models/
-    └── Car.js
+├── models/
+│   └── Car.js
+└──  routes/
+    └── carRoutes.js
+
 ```
 
 Now, let's create these files:
@@ -101,32 +100,6 @@ Example:
 
 ```
 MONGO_URL=mongodb+srv://CarDB:CarDB@cluster0.4nkj1va.mongodb.net/carDB?retryWrites=true&w=majority&appName=Cluster0
-```
-
-## routes/carRoutes.js:
-
-```javascript
-import express from 'express';
-import carsController from '../controllers/carsController.js';
-
-const router = express.Router();
-
-// Get all cars
-router.get('/', carsController.getAllCars);
-
-// Get a car by ID
-router.get('/:id', carsController.getCarById);
-
-// Create a new car
-router.post('/', carsController.createCar);
-
-// Update a car by ID
-router.put('/:id', carsController.updateCarById);
-
-// Delete a car by ID
-router.delete('/:id', carsController.deleteCarById);
-
-export default router;
 ```
 
 ## controllers/carsController.js
@@ -222,4 +195,30 @@ const carSchema = new mongoose.Schema({
 const Car = mongoose.model('Car', carSchema);
 
 export default Car;
+```
+
+## routes/carRoutes.js:
+
+```javascript
+import express from 'express';
+import carsController from '../controllers/carsController.js';
+
+const router = express.Router();
+
+// Get all cars
+router.get('/', carsController.getAllCars);
+
+// Get a car by ID
+router.get('/:id', carsController.getCarById);
+
+// Create a new car
+router.post('/', carsController.createCar);
+
+// Update a car by ID
+router.put('/:id', carsController.updateCarById);
+
+// Delete a car by ID
+router.delete('/:id', carsController.deleteCarById);
+
+export default router;
 ```
