@@ -103,7 +103,7 @@ app.listen(port, () => console.log(`Server running on port ${port}`));
 
 ## controllers/movieController.js:
 
-```javascrit
+```javascript
 import Movie from '../models/Movie.js';
 
 const MovieController = {
@@ -229,6 +229,8 @@ export default router;
 ```
 
 Ensure you have MongoDB installed and running locally or replace MONGO_URL in the .env file with your MongoDB Atlas connection URL.
+
+## Separate controllers examples
 
 ## Add a New Movie
 
