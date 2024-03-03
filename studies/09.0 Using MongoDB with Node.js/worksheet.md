@@ -89,7 +89,7 @@ dotenv.config();
 app.use(express.json());
 
 // Routes
-app.use('/api/movies', MovieRouter);
+app.use('/', MovieRouter);
 
 // MongoDB connection
 mongoose.connect(process.env.MONGO_URL)
@@ -221,7 +221,7 @@ router.get('/movies/:id', MovieController.getMovieById);
 router.get('/movies', MovieController.getAllMovies);
 router.put("/movies/:id", MovieController.updateMovieById);
 router.delete("/movies/:id", MovieController.deleteMovieById);
-router.delete("/api/movies", MovieController.deleteMovieByTitle);
+router.delete("/movies", MovieController.deleteMovieByTitle);
 
 export default router;
 ```
