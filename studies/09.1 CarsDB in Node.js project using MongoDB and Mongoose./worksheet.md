@@ -23,10 +23,13 @@ project-root/
 │
 ├── controllers/
 │   └── carController.js
+│
 ├── models/
 │   └── Car.js
+│
 ├──  routes/
 │   └── carRoutes.js
+│
 ├── .env
 ├── index.js
 └── package.json
