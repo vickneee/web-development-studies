@@ -35,6 +35,14 @@ project-root/
 
 Now, let's create these files:
 
+## package.json:
+
+You can create this file by running npm init in your project directory.
+
+```shell
+npm init
+```
+
 ## .env:
 
 Add port and your MongoDB URL.
@@ -90,14 +98,6 @@ mongoose.connect(process.env.MONGO_URL)
 // Start the server
 const port = process.env.PORT || 3000;
     app.listen(port, () => console.log(`Server running on port ${port}`));
-```
-
-## package.json:
-
-You can create this file by running npm init in your project directory.
-
-```shell
-npm init
 ```
 
 ## controllers/carsController.js
