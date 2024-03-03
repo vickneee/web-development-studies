@@ -21,7 +21,7 @@ During the MongoDB section, I had questions about certain aspects. In our school
 I'd like to learn and understand more about code testing and MongoDB aggregations (I found that on YouTube and want to know more about that). I need to practice more how to connect Node.js and SQL databases. That part of the course was, at the moment, challenging. It needs just more practicing.
 
 ### Meaning and Future Use:
-I will definitely use Node.js, Express.js, REST APIs, securing REST APIs, Postman, MongoDB, and code testing in my future as a developer. I could also need to use SQL databases, which I learned about a year ago at the Vantaan Ammattiopisto Varia and Metropolitan course, but I haven't had any chance to use my knowledge yet. I will definitely practice that part of the course more.
+I will definitely use Node.js, Express.js, REST APIs, securing REST APIs, Postman, MongoDB, and code testing in my future as a developer. I could also need to use SQL databases, which I learned about a year ago at the Vantaan Ammattiopisto Varia and Metropolitan course, but I haven't had any chance to use my knowledge yet. I will definitely nneed to practice that part of the course more.
 
 ## Conclusion:
 These lectures were very interesting to learn and practice. There were many chances to practice, which I liked a lot. 
