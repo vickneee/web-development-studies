@@ -2,7 +2,7 @@
 
 To create an Express.js project with MongoDB integration, you'll typically need several files and directories. Here's a basic project structure along with the files you'll commonly have:
 
-**project-directory/** You can name the project directory anything you like.
+**project-root/** You can name the project-root directory anything you like.
 
 **package.json:** This file holds metadata relevant to the project and manages project dependencies. You can create it by running npm init in your project directory.
 
@@ -84,7 +84,6 @@ You can consider it a custom database name because it's the name you specify for
 
 If you're using custom database name in MongoDB Atlas, the URI might look something like this (**Note!** **your_database_name_here**):
 
-
 ```
 MONGO_URL=mongodb+srv://username:password@clustername.mongodb.net/your_database_name_here?retryWrites=true&w=majority
 ```
@@ -144,6 +143,37 @@ export default Movie;
 
 Ensure you have MongoDB installed and running locally or replace MONGO_URL in the .env file with your MongoDB Atlas connection URL.
 
+## Add a New Movie
+
+Mongoose model has save() function that can be used to insert data to the MongoDB. If the save was invokes successfuly we will send status 201 and the new movie in the response. In the case of error, we will send status 500 and error message in the response.
+
+```javascript
+import express from 'express';
+import Movie from '../models/Movie.js';
+
+const router = express.Router();
+
+
+// Add new movie
+router.post("/movies", async (req, res) => {
+   const movie = new Movie({
+      title: req.body.title,
+      director: req.body.director,
+      year: req.body.year
+   });
+
+   try {
+      const newMovie = await movie.save();
+      res.status(201).json({ newMovie });
+   } catch(err) {
+      return res.status(500).json({ message: err.message });
+   }
+});
+
+
+export default router;
+```
+
 ## Get a Movie by ID
 
 ```javascript
@@ -195,37 +225,6 @@ router.get('/movies', async (req, res) => {
 export default router;
 ```
 
-## Add a New Movie
-
-Mongoose model has save() function that can be used to insert data to the MongoDB. If the save was invokes successfuly we will send status 201 and the new movie in the response. In the case of error, we will send status 500 and error message in the response.
-
-```javascript
-import express from 'express';
-import Movie from '../models/Movie.js';
-
-const router = express.Router();
-
-
-// Add new movie
-router.post("/movies", async (req, res) => {
-   const movie = new Movie({
-      title: req.body.title,
-      director: req.body.director,
-      year: req.body.year
-   });
-
-   try {
-      const newMovie = await movie.save();
-      res.status(201).json({ newMovie });
-   } catch(err) {
-      return res.status(500).json({ message: err.message });
-   }
-});
-
-
-export default router;
-```
-
 ## Update a Movie by ID
 
 ```javascript
@@ -255,7 +254,7 @@ import Movie from '../models/Movie.js';
 
 const router = express.Router();
 
-// Delete movie by Id
+// Delete movie by id
 router.delete("/movies/:id", async (req, res) => {
    const movie = await Movie.findByIdAndDelete(req.params.id);
    if (movie === null) {
@@ -297,7 +296,6 @@ router.delete("/api/movies", async (req, res) => {
 
 export default router;
 ```
-
 
 ## Example of Blog Collections
 
