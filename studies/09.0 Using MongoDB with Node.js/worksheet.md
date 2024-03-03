@@ -186,7 +186,7 @@ export default MovieController;
 ```javascript
 import mongoose from 'mongoose';
 
-const movieSchema = new Schema({
+const MovieSchema = new Schema({
    title: {
       type: String,
       required: true,
@@ -202,7 +202,7 @@ const movieSchema = new Schema({
       required: true
    }
 });
-const Movie = mongoose.model('Movie', movieSchema);
+const Movie = mongoose.model('Movie', MovieSchema);
 
 export default Movie;
 ```
