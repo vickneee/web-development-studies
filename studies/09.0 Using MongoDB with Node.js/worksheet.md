@@ -4,9 +4,6 @@ To create an Express.js project with MongoDB integration, you'll typically need 
 
 **project-root/** You can name the project-root directory anything you like.
 
-**package.json:** This file holds metadata relevant to the project and manages project dependencies. You can create it by running npm init in your project directory.
-
-**index.js:** This is your main application file where you initialize and configure your Express app, set up routes, and start the server.
 
 **routes/:** This directory contains route handlers for different parts of your API. Each route handler file will handle specific API routes and their corresponding logic.
 
@@ -14,50 +11,27 @@ To create an Express.js project with MongoDB integration, you'll typically need 
 
 **.env:** This file holds environment variables that your application needs. It should include sensitive information like database connection strings or API keys.
 
+**index.js:** This is your main application file where you initialize and configure your Express app, set up routes, and start the server.
+
+**package.json:** This file holds metadata relevant to the project and manages project dependencies. You can create it by running npm init in your project directory.
+
 ## Here's a basic structure for your project:
 
 ```bash
 Copy code
 project-root/
 │
-├── index.js
-├── package.json
-├── .env
 ├── routes/
 │   └── movieRoutes.js
-│
-└── models/
-└── Movie.js
+├──  models/
+│   └── Movie.js
+├── .env
+├── index.js
+└── package.json
+
 ```
 
 Now, let's create these files:
-
-## index.js:
-
-```javascript
-import express from 'express';
-import mongoose from 'mongoose';
-import dotenv from 'dotenv';
-import movieRouter from './routes/movieRoutes.js';
-
-const app = express();
-dotenv.config();
-
-// Middleware
-app.use(express.json());
-
-// Routes
-app.use('/api/movies', movieRouter);
-
-// MongoDB connection
-mongoose.connect(process.env.MONGO_URL)
-    .then(() => console.log('Connected to MongoDB'))
-    .catch(err => console.error('Failed to connect to MongoDB', err));
-
-// Start the server
-const port = process.env.PORT || 3000;
-app.listen(port, () => console.log(`Server running on port ${port}`));
-```
 
 ## package.json: 
 
@@ -94,25 +68,111 @@ Example:
 MONGO_URL=mongodb+srv://MovieDB:MovieDB@cluster0.4nkj1va.mongodb.net/moviedb?retryWrites=true&w=majority&appName=Cluster0
 ```
 
-## routes/movieRoutes.js:
+## index.js:
 
 ```javascript
 import express from 'express';
+import mongoose from 'mongoose';
+import dotenv from 'dotenv';
+import movieRouter from './routes/movieRoutes.js';
+
+const app = express();
+dotenv.config();
+
+// Middleware
+app.use(express.json());
+
+// Routes
+app.use('/api/movies', movieRouter);
+
+// MongoDB connection
+mongoose.connect(process.env.MONGO_URL)
+    .then(() => console.log('Connected to MongoDB'))
+    .catch(err => console.error('Failed to connect to MongoDB', err));
+
+// Start the server
+const port = process.env.PORT || 3000;
+app.listen(port, () => console.log(`Server running on port ${port}`));
+```
+
+## controllers/movieController.js:
+
+```javascrit
 import Movie from '../models/Movie.js';
 
-const router = express.Router();
+const MovieController = {
+  // Add new movie
+  addMovie: async (req, res) => {
+    const { title, director, year } = req.body;
+    const movie = new Movie({ title, director, year });
 
-// Define routes
-router.get('/', async (req, res) => {
     try {
-        const movies = await Movie.find();
-        res.json(movies);
-    } catch (error) {
-        res.status(500).json({ error: error.message });
+      const newMovie = await movie.save();
+      res.status(201).json({ newMovie });
+    } catch (err) {
+      res.status(500).json({ message: err.message });
     }
-});
+  },
 
-export default router;
+  // Get a movie by ID
+  getMovieById: async (req, res) => {
+    try {
+      const movie = await Movie.findById(req.params.id);
+      if (!movie) {
+        return res.status(404).json({ message: "Movie not found!!!" });
+      }
+      return res.status(200).json(movie);
+    } catch (error) {
+      console.error("Error fetching movie:", error);
+      return res.status(500).json({ message: "Internal server error" });
+    }
+  },
+
+  // Get all movies
+  getAllMovies: async (req, res) => {
+    try {
+      const movies = await Movie.find();
+      res.send(movies);
+    } catch (error) {
+      res.status(500).json({ error: error.message });
+    }
+  },
+
+  // Update a movie by ID
+  updateMovieById: async (req, res) => {
+    const response = await Movie.findOneAndUpdate({ _id: req.params.id }, req.body, { new: true });
+    if (response === null) {
+      return res.status(404).json({ message: "Movie not found" });
+    }
+    return res.status(200).json({ message: "Movie updated" });
+  },
+
+  // Delete a movie by ID
+  deleteMovieById: async (req, res) => {
+    const movie = await Movie.findByIdAndDelete(req.params.id);
+    if (movie === null) {
+      return res.status(404).json({ message: "Movie not found" });
+    }
+    return res.status(200).json({ message: "Movie deleted" });
+  },
+
+  // Delete a movie by title
+  deleteMovieByTitle: async (req, res) => {
+    try {
+      const movie = await Movie.findOneAndDelete({ title: req.body.title });
+      if (movie) {
+        return res.status(200).json({ message: "Movie deleted" });
+      } else {
+        return res.status(404).json({ message: "Movie not found" });
+      }
+    } catch (error) {
+      console.error("Error deleting movie:", error);
+      return res.status(500).json({ message: "Internal server error" });
+    }
+  }
+};
+
+export default MovieController;
 ```
 
 ## models/Movie.js:
@@ -139,6 +199,27 @@ const movieSchema = new Schema({
 const Movie = mongoose.model('Movie', movieSchema);
 
 export default Movie;
+```
+
+## routes/movieRoutes.js:
+
+```javascript
+import express from 'express';
+import Movie from '../models/Movie.js';
+
+const router = express.Router();
+
+// Define routes
+router.get('/', async (req, res) => {
+    try {
+        const movies = await Movie.find();
+        res.json(movies);
+    } catch (error) {
+        res.status(500).json({ error: error.message });
+    }
+});
+
+export default router;
 ```
 
 Ensure you have MongoDB installed and running locally or replace MONGO_URL in the .env file with your MongoDB Atlas connection URL.
@@ -292,7 +373,6 @@ router.delete("/api/movies", async (req, res) => {
       return res.status(500).json({ message: "Internal server error" });
    }
 });
-
 
 export default router;
 ```
