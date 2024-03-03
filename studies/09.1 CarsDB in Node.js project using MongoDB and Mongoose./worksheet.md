@@ -91,7 +91,7 @@ const app = express();
 app.use(express.json());
 
 // Routes
-app.use('/api/cars', carRoutes); // Car routes
+app.use('/cars', carRoutes); // Car routes
 
 // MongoDB connection
 mongoose.connect(process.env.MONGO_URL)
