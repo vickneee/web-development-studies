@@ -4,6 +4,7 @@ To create an Express.js project with MongoDB integration, you'll typically need 
 
 **project-root/** You can name the project-root directory anything you like.
 
+**controllers/:** This directory contains controller files responsible for handling the business logic of your application. Controllers interact with models to perform CRUD operations and handle requests and responses.
 
 **routes/:** This directory contains route handlers for different parts of your API. Each route handler file will handle specific API routes and their corresponding logic.
 
