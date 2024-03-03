@@ -83,7 +83,8 @@ import dotenv from 'dotenv';
 import MovieRouter from './routes/MovieRoutes.js';
 
 const app = express();
-dotenv.config();
+
+dotenv.config(); // Load environment variables
 
 // Middleware
 app.use(express.json());
