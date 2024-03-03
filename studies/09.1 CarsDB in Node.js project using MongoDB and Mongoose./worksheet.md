@@ -2,7 +2,7 @@
 
 To create an Express.js project with MongoDB integration, you'll typically need several files and directories. Here's a basic project structure along with the files you'll commonly have:
 
-**project-directory/:** You can name the project directory anything you like.
+**project-root/:** You can name the project directory anything you like.
 
 **package.json:** This file holds metadata relevant to the project and manages project dependencies. You can create it by running npm init in your project directory.
 
@@ -21,7 +21,7 @@ By including controllers in your project structure, you can separate concerns an
 ## Here's a basic structure for your project:
 
 ```shell
-project-directory/
+project-root/
 │
 ├── index.js
 ├── package.json
