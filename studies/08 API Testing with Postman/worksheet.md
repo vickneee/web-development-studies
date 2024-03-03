@@ -35,11 +35,11 @@ app.get("/api/movies", (req, res) => {
     res.json(movies);
 });
 
-// Get movie by id
+// Get a movie by id
 app.get("/api/movies/:id", (req, res) => {
     const movieId = req.params.id;
 
-    // Filter movie by id
+    // Filter a movie by id
     const movie = movies.filter(movie => movie.id === movieId);
     if (movie.length > 0)
         res.json(movie);
@@ -114,7 +114,7 @@ app.get("/api/movies", (req, res) => {
     res.json(movies);
 });
 
-// Get movie by id
+// Get a movie by id
 app.get("/api/movies/:id", (req, res) => {
     const movieId = req.params.id;
 
@@ -181,11 +181,11 @@ app.get("/api/movies", (req, res) => {
     res.json(movies);
 });
 
-// Get movie by id
+// Get a movie by id
 app.get("/api/movies/:id", (req, res) => {
     const movieId = req.params.id;
 
-// Filter movie by id
+// Filter a movie by id
 const movie = movies.filter(movie => movie.id === movieId);
     if (movie.length > 0)
         res.json(movie);
@@ -204,7 +204,7 @@ app.post("/api/movies", (req, res) => {
    res.json(newMovie);
 });
 
-// Update movie
+// Update a movie
 app.put("/api/movies/:id", (req, res) => {
    const id = req.params.id;
    const updatedMovie = {'id': id, ...req.body};
@@ -271,7 +271,7 @@ app.get("/api/movies", (req, res) => {
     res.json(movies);
 });
 
-// Get movie by id
+// Get a movie by id
 app.get("/api/movies/:id", (req, res) => {
     const movieId = req.params.id;
 
@@ -294,7 +294,7 @@ app.post("/api/movies", (req, res) => {
    res.json(newMovie);
 });
 
-// Update movie
+// Update a movie
 app.put("/api/movies/:id", (req, res) => {
    const id = req.params.id;
    const updatedMovie = {'id': id, ...req.body};
@@ -307,7 +307,7 @@ app.put("/api/movies/:id", (req, res) => {
    res.json(updatedMovie);
 });
 
-// Delete movie
+// Delete a movie
 app.delete("/api/movies/:id", (req, res) => {
    const id = req.params.id;
 
