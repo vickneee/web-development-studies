@@ -4,17 +4,17 @@ To create an Express.js project with MongoDB integration, you'll typically need 
 
 **project-root/:** You can name the project directory anything you like.
 
-**package.json:** This file holds metadata relevant to the project and manages project dependencies. You can create it by running npm init in your project directory.
-
 **index.js:** This is your main application file where you initialize and configure your Express app, set up routes, and start the server.
 
-**routes/:** This directory contains route handlers for different parts of your API. Each route handler file will handle specific API routes and their corresponding logic.
+**package.json:** This file holds metadata relevant to the project and manages project dependencies. You can create it by running npm init in your project directory.
+
+**.env:** This file holds environment variables that your application needs. It should include sensitive information like database connection strings or API keys.
 
 **controllers/:** This directory contains controller files responsible for handling the business logic of your application. Controllers interact with models to perform CRUD operations and handle requests and responses.
 
 **models/:** This directory contains Mongoose models that define the structure of your MongoDB documents. Each model file corresponds to a collection in your MongoDB database.
 
-**.env:** This file holds environment variables that your application needs. It should include sensitive information like database connection strings or API keys.
+**routes/:** This directory contains route handlers for different parts of your API. Each route handler file will handle specific API routes and their corresponding logic.
 
 By including controllers in your project structure, you can separate concerns and keep your codebase organized and maintainable.
 
@@ -23,19 +23,46 @@ By including controllers in your project structure, you can separate concerns an
 ```shell
 project-root/
 │
-├── index.js
-├── package.json
-├── .env
 ├── controllers/
 │   └── carController.js
 ├── models/
 │   └── Car.js
-└──  routes/
-    └── carRoutes.js
+├──  routes/
+│   └── carRoutes.js
+├── .env
+├── index.js
+└── package.json
 
 ```
 
 Now, let's create these files:
+
+## .env:
+
+Add port and your MongoDB URL.
+
+```makefile
+PORT=3000
+MONGO_URL=<your-mongodb-connection-url>
+
+MONGO_URL_EXAMPLE=mongodb+srv://CarDB:CarDB@cluster0.4nkj1va.mongodb.net/?retryWrites=true&w=majority&appName=Cluster0
+```
+
+## Custom database name
+
+You can consider it a custom database name because it's the name you specify for your MongoDB database. This name can be anything you choose, and it's typically reflective of the purpose or content of the database.
+
+If you're using custom database name in MongoDB Atlas, the URI might look something like this (**Note!** **your_database_name_here**):
+
+```
+MONGO_URL=mongodb+srv://username:password@clustername.mongodb.net/your_database_name_here?retryWrites=true&w=majority
+```
+
+Example:
+
+```
+MONGO_URL=mongodb+srv://CarDB:CarDB@cluster0.4nkj1va.mongodb.net/carDB?retryWrites=true&w=majority&appName=Cluster0
+```
 
 ## index.js:
 
@@ -73,33 +100,6 @@ You can create this file by running npm init in your project directory.
 
 ```shell
 npm init
-```
-
-## .env:
-
-Add port and your MongoDB URL.
-
-```makefile
-PORT=3000
-MONGO_URL=<your-mongodb-connection-url>
-
-MONGO_URL_EXAMPLE=mongodb+srv://CarDB:CarDB@cluster0.4nkj1va.mongodb.net/?retryWrites=true&w=majority&appName=Cluster0
-```
-
-## Custom database name
-
-You can consider it a custom database name because it's the name you specify for your MongoDB database. This name can be anything you choose, and it's typically reflective of the purpose or content of the database.
-
-If you're using custom database name in MongoDB Atlas, the URI might look something like this (**Note!** **your_database_name_here**):
-
-```
-MONGO_URL=mongodb+srv://username:password@clustername.mongodb.net/your_database_name_here?retryWrites=true&w=majority
-```
-
-Example:
-
-```
-MONGO_URL=mongodb+srv://CarDB:CarDB@cluster0.4nkj1va.mongodb.net/carDB?retryWrites=true&w=majority&appName=Cluster0
 ```
 
 ## controllers/carsController.js
