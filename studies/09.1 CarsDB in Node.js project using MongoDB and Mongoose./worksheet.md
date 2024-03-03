@@ -22,13 +22,13 @@ To create an Express.js project with MongoDB integration, you'll typically need 
 project-root/
 │
 ├── controllers/
-│   └── carController.js
+│   └── CarController.js
 │
 ├── models/
 │   └── Car.js
 │
 ├──  routes/
-│   └── carRoutes.js
+│   └── CarRoutes.js
 │
 ├── .env
 ├── index.js
@@ -81,7 +81,7 @@ import express from 'express';
 import mongoose from 'mongoose';
 import dotenv from 'dotenv';
 
-import carRoutes from './routes/carRoutes.js'; // Import car routes
+import CarRoutes from './routes/CarRoutes.js'; // Import car routes
 
 dotenv.config(); // Load environment variables
 
@@ -91,7 +91,7 @@ const app = express();
 app.use(express.json());
 
 // Routes
-app.use('/cars', carRoutes); // Car routes
+app.use('/', CarRoutes); // Car routes
 
 // MongoDB connection
 mongoose.connect(process.env.MONGO_URL)
@@ -108,7 +108,7 @@ const port = process.env.PORT || 3000;
 ```javascript
 import Car from '../models/Car.js';
 
-const carsController = {
+const CarsController = {
     // Get all cars
     getAllCars: async (req, res) => {
         try {
@@ -170,7 +170,7 @@ const carsController = {
     }
 };
 
-export default carsController;
+export default CarsController;
 ```
 
 ## models/Car.js:
@@ -178,7 +178,7 @@ export default carsController;
 ```javascript
 import mongoose from 'mongoose';
 
-const carSchema = new mongoose.Schema({
+const CarSchema = new mongoose.Schema({
     brand: { 
         type: String, 
         required: true },
@@ -193,7 +193,7 @@ const carSchema = new mongoose.Schema({
         required: true }
 });
 
-const Car = mongoose.model('Car', carSchema);
+const Car = mongoose.model('Car', CarSchema);
 
 export default Car;
 ```
@@ -202,24 +202,24 @@ export default Car;
 
 ```javascript
 import express from 'express';
-import carsController from '../controllers/carsController.js';
+import CarsController from '../controllers/CarsController.js';
 
 const router = express.Router();
 
+// Create a new car
+router.post('/cars', CarsController.createCar);
+
 // Get all cars
-router.get('/', carsController.getAllCars);
+router.get('/cars', CarsController.getAllCars);
 
 // Get a car by ID
-router.get('/:id', carsController.getCarById);
-
-// Create a new car
-router.post('/', carsController.createCar);
+router.get('/cars/:id', CarsController.getCarById);
 
 // Update a car by ID
-router.put('/:id', carsController.updateCarById);
+router.put('/cars/:id', CarsController.updateCarById);
 
 // Delete a car by ID
-router.delete('/:id', carsController.deleteCarById);
+router.delete('/cars/:id', CarsController.deleteCarById);
 
 export default router;
 ```
