@@ -211,19 +211,17 @@ export default Movie;
 
 ```javascript
 import express from 'express';
-import Movie from '../models/Movie.js';
+import MovieController from './MovieController.js';
 
 const router = express.Router();
 
 // Define routes
-router.get('/', async (req, res) => {
-    try {
-        const movies = await Movie.find();
-        res.json(movies);
-    } catch (error) {
-        res.status(500).json({ error: error.message });
-    }
-});
+router.post("/movies", MovieController.addMovie);
+router.get('/movies/:id', MovieController.getMovieById);
+router.get('/movies', MovieController.getAllMovies);
+router.put("/movies/:id", MovieController.updateMovieById);
+router.delete("/movies/:id", MovieController.deleteMovieById);
+router.delete("/api/movies", MovieController.deleteMovieByTitle);
 
 export default router;
 ```
