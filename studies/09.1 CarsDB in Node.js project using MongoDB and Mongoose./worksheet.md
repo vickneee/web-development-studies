@@ -4,19 +4,17 @@ To create an Express.js project with MongoDB integration, you'll typically need 
 
 **project-root/:** You can name the project directory anything you like.
 
-**index.js:** This is your main application file where you initialize and configure your Express app, set up routes, and start the server.
-
-**package.json:** This file holds metadata relevant to the project and manages project dependencies. You can create it by running npm init in your project directory.
-
-**.env:** This file holds environment variables that your application needs. It should include sensitive information like database connection strings or API keys.
-
 **controllers/:** This directory contains controller files responsible for handling the business logic of your application. Controllers interact with models to perform CRUD operations and handle requests and responses.
 
 **models/:** This directory contains Mongoose models that define the structure of your MongoDB documents. Each model file corresponds to a collection in your MongoDB database.
 
 **routes/:** This directory contains route handlers for different parts of your API. Each route handler file will handle specific API routes and their corresponding logic.
 
-By including controllers in your project structure, you can separate concerns and keep your codebase organized and maintainable.
+**.env:** This file holds environment variables that your application needs. It should include sensitive information like database connection strings or API keys.
+
+**index.js:** This is your main application file where you initialize and configure your Express app, set up routes, and start the server.
+
+**package.json:** This file holds metadata relevant to the project and manages project dependencies. You can create it by running npm init in your project directory.
 
 ## Here's a basic structure for your project:
 
