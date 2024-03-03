@@ -58,7 +58,7 @@ MONGO_URL=<your-mongodb-connection-url>
 MONGO_URL_EXAMPLE=mongodb+srv://MovieDB:MovieDB@cluster0.4nkj1va.mongodb.net/?retryWrites=true&w=majority&appName=Cluster0
 ````
 
-## Custom database name
+## Custom database name:
 
 You can consider it a custom database name because it's the name you specify for your MongoDB database. This name can be anything you choose, and it's typically reflective of the purpose or content of the database.
 
@@ -228,9 +228,9 @@ export default router;
 
 Ensure you have MongoDB installed and running locally or replace MONGO_URL in the .env file with your MongoDB Atlas connection URL.
 
-## Separate controllers examples
+## Separate Controllers Examples
 
-## Add a New Movie
+## Add a New Movie:
 
 Mongoose model has save() function that can be used to insert data to the MongoDB. If the save was invokes successfuly we will send status 201 and the new movie in the response. In the case of error, we will send status 500 and error message in the response.
 
@@ -261,7 +261,7 @@ router.post("/movies", async (req, res) => {
 export default router;
 ```
 
-## Get a Movie by ID
+## Get a Movie by ID:
 
 ```javascript
 import express from 'express';
@@ -289,7 +289,7 @@ router.get('/movies/:id', async (req, res) => {
 export default router;
 ```
 
-## Get all Movies
+## Get all Movies:
 
 ```javascript
 import express from 'express';
@@ -312,7 +312,7 @@ router.get('/movies', async (req, res) => {
 export default router;
 ```
 
-## Update a Movie by ID
+## Update a Movie by ID:
 
 ```javascript
 import express from 'express';
@@ -333,7 +333,7 @@ router.put("/movies/:id", async (req, res) => {
 export default router;
 ```
 
-## Delete a Movie by ID
+## Delete a Movie by ID:
 
 ```javascript
 import express from 'express';
@@ -354,7 +354,7 @@ router.delete("/movies/:id", async (req, res) => {
 export default router;
 ```
 
-## Delete a Movie by Title
+## Delete a Movie by Title:
 
 ```javascript
 import express from 'express';
@@ -383,7 +383,7 @@ router.delete("/api/movies", async (req, res) => {
 export default router;
 ```
 
-## Example of Blog Collections
+## Example of Blog Collections:
 
 The blog collections consist of three main entities: users, posts, and comments. Users store information about registered users, posts contain details of blog posts authored by users, and comments capture user-generated feedback on blog posts.
 
