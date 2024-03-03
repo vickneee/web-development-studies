@@ -26,11 +26,11 @@ To perform aggregations with **MongoDB** using the aggregation **pipeline**, fol
 
 2. **Define Aggregation Pipeline**: Define the aggregation **pipeline**, which consists of multiple stages such as `$match`, `$group`, `$project`, etc., each performing specific operations on the data.
 
-3. **Execute Aggregation**: Use the `aggregate()` method provided by the MongoDB client to execute the aggregation **pipeline** on the desired collection.
+3. **Execute Aggregation**: Use the `aggregate()` method provided by the **MongoDB** client to execute the aggregation **pipeline** on the desired collection.
 
 4. **Handle Results**: Handle the results of the aggregation operation returned by **MongoDB**. You can then process or display the aggregated data as needed.
 
-Here's an example of a basic aggregation **pipeline** in **MongoDB**:
+Here's an example of a basic **aggregation pipeline** in **MongoDB**:
 
 ```javascript
 db.collection.aggregate([
@@ -39,7 +39,7 @@ db.collection.aggregate([
     { $sort: { total: -1 } }
 ]);
 ```
-This pipeline filters documents based on a condition, groups them by a certain field, calculates the total value for each group, and then sorts the results in descending order of total value.
+This **pipeline** filters documents based on a condition, **groups** them by a certain field, **calculates** the total value for each group, and then **sorts** the results in descending order of total value.
     
 ## General example: (not tested)
 
@@ -99,7 +99,7 @@ console.log(`Server is running on http://localhost:${port}`);
 
 ## Update a year: (not tested)
 
-If you want to update documents based on the results of an aggregation, you can use the aggregation pipeline to compute the values you want to update with, and then use the results to perform updates. Here's how you can do it:
+If you want to update documents based on the results of an aggregation, you can use the **aggregation pipeline** to compute the values you want to update with, and then use the results to perform updates. Here's how you can do it:
 
 ```javascript
 
