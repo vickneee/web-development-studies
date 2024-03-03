@@ -23,10 +23,10 @@ Copy code
 project-root/
 │
 ├── controllers/
-│   └── movieController.js
+│   └── MovieController.js
 │ 
 ├── routes/
-│   └── movieRoutes.js
+│   └── MovieRoutes.js
 │ 
 ├──  models/
 │   └── Movie.js
@@ -80,7 +80,7 @@ MONGO_URL=mongodb+srv://MovieDB:MovieDB@cluster0.4nkj1va.mongodb.net/moviedb?ret
 import express from 'express';
 import mongoose from 'mongoose';
 import dotenv from 'dotenv';
-import movieRouter from './routes/movieRoutes.js';
+import MovieRouter from './routes/MovieRoutes.js';
 
 const app = express();
 dotenv.config();
@@ -89,7 +89,7 @@ dotenv.config();
 app.use(express.json());
 
 // Routes
-app.use('/api/movies', movieRouter);
+app.use('/api/movies', MovieRouter);
 
 // MongoDB connection
 mongoose.connect(process.env.MONGO_URL)
