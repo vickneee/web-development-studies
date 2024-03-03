@@ -129,31 +129,6 @@ router.delete('/:id', carsController.deleteCarById);
 export default router;
 ```
 
-## models/Car.js:
-
-```javascript
-import mongoose from 'mongoose';
-
-const carSchema = new mongoose.Schema({
-    brand: { 
-        type: String, 
-        required: true },
-    model: { 
-        type: String, 
-        required: true },
-    color: { 
-        type: String, 
-        required: true },
-    year: { 
-        type: Number, 
-        required: true }
-});
-
-const Car = mongoose.model('Car', carSchema);
-
-export default Car;
-```
-
 ## controllers/carsController.js
 
 ```javascript
@@ -222,4 +197,29 @@ const carsController = {
 };
 
 export default carsController;
+```
+
+## models/Car.js:
+
+```javascript
+import mongoose from 'mongoose';
+
+const carSchema = new mongoose.Schema({
+    brand: { 
+        type: String, 
+        required: true },
+    model: { 
+        type: String, 
+        required: true },
+    color: { 
+        type: String, 
+        required: true },
+    year: { 
+        type: Number, 
+        required: true }
+});
+
+const Car = mongoose.model('Car', carSchema);
+
+export default Car;
 ```
