@@ -12,7 +12,7 @@ During my school programming course classes, I was recently actively working on 
 I learned about code testing for the first time, and I feel like I need to understand it better. I also introduced myself to the Pug Template engine and Azure deployment for the first time, but right now, I don't think I need to learn more about them.
 
 ### Specific Interesting Points:
-I found REST APIs, securing REST APIs (Hashing, salting), and testing particularly interesting. Also, MongoDB is my favourite.
+I found REST APIs, securing REST APIs, and testing particularly interesting. Also, MongoDB is my favourite.
 
 ### Questions Arising:
 I faced the SQL and Node.js part with the problem that my macOS computer could not be able to download the PostgresSQL server and GUI. I tried it many times. I tried even different versions (16, 15, and 14). I picked up my other macOS, and the issue was still there. It was frustrating, and I decided to use MySQL, which is familiar to me. I believe it should not be a problem. It was still challenging, but at least things worked out. It took me more than one day. Finally, I got a good understanding of my code and even connected my MySQL database to the WebStorm IDE. I will try to download PostgresSQL maybe later again. 
