@@ -1,4 +1,4 @@
-# JWT (JSON Web Tokens) Authorization Worksheet and Study Guide
+# JWT (JSON Web Tokens) Authorization Worksheet
 
 ## Introduction
 
