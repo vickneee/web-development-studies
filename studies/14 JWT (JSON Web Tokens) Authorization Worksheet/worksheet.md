@@ -62,7 +62,7 @@ export const verifyAdmin = (req, res, next) => {
 
 This code now checks both the `Authorization` header and the `access_token` cookie for the token. It also logs any errors that occur during token verification. The `verifyUser` and `verifyAdmin` functions now pass any errors from `verifyToken` to the next middleware, instead of calling `verifyToken` with a callback.
 
-## Worksheet
+## JWT (JSON Web Tokens)  
 
 JWT (JSON Web Tokens) are an open, industry standard method for representing claims securely between two parties. They are commonly used for authorization. Once a user is logged in, each later request will include the JWT, allowing the user to access routes, services, and resources that are permitted with that token.
 
