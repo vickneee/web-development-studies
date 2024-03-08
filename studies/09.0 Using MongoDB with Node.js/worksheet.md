@@ -233,14 +233,13 @@ Ensure you have MongoDB installed and running locally or replace MONGO_URL in th
 
 ## Add a New Movie:
 
-Mongoose model has save() function that can be used to insert data to the MongoDB. If the save was invokes successfuly we will send status 201 and the new movie in the response. In the case of error, we will send status 500 and error message in the response.
+Mongoose model has save() function that can be used to insert data to the MongoDB. If the save was invokes successfully we will send status 201 and the new movie in the response. In the case of error, we will send status 500 and error message in the response.
 
 ```javascript
 import express from 'express';
 import Movie from '../models/Movie.js';
 
 const router = express.Router();
-
 
 // Add new movie
 router.post("/movies", async (req, res) => {
@@ -269,7 +268,6 @@ import express from 'express';
 import Movie from '../models/Movie.js';
 
 const router = express.Router();
-
 
 // Get a movie
 router.get('/movies/:id', async (req, res) => {

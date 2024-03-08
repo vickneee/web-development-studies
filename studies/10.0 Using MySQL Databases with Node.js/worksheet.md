@@ -5,6 +5,7 @@
 This code sets up an Express server with endpoints to perform CRUD operations (Create, Read, Update, Delete) on a MySQL database table named customers. It uses an express application to handle HTTP requests and a mysql connection pool to interact with the MySQL database.
 
 ```javascript
+// index.js
 import express from 'express';
 import mysql from 'mysql';
 
@@ -98,8 +99,3 @@ app.listen(port, () => {
 });
 ```
 
-**Example:**
-
-```javascript
-
-```
