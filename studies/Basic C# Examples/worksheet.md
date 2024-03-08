@@ -416,7 +416,12 @@ bool myBool = true;             // Boolean
 string myText = "Hello";        // String
 ```
 
-2. **Operators**: C# includes operators like `+` (addition), `-` (subtraction), `*` (multiplication), `/` (division), and `%` (modulus). It also includes comparison and logical operators.
+2. **Operators**: C# includes operators like 
+  `+` (addition), 
+  `-` (subtraction), 
+  `*` (multiplication), 
+  `/` (division), and 
+  `%` (modulus). It also includes comparison and logical operators.
 
 3. **Control Structures**: These include if-else statements, switch statements, and loops (for, while, do-while).
 
