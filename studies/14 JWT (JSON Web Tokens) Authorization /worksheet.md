@@ -1,6 +1,70 @@
 # JWT (JSON Web Tokens) Authorization Worksheet and Study Guide
 
-JWT (JSON Web Tokens) are an open, industry standard method for representing claims securely between two parties. They are commonly used for authorization. Once a user is logged in, each subsequent request will include the JWT, allowing the user to access routes, services, and resources that are permitted with that token.
+## Introduction
+
+```javascript
+import jwt from "jsonwebtoken";
+import { createError } from "./error.js";
+
+// Extract token from request
+const extractToken = (req) => {
+  const bearerToken = req.headers.authorization;
+  const cookieToken = req.cookies.access_token;
+  return bearerToken?.split(' ')[1] || cookieToken;
+};
+
+// VERIFY Token
+export const verifyToken = (req, res, next) => {
+  const token = extractToken(req);
+  if (!token) {
+    return next(createError(401, "You are not authenticated!"));
+  }
+
+  // Processing TOKEN with JWT SECRET KEY
+  jwt.verify(token, process.env.JWT, (err, user) => {
+    if (err) {
+      console.error(err);
+      return next(createError(403, "Token is not valid!"));
+    }
+    req.user = user;
+    next();
+  });
+};
+
+// VERIFY User
+export const verifyUser = (req, res, next) => {
+  verifyToken(req, res, (err) => {
+    if (err) {
+      return next(err);
+    }
+    if (req.user.id === req.params.id) {
+      next();
+    } else {
+      return next(createError(403, "You are not authorized!"));
+    }
+  });
+};
+
+// VERIFY Admin
+export const verifyAdmin = (req, res, next) => {
+  verifyToken(req, res, (err) => {
+    if (err) {
+      return next(err);
+    }
+    if (req.user.isAdmin) {
+      next();
+    } else {
+      return next(createError(403, "You are not authorized!"));
+    }
+  });
+};
+```
+
+This code now checks both the `Authorization` header and the `access_token` cookie for the token. It also logs any errors that occur during token verification. The `verifyUser` and `verifyAdmin` functions now pass any errors from `verifyToken` to the next middleware, instead of calling `verifyToken` with a callback.
+
+## Worksheet
+
+JWT (JSON Web Tokens) are an open, industry standard method for representing claims securely between two parties. They are commonly used for authorization. Once a user is logged in, each later request will include the JWT, allowing the user to access routes, services, and resources that are permitted with that token.
 
 Here's a basic example of how you can use JWT in a Node.js application with Express and jsonwebtoken library:
 
@@ -62,4 +126,4 @@ router.get('/protected', authMiddleware, (req, res) => {
 });
 ```
 
-In this code, `authMiddleware` is used as a middleware for the `/protected` route. This means that the `authMiddleware` function will be called before the route handler function. If the token is valid, `req.user` will be available in your route handler function.
+In this code, `authMiddleware` is used as middleware for the `/protected` route. This means that the `authMiddleware` function will be called before the route handler function. If the token is valid, `req.user` will be available in your route handler function.
