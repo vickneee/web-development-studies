@@ -403,3 +403,123 @@ if (int.TryParse(numberAsString, out int result)) {
 ```
 
 This is a safer way to handle the conversion as it allows you to handle cases where the string is not a valid integer without your program crashing due to an exception.
+
+## More Examples:
+
+1. **Variables and Data Types**: In C#, you have various data types such as int (integer), double (floating point numbers), char (characters), and bool (boolean values: true/false). You can declare a variable with a specific type like this:
+
+```csharp
+int myNumber = 5;               // Integer (whole number)
+double myDoubleNum = 5.99D;     // Floating point number
+char myLetter = 'D';            // Character
+bool myBool = true;             // Boolean
+string myText = "Hello";        // String
+```
+
+2. **Operators**: C# includes operators like `+` (addition), `-` (subtraction), `*` (multiplication), `/` (division), and `%` (modulus). It also includes comparison and logical operators.
+
+3. **Control Structures**: These include if-else statements, switch statements, and loops (for, while, do-while).
+
+```csharp
+int time = 20;
+if (time < 18) {
+  Console.WriteLine("Good day.");
+} else {
+  Console.WriteLine("Good evening.");
+}
+```
+
+4. **Arrays**: An array is used to store multiple values in a single variable.
+
+```csharp
+string[] cars = {"Volvo", "BMW", "Ford", "Mazda"};
+```
+
+5. **Classes and Objects**: A class is a blueprint for creating objects (a particular data structure), providing initial values for state (member variables or attributes), and implementations of behavior (member functions or methods).
+
+```csharp
+public class Car
+{
+  public string model;  // Create a field
+
+  // Create a class constructor for the Car class
+  public Car()
+  {
+    model = "Mustang";  // Set the initial value for model
+  }
+
+  public void honk()             // Create a class method
+  {                    
+    Console.WriteLine("Tuut, tuut!"); 
+  }
+}
+
+Car myObj = new Car();  // Create an object of the Car class
+myObj.honk();  // Call the honk() method
+```
+
+6. **Inheritance**: Inheritance is a way of creating a new class using properties and methods of an existing class.
+
+```csharp
+// Base class
+public class Vehicle
+{
+  public string brand = "Ford";  // Vehicle field
+  public void honk()             // Vehicle method 
+  {                    
+    Console.WriteLine("Tuut, tuut!");
+  }
+}
+
+// Derived class
+public class Car : Vehicle
+{
+  public string modelName = "Mustang";  // Car field
+}
+
+Car myCar = new Car();
+
+myCar.honk();
+
+Console.WriteLine(myCar.brand + " " + myCar.modelName);
+```
+
+7. **Interfaces**: An interface is a completely abstract class, which can have only abstract methods and properties.
+
+```csharp
+interface IAnimal 
+{
+  void animalSound(); // interface method (does not have a body)
+}
+
+// Pig "implements" the IAnimal interface
+class Pig : IAnimal 
+{
+  public void animalSound() 
+  {
+    // The body of animalSound() is provided here
+    Console.WriteLine("The pig says: wee wee");
+  }
+}
+
+Pig myPig = new Pig();  // Create a Pig object
+myPig.animalSound();
+```
+
+8. **Exception Handling**: The try/catch/finally statement is used to handle exceptions (errors) that occur when running a program.
+
+```csharp
+try 
+{
+  int[] myNumbers = {1, 2, 3};
+  Console.WriteLine(myNumbers[10]);
+} 
+catch (Exception e) 
+{
+  Console.WriteLine("Something went wrong.");
+} 
+finally 
+{
+  Console.WriteLine("The 'try catch' is finished.");
+}
+```
