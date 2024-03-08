@@ -26,6 +26,39 @@
   char character = characterString[0];
   ```
 
+- **Converting an integer to a string:**
+
+```csharp
+int number = 123;
+string numberAsString = number.ToString();
+Console.WriteLine(numberAsString); // Outputs: "123"
+```
+
+In this case, `ToString()` is a method provided by the `int` type that converts the number to its string representation.
+
+- **Converting a string to an integer:**
+
+```csharp
+string numberAsString = "456";
+int number = int.Parse(numberAsString);
+Console.WriteLine(number); // Outputs: 456
+```
+
+Here, `int.Parse()` is a static method of the `int` type that tries to parse the string as an integer. It will throw an exception if the string cannot be parsed into an integer (e.g., if it contains non-numeric characters).
+
+To safely convert a string to an integer, you can use `int.TryParse()` which doesn't throw an exception, but returns a boolean indicating success, and outputs the parsed number through an out parameter:
+
+```csharp
+string numberAsString = "789";
+if (int.TryParse(numberAsString, out int result)) {
+    Console.WriteLine(result); // Outputs: 789 if the conversion was successful
+} else {
+    Console.WriteLine("The string is not a valid integer.");
+}
+```
+
+This is a safer way to handle the conversion as it allows you to handle cases where the string is not a valid integer without your program crashing due to an exception.
+
 ### 2. Lists and Arrays
 - **Adding to List**:
   ```csharp
@@ -370,39 +403,6 @@ user.SetPassword("secret");
 bool isPasswordCorrect = user.CheckPassword("secret");
 Console.WriteLine($"Password correct: {isPasswordCorrect}");
 ```
-
-### Converting an integer to a string:
-
-```csharp
-int number = 123;
-string numberAsString = number.ToString();
-Console.WriteLine(numberAsString); // Outputs: "123"
-```
-
-In this case, `ToString()` is a method provided by the `int` type that converts the number to its string representation.
-
-### Converting a string to an integer:
-
-```csharp
-string numberAsString = "456";
-int number = int.Parse(numberAsString);
-Console.WriteLine(number); // Outputs: 456
-```
-
-Here, `int.Parse()` is a static method of the `int` type that tries to parse the string as an integer. It will throw an exception if the string cannot be parsed into an integer (e.g., if it contains non-numeric characters).
-
-To safely convert a string to an integer, you can use `int.TryParse()` which doesn't throw an exception, but returns a boolean indicating success, and outputs the parsed number through an out parameter:
-
-```csharp
-string numberAsString = "789";
-if (int.TryParse(numberAsString, out int result)) {
-    Console.WriteLine(result); // Outputs: 789 if the conversion was successful
-} else {
-    Console.WriteLine("The string is not a valid integer.");
-}
-```
-
-This is a safer way to handle the conversion as it allows you to handle cases where the string is not a valid integer without your program crashing due to an exception.
 
 ## More Examples:
 
