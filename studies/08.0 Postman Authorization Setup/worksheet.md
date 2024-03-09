@@ -1,10 +1,10 @@
-### Postman Authorization Setup
+# Postman Authorization Setup
 
 1. First, you need to obtain the token. If you're using the application described in the context, you can do this by sending a POST request to the `/users/auth/login` endpoint with the `email` and `password` in the request body. The response will contain the token.
 
 2. Once you have the token, go to the "Environment" section in Postman (located in the top left corner).
 
-3. Click on the "Globals" button to create a new environment.
+3. Click on the "Globals" button to create a new variable.
 
 4. In the "Globals", add a new variable named `Token` (or any name you prefer). You can add to the Initial value  `---`.
 

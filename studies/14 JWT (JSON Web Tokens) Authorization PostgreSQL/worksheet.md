@@ -706,7 +706,7 @@ Delete a movie by ID.
 
 2. Once you have the token, go to the "Environment" section in Postman (located in the top left corner).
 
-3. Click on the "Globals" button to create a new environment.
+3. Click on the "Globals" button to create a new variable.
 
 4. In the "Globals", add a new variable named `Token` (or any name you prefer). You can add to the Initial value  `---`.
 
