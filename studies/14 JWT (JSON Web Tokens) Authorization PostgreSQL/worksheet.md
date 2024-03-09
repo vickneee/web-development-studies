@@ -499,7 +499,13 @@ const UserController = {
 export default UserController;
 ```
 
-14. Add npm scripts to the `package.json` file to start the server:
+14. To install the required dependencies, run the following command in the terminal:
+
+```bash
+npm install
+```
+
+15. Add npm scripts to the `package.json` file to start the server:
 
 ```json
 {
