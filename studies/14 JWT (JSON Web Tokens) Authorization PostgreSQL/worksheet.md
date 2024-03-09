@@ -2,6 +2,27 @@
 
 This is a simple example of a Node.js application that uses a Postgres database. The application is a REST API that allows users to perform CRUD operations on a database of movies. The application uses the `pg` module to connect to the Postgres database and execute SQL queries.
 
+## Project Structure
+
+```sh
+nodemovies-postgres
+└───controllers
+│   │---MovieController.js
+│   └───UserController.js
+└───db
+│   └───db.js   
+└───routes
+│   │---MovieRoutes.js
+│   │---UserRoutes.js
+│   └───AuthRoutes.js
+└───services
+│   └───Authenticate.js  
+│---.env
+│---index.js
+│---package.json
+│---package-lock.json
+└───...
+```
 ## Setup
 
 1. Create a new directory for the project and navigate to it:
@@ -678,3 +699,24 @@ Delete a movie by ID.
 - `500`: Server error.
 
 ---
+
+### Postman Authorization Setup
+
+1. First, you need to obtain the token. If you're using the application described in the context, you can do this by sending a POST request to the `/users/auth/login` endpoint with the `email` and `password` in the request body. The response will contain the token.
+
+2. Once you have the token, go to the "Environment" section in Postman (located in the top left corner).
+
+3. Click on the "Globals" button to create a new environment.
+
+4. In the "Globals", add a new variable named `Token` (or any name you prefer). You can add to the Initial value  `---`.
+
+5. To the Current value, add your token. Save. This will create a global variable that you can use in your requests. You can also create more variables if you want to use different tokens for different environments (e.g., development, testing, production)
+
+6. In the request that requires authentication, go to the "Authorization" tab and select "Bearer Token" from the TYPE dropdown. In the "Token" field, enter `{{Token}}`. This will insert the value of the `Token` variable from the current environment.
+
+7. Now, when you send this request, it will include the Bearer token in the Authorization header, authorizing the request.
+
+
+---
+
+## Example pictures
