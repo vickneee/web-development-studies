@@ -1,63 +1,80 @@
-# JWT (JSON Web Tokens) Authorization Worksheet
-
-## Introduction
+# JSON Web Token Example
 
 ```javascript
-import jwt from "jsonwebtoken";
-import { createError } from "./error.js";
+const express = require('express');
+const bodyParser = require('body-parser');
+const query = require('./db/customers');
+const auth = require('./services/authenticate');
 
-// Extract token from request
-const extractToken = (req) => {
-  const bearerToken = req.headers.authorization;
-  const cookieToken = req.cookies.access_token;
-  return bearerToken?.split(' ')[1] || cookieToken;
-};
+const app = express();
+app.use(bodyParser.json());
+app.use(bodyParser.urlencoded({ extended: false }));
 
-// VERIFY Token
-export const verifyToken = (req, res, next) => {
-  const token = extractToken(req);
-  if (!token) {
-    return next(createError(401, "You are not authenticated!"));
-  }
+const port = 3000;
 
-  // Processing TOKEN with JWT SECRET KEY
-  jwt.verify(token, process.env.JWT, (err, user) => {
-    if (err) {
-      console.error(err);
-      return next(createError(403, "Token is not valid!"));
-    }
-    req.user = user;
-    next();
-  });
-};
+process.env.SECRET_KEY = "5b1a3923cc1e1e19523fd5c3f20b409509d3ff9d42710a4da095a2ce285b009f0c3730cd9b8e1af3eb84d";
 
-// VERIFY User
-export const verifyUser = (req, res, next) => {
-  verifyToken(req, res, (err) => {
-    if (err) {
-      return next(err);
-    }
-    if (req.user.id === req.params.id) {
-      next();
-    } else {
-      return next(createError(403, "You are not authorized!"));
-    }
-  });
-};
+// Routes for REST API
+app.get("/api/customers", auth.authenticate, query.getAllCustomers);
+app.post("/api/customers", auth.authenticate, query.addCustomer);
+app.delete("/api/customers/:id", auth.authenticate, query.deleteCustomer);
+app.put("/api/customers/:id", auth.authenticate, query.updateCustomer);
+// Route for authentication
+app.post("/login", auth.login);
 
-// VERIFY Admin
-export const verifyAdmin = (req, res, next) => {
-  verifyToken(req, res, (err) => {
-    if (err) {
-      return next(err);
-    }
-    if (req.user.isAdmin) {
-      next();
-    } else {
-      return next(createError(403, "You are not authorized!"));
-    }
-  });
-};
+app.listen(port, () => {
+  console.log(`Server is running on port ${port}.`);
+});
+
+module.exports = app;
 ```
 
-This code now checks both the `Authorization` header and the `access_token` cookie for the token. It also logs any errors that occur during token verification. The `verifyUser` and `verifyAdmin` functions now pass any errors from `verifyToken` to the next middleware, instead of calling `verifyToken` with a callback.
+```javascript
+// services/Authenticate.js
+const jwt = require('jsonwebtoken');
+const user = require('../db/users');
+const bcrypt = require('bcrypt');
+
+
+// User login
+const login = (req, res) => {
+  const email = req.body.email;
+  const password = req.body.password;
+
+  const loginUser = user.getUserByEmail(email, (user) => {
+    if (user.length > 0) {
+      const hash = user[0].password;
+      const token = jwt.sign({userId: email}, process.env.SECRET_KEY);
+
+      if (bcrypt.compareSync(password, hash))
+        res.send({token});
+      else
+        res.sendStatus(400).end();
+    }
+    else {
+      res.sendStatus(400).end();
+    }
+  });
+}
+
+// User authentication
+const authenticate = (req, res, next) => {
+  const token = req.header('Authorization');
+  if(!token) {
+    res.sendStatus(400).end();
+  }
+  
+  jwt.verify(token, process.env.SECRET_KEY, (err, decoded) => {
+    if (err)
+      res.sendStatus(400).end();
+    else
+      next();
+  });
+} 
+
+module.exports = {
+  authenticate: authenticate,
+  login: login
+}
+```
+
