@@ -4,13 +4,25 @@ This is a simple example of a Node.js application that uses a Postgres database.
 
 ## Setup
 
-1. Install the `pg` module using npm:
+1. Create a new directory for the project and navigate to it:
+
+   ```bash
+   mkdir node-movie-postgres
+   cd node-movie-postgres
+   ```
+2. Initialize the project using npm:
+
+   ```bash
+   npm init -y
+   ```
+
+3. Install the `pg` module using npm:
 
    ```bash
    npm install pg
    ```
 
-2. Create a Postgres database and a table to store movies and users:
+4. Create a Postgres database and a table to store movies and users:
 
 ```sql
 CREATE TABLE movies (
@@ -33,7 +45,7 @@ CREATE TABLE users (
 INSERT INTO users (email, password) VALUES ('example@email', 'password');
 ```
 
-3. Create a file called `.env` to store environment variables:
+5. Create a file called `.env` to store environment variables:
 
 ```dotenv
 # .env
@@ -41,7 +53,7 @@ INSERT INTO users (email, password) VALUES ('example@email', 'password');
 SECRET_KEY="5b1a3923cc1e1e19523fd5c3f20b409509d3ff9d42710a4da095a2ce285b009f0c3730cd9b8e1af3eb84d";
 ```
 
-4. Create a file called `index.js`:
+6. Create a file called `index.js`:
 
 ```javascript
 // index.js
@@ -79,7 +91,7 @@ app.listen(port, () => console.log(`Server running on port ${port}`));
 
 ```
 
-5. Create a file called `db.js` to connect to the database:
+7. Create a file called `db.js` to connect to the database:
 
 ```javascript
 // db/db.js
@@ -97,7 +109,7 @@ const db = new Pool({
 export default db;
 ```
 
-6. Create a file called `Authenticate.js` to define the authentication service:
+8. Create a file called `Authenticate.js` to define the authentication service:
 
 ```javascript
 // services/Authenticate.js
@@ -187,10 +199,9 @@ export default {
    login,
    createUser
 }
-
 ```
 
-7. Create a file called `AuthRoutes.js` to define the routes for user authentication:
+9. Create a file called `AuthRoutes.js` to define the routes for user authentication:
 
 ```javascript
 // routes/AuthRoutes.js
@@ -210,10 +221,9 @@ router.post("/", auth.createUser);
 router.post("/", auth.login);
 
 export default router;
-
 ```
 
-8. Create a file called `UserRoutes.js` to define the routes for the REST API:
+10. Create a file called `UserRoutes.js` to define the routes for the REST API:
 
 ```javascript
 // routes/UserRoutes.js
@@ -234,7 +244,7 @@ export default router;
 
 ```
 
-9. Create a file called `MovieRoutes.js` to define the routes for the REST API:
+11. Create a file called `MovieRoutes.js` to define the routes for the REST API:
 
 ```javascript
 // routes/MovieRoutes.js
@@ -258,7 +268,7 @@ router.delete("/:id", auth.authenticate, MovieController.deleteMovieById);
 export default router;
 ```
 
-10. Create a file called `MovieController.js` to define the CRUD operations for movies:
+12. Create a file called `MovieController.js` to define the CRUD operations for movies:
 
 ```javascript
 // controllers/MovieController.js
@@ -352,7 +362,7 @@ const MovieController = {
 export default MovieController;
 ```
 
-11. Create a file called `UserController.js` to define the CRUD operations for users:
+13. Create a file called `UserController.js` to define the CRUD operations for users:
 
 ```javascript
 // controllers/UserController.js
@@ -432,15 +442,21 @@ const UserController = {
 export default UserController;
 ```
 
-## API Endpoints and Usage
+14. Run the application using the following command:
 
-The application provides the following API endpoints:
+```bash
+node index.js
+```
+
+15. Test the application using a tool like Postman.
+
+16. The application provides the following API endpoints:
 
 ## User API
 
 ## Routes
 
-### POST /users
+### POST users/auth/register
 
 Create a new user.
 
@@ -452,9 +468,12 @@ Create a new user.
 - `200`: User created successfully.
 - `500`: Server error.
 
-### POST /users/login
+### POST /users/auth/login
 
 Login a user.
+
+**Authentication:**
+- This route requires authentication.
 
 **Parameters:**
 - `email`: The email of the user.
@@ -463,20 +482,6 @@ Login a user.
 **Responses:**
 - `200`: User logged in successfully.
 - `401`: Unauthorized.
-- `500`: Server error.
-
-### DELETE /users/:email
-
-Deletes a user by email.
-
-**Authentication:**
-- This route requires authentication.
-
-**Parameters:**
-- `email`: The email of the user to delete.
-
-**Responses:**
-- `200`: User deleted successfully.
 - `500`: Server error.
 
 ### DELETE /users/:email
@@ -527,7 +532,7 @@ Create a new movie.
 - `200`: Movie created successfully.
 - `500`: Server error.
 
-### GET /
+### GET /movies
 
 Gets all movies.
 
@@ -552,7 +557,7 @@ Get a movie by ID.
 - `200`: Movie retrieved successfully.
 - `500`: Server error.
 
-### PUT /:id
+### PUT /movies/:id
 
 Updates a movie by ID.
 
