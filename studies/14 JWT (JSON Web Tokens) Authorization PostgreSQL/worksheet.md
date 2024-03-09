@@ -42,7 +42,7 @@ CREATE TABLE users (
     password VARCHAR(255) NOT NULL
 );
 
-INSERT INTO users (email, password) VALUES ('example@email', 'password');
+INSERT INTO users (email, password) VALUES ('Victoria@email.com', 'Victoria007'); # Replace with your own email and password
 ```
 
 5. Create a file called `.env` to store environment variables:
@@ -96,15 +96,15 @@ app.listen(port, () => console.log(`Server running on port ${port}`)); // Start 
 
 ```javascript
 // db/db.js
-import pkg from 'pg';
-const { Pool } = pkg;
+import pkg from 'pg'; // Import the pg module
+const { Pool } = pkg; // Destructure the Pool class from the pg module
 
 const db = new Pool({
-    user: "victoriavavulina",
-    host: "localhost",
-    port: 5432,
-    database: "movies",
-    password: "postgres"
+    user: "victoriavavulina", // Replace with your own username
+    host: "localhost", // Replace with your own host
+    port: 5432, // Replace with your own port
+    database: "movies", // Replace with your own database name
+    password: "postgres" // Replace with your own password
 })
 
 export default db;
