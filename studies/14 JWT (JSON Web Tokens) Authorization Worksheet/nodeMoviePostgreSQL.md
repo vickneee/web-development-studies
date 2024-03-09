@@ -452,11 +452,9 @@ node index.js
 
 16. The application provides the following API endpoints:
 
-## User API
+#### User API Routes
 
-## Routes
-
-### POST users/auth/register
+#### POST users/auth/register
 
 Create a new user.
 
@@ -468,7 +466,7 @@ Create a new user.
 - `200`: User created successfully.
 - `500`: Server error.
 
-### POST /users/auth/login
+#### POST /users/auth/login
 
 Login a user.
 
@@ -484,7 +482,7 @@ Login a user.
 - `401`: Unauthorized.
 - `500`: Server error.
 
-### DELETE /users/:email
+#### DELETE /users/:email
 
 Delete a user by Email.
 
@@ -498,7 +496,7 @@ Delete a user by Email.
 - `200`: User deleted successfully.
 - `500`: Server error.
 
-### DELETE /users/id/:id
+#### DELETE /users/id/:id
 
 Delete a user by ID.
 
@@ -512,11 +510,9 @@ Delete a user by ID.
 - `200`: User deleted successfully.
 - `500`: Server error.
 
-## Movie API
+#### Movie API Routes
 
-## Routes
-
-### POST /movies
+#### POST /movies
 
 Create a new movie.
 
@@ -532,7 +528,7 @@ Create a new movie.
 - `200`: Movie created successfully.
 - `500`: Server error.
 
-### GET /movies
+#### GET /movies
 
 Gets all movies.
 
@@ -543,7 +539,7 @@ Gets all movies.
 - `200`: Movies retrieved successfully.
 - `500`: Server error.
 
-### GET /movies/:id
+#### GET /movies/:id
 
 Get a movie by ID.
 
@@ -557,7 +553,7 @@ Get a movie by ID.
 - `200`: Movie retrieved successfully.
 - `500`: Server error.
 
-### PUT /movies/:id
+#### PUT /movies/:id
 
 Updates a movie by ID.
 
@@ -574,7 +570,7 @@ Updates a movie by ID.
 - `200`: Movie updated successfully.
 - `500`: Server error.
 
-### DELETE /movies/:id
+#### DELETE /movies/:id
 
 Delete a movie by ID.
 
