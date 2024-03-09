@@ -716,7 +716,26 @@ Delete a movie by ID.
 
 7. Now, when you send this request, it will include the Bearer token in the Authorization header, authorizing the request.
 
+1. Get Token from Login
+
+![Example Image](1-GetTokenFromLogin.png)
+
+2. Make Global Variable
+
+![Example Image](2-MakeGlobalVariable.png)
+
+3. Use Global Variable
+
+![Example Image](3-UseGlobalVariable.png)
 
 ---
 
-## Example pictures
+## Example pictures of the PostgreSQL database
+
+1. Movies Table
+
+![Example Image](MoviesDb.png)
+
+2. Users Table 
+
+![Example Image](UsersDb.png)
