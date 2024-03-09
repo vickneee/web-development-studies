@@ -452,7 +452,9 @@ node index.js
 
 16. The application provides the following API endpoints:
 
-#### User API Routes
+---
+
+### User API Routes
 
 #### POST users/auth/register
 
@@ -465,6 +467,8 @@ Create a new user.
 **Responses:**
 - `200`: User created successfully.
 - `500`: Server error.
+- 
+---
 
 #### POST /users/auth/login
 
@@ -482,6 +486,8 @@ Login a user.
 - `401`: Unauthorized.
 - `500`: Server error.
 
+--- 
+
 #### DELETE /users/:email
 
 Delete a user by Email.
@@ -495,6 +501,8 @@ Delete a user by Email.
 **Responses:**
 - `200`: User deleted successfully.
 - `500`: Server error.
+
+---
 
 #### DELETE /users/id/:id
 
@@ -510,7 +518,9 @@ Delete a user by ID.
 - `200`: User deleted successfully.
 - `500`: Server error.
 
-#### Movie API Routes
+---
+
+### Movie API Routes
 
 #### POST /movies
 
@@ -528,6 +538,8 @@ Create a new movie.
 - `200`: Movie created successfully.
 - `500`: Server error.
 
+---
+
 #### GET /movies
 
 Gets all movies.
@@ -538,6 +550,8 @@ Gets all movies.
 **Responses:**
 - `200`: Movies retrieved successfully.
 - `500`: Server error.
+
+---
 
 #### GET /movies/:id
 
@@ -552,6 +566,8 @@ Get a movie by ID.
 **Responses:**
 - `200`: Movie retrieved successfully.
 - `500`: Server error.
+
+---
 
 #### PUT /movies/:id
 
@@ -570,6 +586,8 @@ Updates a movie by ID.
 - `200`: Movie updated successfully.
 - `500`: Server error.
 
+---
+
 #### DELETE /movies/:id
 
 Delete a movie by ID.
@@ -583,3 +601,5 @@ Delete a movie by ID.
 **Responses:**
 - `200`: Movie deleted successfully.
 - `500`: Server error.
+
+---
