@@ -6,21 +6,21 @@ This is a simple example of a Node.js application that uses a Postgres database.
 
 1. Create a new directory for the project and navigate to it:
 
-   ```bash
-   mkdir nodemovies-postgres
-   cd nodemovies-postgres
-   ```
+```bash
+mkdir nodemovies-postgres
+cd nodemovies-postgres
+```
 2. Initialize the project using npm:
 
-   ```bash
-   npm init -y
-   ```
+```bash
+npm init -y
+```
 
 3. Install the `pg` module using npm:
 
-   ```bash
-   npm install pg
-   ```
+```bash
+npm install pg
+```
 
 4. Create a Postgres database and a table to store movies and users:
 
