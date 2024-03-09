@@ -14,6 +14,8 @@
 
 7. Now, when you send this request, it will include the Bearer token in the Authorization header, authorizing the request.
 
+---
+
 1. Get Token from Login
 
 ![Example Image](1-GetTokenFromLogin.png)
