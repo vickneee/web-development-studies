@@ -46,6 +46,8 @@ npm install pg
 4. Create a Postgres database and a table to store movies and users:
 
 ```sql
+CREATE DATABASE movies;
+
 CREATE TABLE movies (
     id SERIAL PRIMARY KEY,
     title VARCHAR(255) NOT NULL,
