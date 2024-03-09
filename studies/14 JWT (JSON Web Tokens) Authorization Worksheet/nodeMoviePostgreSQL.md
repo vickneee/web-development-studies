@@ -65,6 +65,7 @@ app.use(bodyParser.json());
 // Route Middlewares
 app.use('/movies', MovieRouter);
 app.use('/users', UserRouter);
+app.use('/auth', AuthRouter);
 app.use('/login', AuthRouter);
 
 // PostgresSQL connection
@@ -117,24 +118,11 @@ const createUser = (req, res) => {
 
    // Hash the password
    const salt = bcrypt.genSaltSync(10);
-   const hash = bcrypt.hashSync(password, salt);
-
+   // Replace plain password with hashed password
+   req.body.password = bcrypt.hashSync(password, salt);
    // Store the user in the database
-   // Replace 'storeUserInDatabase' with your actual function for storing a user in the database
-   UserController.storeUserInDatabase(email, hash, (err) => {
-      if (err) {
-         if (err === 'User with this email already exists') {
-            res.status(400).send({error: err});
-         } else {
-            console.log('Error creating user');
-            res.sendStatus(500).end();
-         }
-      } else {
-         res.sendStatus(201).end();
-      }
-   });
+   UserController.storeUserInDatabase(req, res);
 }
-
 
 // User login
 const login = (req, res) => {
@@ -211,11 +199,15 @@ import auth from '../services/authenticate.js';
 
 const router = express.Router();
 
-// Route for login
-router.post("/login", auth.login);
+// Route Middlewares
+// app.use('/auth', AuthRouter);
+// app.use('/login', AuthRouter);
 
 // Route for user creation
-router.post("/users", auth.createUser);
+router.post("/", auth.createUser);
+
+// Route for login
+router.post("/", auth.login);
 
 export default router;
 
@@ -230,6 +222,9 @@ import UserController from '../controllers/UserController.js';
 import auth from '../services/authenticate.js';
 
 const router = express.Router();
+
+// Route Middlewares
+// app.use('/users', UserRouter);
 
 // Route for user deletion
 router.delete("/:email", auth.authenticate, UserController.deleteUserByEmail);
@@ -250,15 +245,17 @@ import { deleteUserByEmail } from '../db/users.js';
 
 const router = express.Router();
 
+// Route Middlewares
+// app.use('/movies', MovieRouter);
+
 // Define routes
-router.post("/movies", auth.authenticate, MovieController.addMovie);
-router.get('/movies', auth.authenticate, MovieController.getAllMovies);
-router.get('/movies/:id', auth.authenticate, MovieController.getMovieById);
-router.put("/movies/:id", auth.authenticate, MovieController.updateMovieById);
-router.delete("/movies/:id", auth.authenticate, MovieController.deleteMovieById);
+router.post("/", auth.authenticate, MovieController.addMovie);
+router.get('/', auth.authenticate, MovieController.getAllMovies);
+router.get('/:id', auth.authenticate, MovieController.getMovieById);
+router.put("/:id", auth.authenticate, MovieController.updateMovieById);
+router.delete("/:id", auth.authenticate, MovieController.deleteMovieById);
 
 export default router;
-
 ```
 
 10. Create a file called `MovieController.js` to define the CRUD operations for movies:
