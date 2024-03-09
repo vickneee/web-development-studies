@@ -1,4 +1,4 @@
-# Using MySQL Databases with Node.js
+# Using MySQL Database with Node.js
 
 **Example:**
 
