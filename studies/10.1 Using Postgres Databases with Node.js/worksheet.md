@@ -1,4 +1,4 @@
-# Using Postgres Databases with Node.js
+# Using PostgreSQL Database with Node.js
 
 **Example:**
 
