@@ -28,4 +28,8 @@
 
 ![Example Image](3-UseGlobalVariable.png)
 
+4. Header with Authorization Bearer Token
+
+![Example Image](4-HeadersContainsAuthorizationToken.png)
+
 ---
