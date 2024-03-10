@@ -2,7 +2,7 @@
 
 To create an Express.js project with MongoDB integration, you'll typically need several files and directories. Here's a basic project structure along with the files you'll commonly have:
 
-**project-root/:** You can name the project directory anything you like.
+**project-root/:** You can name the project directory anything you like (nodecars-mongodb).
 
 **controllers/:** This directory contains controller files responsible for handling the business logic of your application. Controllers interact with models to perform CRUD operations and handle requests and responses.
 
@@ -19,7 +19,7 @@ To create an Express.js project with MongoDB integration, you'll typically need 
 ## Here's a basic structure for your project:
 
 ```shell
-nodecars/
+nodecars-mongodb/
 ├── controllers/
 │   └── CarController.js
 ├── models/
@@ -36,7 +36,7 @@ Now, let's create these files:
 
 ## package.json:
 
-You can create this file by running npm init in your project directory.
+You can create this file by running npm init in your project directory (nodecars-mongodb).
 
 ```shell
 npm init
