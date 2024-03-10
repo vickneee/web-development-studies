@@ -21,16 +21,12 @@ To create an Express.js project with MongoDB integration, you'll typically need 
 ```bash
 Copy code
 project-root/
-│
 ├── controllers/
 │   └── MovieController.js
-│ 
 ├── routes/
 │   └── MovieRoutes.js
-│ 
 ├──  models/
 │   └── Movie.js
-│ 
 ├── .env
 ├── index.js
 └── package.json
