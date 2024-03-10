@@ -1,4 +1,4 @@
-# Using PostgreSQL Database with Node.js
+# NodeMovies PostgreSQL Database with Node.js
 
 **Example:**
 
