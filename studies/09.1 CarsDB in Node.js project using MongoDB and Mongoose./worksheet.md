@@ -1,4 +1,4 @@
-# CarsDB in Node.js project using MongoDB and Mongoose
+# NodeCars MongoDB Database with Node.js
 
 To create an Express.js project with MongoDB integration, you'll typically need several files and directories. Here's a basic project structure along with the files you'll commonly have:
 
@@ -19,17 +19,13 @@ To create an Express.js project with MongoDB integration, you'll typically need 
 ## Here's a basic structure for your project:
 
 ```shell
-project-root/
-│
+nodecars/
 ├── controllers/
 │   └── CarController.js
-│
 ├── models/
 │   └── Car.js
-│
 ├──  routes/
 │   └── CarRoutes.js
-│
 ├── .env
 ├── index.js
 └── package.json
