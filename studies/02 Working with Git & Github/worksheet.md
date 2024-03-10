@@ -302,8 +302,9 @@ By following these steps, you can successfully cancel or reset your last commit 
 ```bash
 git log
 ```
+**Example:**
 
-commit **61e6ebddd870c2d5ed92841e53fbd78e5f0019e4** (HEAD -> main, origin/main, origin/HEAD)
+- commit **61e6ebddd870c2d5ed92841e53fbd78e5f0019e4** (HEAD -> main, origin/main, origin/HEAD)
 
 2. Once you have the **commit hash (61e6ebddd870c2d5ed92841e53fbd78e5f0019e4)**, you can use the `git revert` command to undo the merge. The `-m 1` option tells Git to revert to the state of the project before the merge.
 
@@ -311,14 +312,14 @@ commit **61e6ebddd870c2d5ed92841e53fbd78e5f0019e4** (HEAD -> main, origin/main, 
 git revert -m 1 <commit-hash>
 ```
 
-Replace `<commit-hash>` with the actual **commit hash** of the merge commit you want to undo.
+**Replace** `<commit-hash>` with the actual **commit hash** of the merge commit you want to undo.
 
-3. Finally, you can push the changes to GitHub.
+3. Finally, you can **push** the changes to GitHub.
 
 ```bash
 git push origin <branch-name>
 ```
 
-Replace `<branch-name>` with the name of the branch where you want to push the changes. Example **main**.
+**Replace** `<branch-name>` with the name of the branch where you want to push the changes. Example **main**.
 
-Please note that this will not delete the merge commit from the history, but will create a new commit that undoes the changes made in the merge commit. If you want to completely remove the merge commit from the history, you would need to use the `git reset` command, but this can be dangerous if you're not familiar with it, as it permanently removes commits from the history.
+>**Note!** This will not delete the merge commit from the history, but will create a new commit that undoes the changes made in the merge commit. If you want to completely remove the merge commit from the history, you would need to use the `git reset` command, but this can be dangerous if you're not familiar with it, as it permanently removes commits from the history.
