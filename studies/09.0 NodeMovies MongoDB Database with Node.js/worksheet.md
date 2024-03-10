@@ -1,8 +1,8 @@
-# Using MongoDB and Mongoose with Node.js
+# NodeMovies MongoDB Database with Node.js
 
 To create an Express.js project with MongoDB integration, you'll typically need several files and directories. Here's a basic project structure along with the files you'll commonly have:
 
-**project-root/** You can name the project-root directory anything you like.
+**project-root/** You can name the project-root directory anything you like (nodemovies-mongodb).
 
 **controllers/:** This directory contains controller files responsible for handling the business logic of your application. Controllers interact with models to perform CRUD operations and handle requests and responses.
 
@@ -20,7 +20,7 @@ To create an Express.js project with MongoDB integration, you'll typically need 
 
 ```bash
 Copy code
-project-root/
+nodemovies-mongodb/
 ├── controllers/
 │   └── MovieController.js
 ├── routes/
@@ -37,7 +37,7 @@ Now, let's create these files:
 
 ## package.json: 
 
-You can create this file by running npm init in your project directory.
+You can create this file by running npm init in your project directory (nodemovies-mongodb).
 
 ```shell
 npm init
