@@ -1,4 +1,4 @@
-# Full Stack React Project Structure
+# React Full Stack Project Structure
 
 ```sh
 project/
