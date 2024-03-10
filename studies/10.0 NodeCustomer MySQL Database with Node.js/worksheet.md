@@ -1,4 +1,4 @@
-# Using MySQL Database with Node.js
+# NodeCustomer MySQL Database with Node.js
 
 **Example:**
 
