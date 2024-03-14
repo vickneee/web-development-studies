@@ -223,3 +223,7 @@ test('add todo',() => {
 ```
 
 Now, if you run the test cases, you should see the two passed test cases.
+
+```bash
+npm run test
+```
