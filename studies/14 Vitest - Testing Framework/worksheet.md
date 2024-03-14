@@ -8,7 +8,7 @@ To start using **Vitest**, we have to install it to our project using the follow
 npm install -D vitest
 ```
 
-Vitest also requires some configuration to work. The configuration is done using the Vite configuration file vite.config.js that you can find from the root of your React project folder. The vite.config.js file looks like the following:
+**Vitest** also requires some configuration to work. The configuration is done using the Vite configuration file **vite.config.js** that you can find from the root of your React project folder. The **vite.config.js** file looks like the following:
 
 ```javascript
 // vite.config.js
@@ -21,7 +21,7 @@ export default defineConfig({
 })
 ```
 
-To configure Vitest, you have to add test property to the configuration file:
+To configure **Vitest**, you have to add test property to the configuration file:
 
 ```javascript
 // vite.config.js
@@ -66,8 +66,8 @@ export default defineConfig({
 ```
 , where
 
-**globals** - Enables Jest globals API (https://jestjs.io/docs/api).
-**environment** - Defines the environment that will be used for testing (Node.js isdefault). We will use browser-based environment **jsdom**.
+**globals** - Enables **Jest** globals API (https://jestjs.io/docs/api).
+**environment** - Defines the environment that will be used for testing (Node.js is default). We will use browser-based environment **jsdom**.
 
 To run tests, we should also add npm script to our project's **package.json** file
 
@@ -87,11 +87,11 @@ Now, you can run tests by typing the following terminal command in the project d
 npm run test
 ```
 
-The command finds all test files (.test.js or .test.jsx extension) from your project and runs the test cases. By default, it will run in watch mode and re-run the tests each time when code is updated. You can stop watch mode by pressing 'q' in the terminal.
+The command finds all test files (**.test.js** or **.test.jsx** extension) from your project and runs the test cases. By default, it will run in watch mode and re-run the tests each time when code is updated. You can stop watch mode by pressing 'q' in the terminal.
 
 ## Writing Test Cases with Vitest and React Testing Library
 
-Let's first create a simple test case that renders our App component. Create a new file called **App.test.jsx** in the **src** folder. Import the **App component** that we want to render and create the first test case like shown in the next code snippet:
+Let's first create a simple test case that renders our **App component**. Create a new file called **App.test.jsx** in the **src** folder. Import the **App component** that we want to render and create the first test case like shown in the next code snippet:
 
 ```javascript
 import App from './App';
@@ -112,15 +112,15 @@ test('renders App component', () => {
 });
 ```
 
-We will also import screen method from a **React testing library**. The screen method returns an object that provides queries (i.e. **getByText**, **getByLabelText** etc.) that are bound to the whole rendered document.body. These queries can be used to find elements from the HTML document. In the following code, we are using **getByText** query to find our header text:
+We will also import screen method from a **React testing library**. The screen method returns an object that provides queries (i.e. **getByText**, **getByLabelText** etc.) that are bound to the whole rendered **document.body**. These queries can be used to find elements from the HTML document. In the following code, we are using **getByText** query to find our header text:
 
 ```javascript
 import { render, screen } from '@testing-library/react';
 import App from './App';
 
 test('renders App component', () => {
-render(<App />);
-const header = screen.getByText('My Todolist');
+    render(<App />);
+    const header = screen.getByText('My Todolist');
 });
 ```
 
@@ -134,9 +134,9 @@ import App from './App';
 excpect.extend(matchers);
 
 test('renders App component', () => {
-render(<App />);
-const header = screen.getByText('My Todolist');
-excpect(header).toBeInTheDocument();
+    render(<App />);
+    const header = screen.getByText('My Todolist');
+    excpect(header).toBeInTheDocument();
 });
 ```
 
