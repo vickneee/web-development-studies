@@ -39,7 +39,7 @@ export default defineConfig({
 
 When testing React components, we need to install other testing libraries:
 - **React Testing Library** - Helps you to test React components
-- **jest-dom** library - provides custom matchers that you can use to extend vitest(See all matchers https://github.com/testing-library/jest-dom)
+- **jest-dom** library - provides custom matchers that you can use to extend vitest (See all matchers https://github.com/testing-library/jest-dom)
 - **jsdom** - Provides Browser API
 
 To install these libraries, type the following terminal command in the project directory:
