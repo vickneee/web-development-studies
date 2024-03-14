@@ -230,10 +230,41 @@ NameForm.propTypes = {
 export default NameForm;
 ```
 
-In this example we import PropTypes from the 'prop-types' package and use NameForm.propTypes to define the PropTypes for the 'name' prop. We specify that 'name' is required and should be a string. This helps ensure that the component is used correctly and provides helpful warnings in development if the props are incorrect.
+In this example, we import PropTypes from the 'prop-types' package and use NameForm.propTypes to define the PropTypes for the 'name' prop. We specify that 'name' is required and should be a string. This helps ensure that the component is used correctly and provides helpful warnings in development if the props are incorrect.
 
 In this example, the component maintains a state variable name to store the value of the input field. The handleChange function is called whenever the input value changes, updating the name state accordingly. The handleSubmit function is called when the form is submitted, alerting the submitted name.
 
+## State for User Age Input
+
+```jsx
+import { useState } from 'react';
+import './App.css';
+
+function App() {
+    const [person, setPerson] = useState({name: '', age: ''});
+
+    const inputChanged = (event) => {
+        setPerson({...person, [event.target.name]: event.target.value});
+    }
+
+    const checkAge = () => {
+        if (person.age >= 18)
+            alert(`Hello ${person.name}`)
+        else
+            alert('You are too young')
+    }
+
+    return (
+        <>
+            <input name="name" value={person.name} onChange={inputChanged} />
+            <input name="age" value={person.age} onChange={inputChanged} />
+            <button onClick={checkAge}>Check age</button>
+        </>
+    );
+}
+
+export default App;
+```
 
 ## State for Multiple User Inputs
 
@@ -312,6 +343,232 @@ function MultipleInputForm() {
 
 export default MultipleInputForm;
 ```
+
+## Promises in React Components
+
+Promises are a way to handle asynchronous operations in JavaScript. They are used to handle data fetching, file reading, and other operations that take time to complete. In React, you can use promises to fetch data from an API or perform other asynchronous tasks.
+
+```jsx
+import React, { useState, useEffect } from 'react';
+
+function App() {
+    const [data, setData] = useState(null);
+
+    useEffect(() => {
+        fetch('https://api.example.com/data')
+            .then((response) => response.json())
+            .then((data) => setData(data))
+            .catch((error) => console.error('Error fetching data:', error));
+    }, []);
+
+    return (
+        <div>
+            {data ? (
+                <div>
+                    <h1>Data:</h1>
+                    <pre>{JSON.stringify(data, null, 2)}</pre>
+                </div>
+            ) : (
+                <p>Loading...</p>
+            )}
+        </div>
+    );
+}
+
+export default App;
+```
+
+## Fetching Data Asynchronously in React Components
+
+In React, you can use the useEffect hook to fetch data asynchronously from an API or other sources. Here's an example of fetching data from an API using the fetch function:
+
+```jsx
+import React, { useState, useEffect } from 'react'; 
+
+function App() {
+    const [data, setData] = useState(null);
+
+    useEffect(() => {
+        const fetchData = async () => {
+            try {
+                const response = await fetch('https://api.example.com/data');
+                if (!response.ok) {
+                    throw new Error('Network response was not ok');
+                }
+                const data = await response.json();
+                setData(data);
+            } catch (error) {
+                console.error('Error fetching data:', error);
+            }
+        };
+        fetchData();
+    }, []);
+
+    return (
+        <div>
+            {data ? (
+                <div>
+                    <h1>Data:</h1>
+                    <pre>{JSON.stringify(data, null, 2)}</pre>
+                </div>
+            ) : (
+                <p>Loading...</p>
+            )}
+        </div>
+    );
+}
+```
+
+## UseEffect Hook in React Components
+
+The useEffect hook in React allows you to perform side effects in function components. Side effects include data fetching, subscriptions, or manually changing the DOM. Here's an example of using the useEffect hook to fetch data from an API:
+
+```jsx
+import React, { useState, useEffect } from 'react'; 
+
+async function fetchData() {
+    const response = await fetch('https://api.example.com/data');
+    const data = await response.json();
+    return data;
+}
+
+
+function App() {
+    const [data, setData] = useState(null);
+
+    useEffect(() => {
+        fetchData().then((data) => setData(data));
+    }, []);
+
+    return (
+        <div>
+            {data ? (
+                <div>
+                    <h1>Data:</h1>
+                    <pre>{JSON.stringify(data, null, 2)}</pre>
+                </div>
+            ) : (
+                <p>Loading...</p>
+            )}
+        </div>
+    );
+}
+
+export default App;
+```
+
+## Fetching a Mapping Data from an API in React Components
+
+```jsx
+import React, { useState, useEffect } from 'react';
+
+function App() {
+    const [data, setData] = useState([]);
+
+    useEffect(() => {
+        fetch('https://api.example.com/data')
+            .then((response) => response.json())
+            .then((data) => setData(data))
+            .catch((error) => console.error('Error fetching data:', error));
+    }, []);
+
+    return (
+        <div>
+            <h1>Data:</h1>
+            <ul>
+                {data.map((item) => (
+                    <li key={item.id}>{item.name}</li>
+                ))}
+            </ul>
+        </div>
+    );
+}
+
+export default App;
+```
+
+
+## Random Trivia Generator
+
+```jsx
+import React, { useState } from 'react';
+import './App.css';
+
+function App() {
+    const [question, setQuestion] = useState('');
+
+    const fetchQuestion = async () => {
+        try {
+            const response = await fetch('https://opentdb.com/api.php?amount=1');
+            const data = await response.json();
+            const results = data.results;
+            const newQuestion = results[0].question;
+            setQuestion(newQuestion);
+        } catch (error) {
+            console.log(error);
+        }
+    };
+
+    return (
+        <div className="App">
+            <h1 className="App-h1">Trivia App</h1>
+            <button className="App-button" onClick={fetchQuestion}>Get Random Question</button>
+            <p>{question}</p>
+        </div>
+    );
+}
+
+export default App;
+```
+
+## Fetching Data from an API in React Components GitHub Repositories with Search
+
+```jsx
+import { useState } from 'react';
+import './App.css';
+
+function App() {
+    const [keyword, setKeyword] = useState('');
+    const [listItems, setListItems] = useState([]);
+
+    const fetchRepos = () => {
+        fetch(`https://api.github.com/search/repositories?q=${keyword}`)
+            .then((response) => response.json())
+            .then((responseData) => {
+                setListItems(responseData.items);
+            })
+    }
+
+    const inputChanged = (event) => {
+        setKeyword(event.target.value);
+    }
+
+    return (
+        <>
+            <h2>Repositories</h2>
+            <input type="text" onChange={inputChanged} value={keyword}/>
+            <button onClick={fetchRepos}>Search</button>
+            <table>
+                <tbody>
+                <tr><th>Name</th><th>URL</th></tr>
+                {
+                    listItems.map((repo) =>
+                        <tr key={repo.id}>
+                            <td>{repo.full_name}</td>
+                            <td><a href={repo.html_url}>{repo.html_url}</a></td>
+                        </tr>)
+                }
+                </tbody>
+            </table>
+        </>
+    );
+}
+
+
+export default App;
+```
+
+
 
 ## Using Local Database in React Components
 
