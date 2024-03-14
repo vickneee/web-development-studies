@@ -89,6 +89,8 @@ npm run test
 
 The command finds all test files (**.test.js** or **.test.jsx** extension) from your project and runs the test cases. By default, it will run in watch mode and re-run the tests each time when code is updated. You can stop watch mode by pressing 'q' in the terminal.
 
+---
+
 ## Writing Test Cases with Vitest and React Testing Library
 
 Let's first create a simple test case that renders our **App component**. Create a new file called **App.test.jsx** in the **src** folder. Import the **App component** that we want to render and create the first test case like shown in the next code snippet:
