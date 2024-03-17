@@ -14,6 +14,20 @@ or
 npm install --save-dev vitest jsdom
 ```
 
+Let's create a file testSetup.js in the project root with the following content
+
+```javascript
+import { afterEach } from 'vitest'
+import { cleanup } from '@testing-library/react'
+import '@testing-library/jest-dom/vitest'
+
+afterEach(() => {
+  cleanup()
+})copy
+```
+
+Now, after each test, the function cleanup is performed that resets the jsdom that is simulating the browser.
+
 **Vitest** also requires some configuration to work. The configuration is done using the Vite configuration file **vite.config.js** that you can find from the root of your React project folder. The **vite.config.js** file looks like the following:
 
 ```javascript
@@ -59,20 +73,6 @@ or
 ```bash
 npm install -D jsdom @testing-library/react @testing-library/jest-dom
 ```
-
-Let's create a file testSetup.js in the project root with the following content
-
-```javascript
-import { afterEach } from 'vitest'
-import { cleanup } from '@testing-library/react'
-import '@testing-library/jest-dom/vitest'
-
-afterEach(() => {
-  cleanup()
-})copy
-```
-
-Now, after each test, the function cleanup is performed that resets the jsdom that is simulating the browser.
 
 After that, we have to add the following configuration to our vite.config.js file:
 
