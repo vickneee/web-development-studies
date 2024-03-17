@@ -15,7 +15,7 @@ I learned about React.js code testing for the first time, and I feel like I need
 I found the React.js code testing with Vitest particularly interesting and feel I need to learn about that more. (Also E2E testing with Playwright and Cypress.)
 
 ### Questions Arising:
-I faced the testing part of the course some issues. But I solved the issues with the help of Helsinki University's Full Stack Open course. Excample: With globals: true, there is no need to import keywords such as describe, test and expect into the tests. It worked for me.
+I faced the testing part of the course some issues. But I solved the issues with the help of Helsinki University's Full Stack Open course. Example: With globals: true, there is no need to import keywords such as describing, test and expect into the tests. It worked for me.
 
 Then in the deployment part, I faced some issues with the GitHub Pages deployment. I solved the issue by editing the `vite.config.js` file. I added the `base` property to the `vite.config.js` file as Vite Guide suggested.
 
