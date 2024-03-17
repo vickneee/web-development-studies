@@ -94,7 +94,7 @@ My Bookstore app is now deployed to GitHub Pages: [Firebase Bookstore App](https
 I'd like to learn and understand more about code testing with Vitest and End-to-End testing (E2E) with Playwright (and also Cypress). I also want to learn more about the design of the React.js components with the Tailwind CSS framework. I found the Tailwind CSS framework interesting, and I want to learn more about it. I see that it is a beneficial framework for the design of the components, and it is straightforward to use and very widely used.
 
 ### Meaning and Future Use:
-I will definitely use React.js and React.js code testing in my future as a developer.
+I will definitely use React.js and Vitest testing (also E2E tests) in my future as a developer.
 
 ## Conclusion:
 These lectures were very interesting to learn and practice. There were many chances to practice, which I liked a lot, and I learned many new things. Overall, that course was very beneficial.
