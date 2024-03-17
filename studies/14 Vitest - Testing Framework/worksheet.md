@@ -14,12 +14,7 @@ or
 npm install --save-dev vitest jsdom
 ```
 
-When testing React components, we need to install other testing libraries:
-- **React Testing Library** - Helps you to test React components
-- **jest-dom** library - You can use to extend vitest (https://github.com/testing-library/jest-dom)
-- **jsdom** - Provides Browser API
-
-To install these libraries, type the following terminal command in the project directory:
+To install other libraries, type the following terminal command in the project directory:
 
 ```bash
 npm install --save-dev @testing-library/react @testing-library/jest-dom
