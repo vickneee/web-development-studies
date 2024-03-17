@@ -1,33 +1,100 @@
 # Metropolia UAS React.js Learning Diary
 
-## Date: 14.03.2024
+## Date: 17.03.2024
 
 ### Main Points of the Lecture:
-The main points of the lectures were to learn how to use React.js framework. 
-
-Additionally, the lectures covered creating and using REST APIs while focusing on securing them, as well as using Postman for testing. Express.js and testing were also parts of the study material.
+The main points of the lectures were to learn how to use React.js framework. The lectures covered the basics of React.js, such as components, props, state and networking (Fetch API). Additionally, the lectures covered the use of React Router, testing with Vitest, and deployment.
 
 ### Prior Knowledge:
-During my school programming classes, I was recently actively working on a MERN full-stack project. I had some prior knowledge of REST APIs and MongoDB but needed to deepen my understanding of securing REST APIs. While I was familiar with Node.js and SQL, I lacked experience with Express.js. Additionally, I had no prior knowledge of code testing.
+During my school programming classes, I was recently actively working on a MERN full-stack project. I had prior knowledge of React.js, React Router, but I had never used Vitest before.
 
 ### New Learning:
-I learned about code testing for the first time, and I feel like I need to understand it better. I also introduced myself to the Pug Template engine and Azure deployment for the first time, but right now, I don't think I need to learn more about them.
+I learned about React.js code testing for the first time, and I feel like I need to understand it better. I want to learn also an End-to-End testing (E2E) with Playwright (and also Cypress).
 
 ### Specific Interesting Points:
-I found securing REST APIs particularly interesting. Also, databases MySQL, PostgresSQL and MongoDB are my favourite. I spent a lot of time understanding and practicing them. I made a small GitHub project to practice and understand them better. JSON Web Tokens (JWT) and Postman came more familiar to me.
+I found the React.js code testing with Vitest particularly interesting and feel I need to learn about that more. (Also E2E testing with Playwright and Cypress.)
 
 ### Questions Arising:
-I faced the SQL and Node.js part with the problem that my macOS computer could not be able to download the recommended PostgresSQL server and GUI. I tried it many times. I tried even different versions (16, 15, and 14). I found out later in instruction it says version 12, but my macOS is not even able to download that. I picked up my other macOS, and the issue was still there. It was frustrating, and I decided to use MySQL, which is familiar to me. I believe it should not be a problem. It was still challenging, but at least things worked out. It took me more than one day. Finally, I got a good understanding of my code and even connected my MySQL database to the WebStorm IDE.
+I faced the testing part of the course some issues. But I solved the issues with the help of Helsinki University's Full Stack Open course. Excample: With globals: true, there is no need to import keywords such as describe, test and expect into the tests. It worked for me.
 
-I found a solution to the PostgreSQL download problem a few days later. I found a way to download different app of PostgresSQL server (It named Postgres.app) and another GUI (It named DbVisualizer). I was happy to find a solution and finished the PostgresSQL part of the course, but I was no longer able to add a solution.
+Then in the deployment part, I faced some issues with the GitHub Pages deployment. I solved the issue by editing the `vite.config.js` file. I added the `base` property to the `vite.config.js` file as Vite Guide suggested.
 
-During the MongoDB section, I had questions about certain aspects. In our school project, we organized our code using separate folders for controllers, routes, and models. This made following the MongoDB instructions a bit challenging for me. In the lectures, they also used examples with the require module, but with the new ES6, we can use also import and export. I created my own version of the code for that part of the course.
+[Vite Guide GitHub Pages](https://vitejs.dev/guide/static-deploy.html)
+
+```javascript
+import { defineConfig } from 'vite'
+import react from '@vitejs/plugin-react'
+
+// https://vitejs.dev/config/
+export default defineConfig({
+  base: '/firebase-bookstore-app/',
+  plugins: [react()],
+})
+```
+
+Then I edited Edit static.yml file as Vite Guide suggested:
+
+```yaml
+# Simple workflow for deploying static content to GitHub Pages
+name: Deploy static content to Pages
+
+on:
+  # Runs on pushes targeting the default branch
+  push:
+    branches: ['main']
+
+  # Allows you to run this workflow manually from the Actions tab
+  workflow_dispatch:
+
+# Sets the GITHUB_TOKEN permissions to allow deployment to GitHub Pages
+permissions:
+  contents: read
+  pages: write
+  id-token: write
+
+# Allow one concurrent deployment
+concurrency:
+  group: 'pages'
+  cancel-in-progress: true
+
+jobs:
+  # Single deploy job since we're just deploying
+  deploy:
+    environment:
+      name: github-pages
+      url: ${{ steps.deployment.outputs.page_url }}
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+      - name: Set up Node
+        uses: actions/setup-node@v4
+        with:
+          node-version: 20
+          cache: 'npm'
+      - name: Install dependencies
+        run: npm ci
+      - name: Build
+        run: npm run build
+      - name: Setup Pages
+        uses: actions/configure-pages@v4
+      - name: Upload artifact
+        uses: actions/upload-pages-artifact@v3
+        with:
+          # Upload dist folder
+          path: './dist'
+      - name: Deploy to GitHub Pages
+        id: deployment
+        uses: actions/deploy-pages@v4
+```
+
+My Bookstore app is now deployed to GitHub Pages: [Firebase Bookstore App](https://vickneee.github.io/firebase-bookstore-app/)
 
 ### Desired Further Understanding:
-I'd like to learn and understand more about code testing and MongoDB aggregations (I found that on YouTube and want to know more about that).
+I'd like to learn and understand more about code testing with Vitest and End-to-End testing (E2E) with Playwright (and also Cypress). I also want to learn more about the design of the React.js components with the Tailwind CSS framework. I found the Tailwind CSS framework interesting, and I want to learn more about it. I see that it is a beneficial framework for the design of the components, and it is straightforward to use and very widely used.
 
 ### Meaning and Future Use:
-I will definitely use Node.js, Express.js, REST APIs, securing REST APIs, Postman, SQL, MongoDB, and code testing in my future as a developer.
+I will definitely use React.js and React.js code testing in my future as a developer.
 
 ## Conclusion:
 These lectures were very interesting to learn and practice. There were many chances to practice, which I liked a lot, and I learned many new things. Overall, that course was very beneficial.
