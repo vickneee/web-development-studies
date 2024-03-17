@@ -5,7 +5,13 @@
 To start using **Vitest**, we have to install it to our project using the following command in your React project folder:
 
 ```bash
-npm install -D vitest
+npm install -D vitest jsdom
+```
+
+or
+
+```bash
+npm install --save-dev vitest jsdom
 ```
 
 **Vitest** also requires some configuration to work. The configuration is done using the Vite configuration file **vite.config.js** that you can find from the root of your React project folder. The **vite.config.js** file looks like the following:
@@ -45,10 +51,30 @@ When testing React components, we need to install other testing libraries:
 To install these libraries, type the following terminal command in the project directory:
 
 ```bash
+npm install --save-dev @testing-library/react @testing-library/jest-dom
+```
+
+or 
+
+```bash
 npm install -D jsdom @testing-library/react @testing-library/jest-dom
 ```
 
-After the installation, we have to add the following configuration to our vite.config.js file:
+Let's create a file testSetup.js in the project root with the following content
+
+```javascript
+import { afterEach } from 'vitest'
+import { cleanup } from '@testing-library/react'
+import '@testing-library/jest-dom/vitest'
+
+afterEach(() => {
+  cleanup()
+})copy
+```
+
+Now, after each test, the function cleanup is performed that resets the jsdom that is simulating the browser.
+
+After that, we have to add the following configuration to our vite.config.js file:
 
 ```javascript
 // vite.config.js
@@ -79,6 +105,20 @@ To run tests, we should also add npm script to our project's **package.json** fi
   "lint": "eslint src --ext js,jsx --report-unused-disable-directives --max-warnings 0",
   "preview": "vite preview"
 },
+```
+
+or
+
+We add a script to the package.json file to run the tests:
+
+```javascript
+{
+  "scripts": {
+    // ...
+    "test": "vitest run"
+  }
+  // ...
+}copy
 ```
 
 Now, you can run tests by typing the following terminal command in the project directory:
@@ -125,104 +165,6 @@ test('renders App component', () => {
     const header = screen.getByText('My Todolist');
 });
 ```
-
-Then, we check if the 'My Todolist'- **header** text exists in the DOM using the **toBeInTheDocument()** matcher from the **jest-dom library**. We have to import matchers and use extend method to extend **Vitest** matchers.
-
-```javascript
-import { render, screen } from '@testing-library/react';
-import matchers from '@testing-library/jest-dom/matchers';
-import App from './App';
-
-excpect.extend(matchers);
-
-test('renders App component', () => {
-    render(<App />);
-    const header = screen.getByText('My Todolist');
-    excpect(header).toBeInTheDocument();
-});
-```
-
-> **Note!** You can also use not keyword if you want to check that something doesn't exist, for example, expect(header).not.toBeInTheDocument().
-
-Now, we can run our first test case by typing the following terminal command in the project folder:
-
-```bash
-npm run test
-```
-
-We can see that header text is found and the first test case is passed.
-
----
-
-## Writing Test Cases with Vitest and React Testing Library
-
-**React testing library** provides **fireEvent** method that you can use for firing DOM events like button click or input change events. Let's create a test case that adds one todo and then checks that todo can be found from our table. First, add a new test case to the **App.test.jsx** file:
-
-```javascript
-test('add todo', () => {
-    render(<App />);
-});
-```
-
-Add **fireEvent** method to the import:
-
-```javascript
-import { render, screen, fireEvent } from '@testing-library/react';
-```
-
-Next, we will use **getByPlaceholderText** query to find our input element and **fireEvent.change** method to change their values:
-
-```javascript
-test('add todo',() => {
-    render(<App/>);
-
-    const desc = screen.getByPlaceholderText('Description');
-    fireEvent.change(desc, { target: { value: 'Go to coffee' } });
-    const date = screen.getByPlaceholderText('Date');
-    fireEvent.change(date, { target: { value: '29.12.2023' } });
-    const status = screen.getByPlaceholderText('Status');
-    fireEvent.change(status, { target: { value: 'Open' } });
-})
-```
-
-After the input elements are populated with values, we find the button by using the **getByText** query and invoke button's click event by using the **fireEvent.click** method:
-
-```javascript
-test('add todo',() => {
-render(<App/>);
-
-const desc = screen.getByPlaceholderText('Description');
-fireEvent.change(desc, { target: { value: 'Go to coffee' } });
-const date = screen.getByPlaceholderText('Date');
-fireEvent.change(date, { target: { value: '29.12.2023' } });
-const status = screen.getByPlaceholderText('Status');
-fireEvent.change(status, { target: { value: 'Open' } });
-const button = screen.getByText('Add');
-fireEvent.click(button);
-})
-```
-
-Then, we find the table by using **getByRole** query and check that 'Go to coffee' text can be found from the table using the **toHaveTextContent** matcher:
-
-```javascript
-test('add todo',() => {
-    render(<App/>);
-
-    const desc = screen.getByPlaceholderText('Description');
-    fireEvent.change(desc, { target: { value: 'Go to coffee' } });
-    const date = screen.getByPlaceholderText('Date');
-    fireEvent.change(date, { target: { value: '29.12.2023' } });
-    const status = screen.getByPlaceholderText('Status');
-    fireEvent.change(status, { target: { value: 'Open' } });
-    const button = screen.getByText('Add');
-    fireEvent.click(button);
-
-    const table = screen.getByRole('table');
-    expect(table).toHaveTextContent('Go to coffee');
-})
-```
-
-Now, if you run the test cases, you should see the two passed test cases.
 
 ```bash
 npm run test
