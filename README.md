@@ -1,3 +1,3 @@
-# Web development
+# web-development-studies
 
-Web development studies.
+Web Development Studies.
