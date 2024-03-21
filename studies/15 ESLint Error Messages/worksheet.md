@@ -1,6 +1,6 @@
-# Visual Studio Code ESLint Error Messages
+# ESLint Error Messages
 
-Possible error messages you may encounter when using ESLint in any IDE.
+Possible error messages you may encounter when using ESLint.
 
 ![ESLint Error Messages](./VSC-Props-Error.png)
 
