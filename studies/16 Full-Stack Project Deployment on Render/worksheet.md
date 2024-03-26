@@ -12,7 +12,7 @@
 
 **Publish Directory:** frontend/ dist
 
-- Add Environment Variables
+**Add** Environment Variables
 
 ### Backend - backend:
 
@@ -24,6 +24,6 @@
 
 **Start Command:** backend/ npm start 
 
-- Add Environment Variables
+**Add** Environment Variables
 
 ---
