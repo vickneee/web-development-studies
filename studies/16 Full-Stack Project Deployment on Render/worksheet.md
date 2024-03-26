@@ -12,6 +12,8 @@
 
 **Publish Directory:** frontend/ dist
 
+- Add Environment Variables
+
 ### Backend - backend:
 
 - Web Service:
@@ -21,3 +23,7 @@
 **Build Command:** backend/ npm install
 
 **Start Command:** backend/ npm start 
+
+- Add Environment Variables
+
+---
